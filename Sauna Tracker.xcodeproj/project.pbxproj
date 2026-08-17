@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		49904C3E7872225D1EF38BA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DE1F1C27BF9FEA5E2E987B /* Foundation.framework */; };
+		C5C5114561EB36D14D92563C /* Sauna Tracker Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3717FB1A30338F1A009D8DB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,15 +26,56 @@
 			remoteGlobalIDString = 3717FB0930338F18009D8DB2;
 			remoteInfo = "Sauna Tracker";
 		};
+		8DBA5849D1ADA9B0E18590CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3717FB0230338F18009D8DB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74DA4F4792B4045C8F6BA6D0;
+			remoteInfo = "Sauna Tracker Watch App";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C22A7723560564269888154C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C5C5114561EB36D14D92563C /* Sauna Tracker Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3717FB0A30338F18009D8DB2 /* Sauna Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sauna Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3717FB1930338F1A009D8DB2 /* Sauna TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sauna TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3717FB2330338F1A009D8DB2 /* Sauna TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sauna TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66DE1F1C27BF9FEA5E2E987B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sauna Tracker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F7F8E6A5F1D9EAF37033323C /* Exceptions for "Sauna Tracker Watch App" folder in "Sauna Tracker Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 74DA4F4792B4045C8F6BA6D0 /* Sauna Tracker Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		0F43AC483EBD29BA8F086E9B /* Sauna Tracker Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F7F8E6A5F1D9EAF37033323C /* Exceptions for "Sauna Tracker Watch App" folder in "Sauna Tracker Watch App" target */,
+			);
+			path = "Sauna Tracker Watch App";
+			sourceTree = "<group>";
+		};
 		3717FB0C30338F18009D8DB2 /* Sauna Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Sauna Tracker";
@@ -43,6 +89,11 @@
 		3717FB2630338F1A009D8DB2 /* Sauna TrackerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Sauna TrackerUITests";
+			sourceTree = "<group>";
+		};
+		704E324A58E4BD1CB49D2EBE /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,9 +120,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		933E15F6C4986857E406A3F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49904C3E7872225D1EF38BA1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12F3C33D73657931A801370F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C3FC3B05FFA8FE020374482 /* watchOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3717FB0130338F18009D8DB2 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +146,9 @@
 				3717FB1C30338F1A009D8DB2 /* Sauna TrackerTests */,
 				3717FB2630338F1A009D8DB2 /* Sauna TrackerUITests */,
 				3717FB0B30338F18009D8DB2 /* Products */,
+				704E324A58E4BD1CB49D2EBE /* Shared */,
+				12F3C33D73657931A801370F /* Frameworks */,
+				0F43AC483EBD29BA8F086E9B /* Sauna Tracker Watch App */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,8 +158,17 @@
 				3717FB0A30338F18009D8DB2 /* Sauna Tracker.app */,
 				3717FB1930338F1A009D8DB2 /* Sauna TrackerTests.xctest */,
 				3717FB2330338F1A009D8DB2 /* Sauna TrackerUITests.xctest */,
+				9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9C3FC3B05FFA8FE020374482 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				66DE1F1C27BF9FEA5E2E987B /* Foundation.framework */,
+			);
+			name = watchOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,17 +181,18 @@
 				3717FB0630338F18009D8DB2 /* Sources */,
 				3717FB0730338F18009D8DB2 /* Frameworks */,
 				3717FB0830338F18009D8DB2 /* Resources */,
+				C22A7723560564269888154C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				71F9A2F69963ACE65BBCA3DA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				3717FB0C30338F18009D8DB2 /* Sauna Tracker */,
+				704E324A58E4BD1CB49D2EBE /* Shared */,
 			);
 			name = "Sauna Tracker";
-			packageProductDependencies = (
-			);
 			productName = "Sauna Tracker";
 			productReference = 3717FB0A30338F18009D8DB2 /* Sauna Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -134,8 +214,6 @@
 				3717FB1C30338F1A009D8DB2 /* Sauna TrackerTests */,
 			);
 			name = "Sauna TrackerTests";
-			packageProductDependencies = (
-			);
 			productName = "Sauna TrackerTests";
 			productReference = 3717FB1930338F1A009D8DB2 /* Sauna TrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,11 +235,30 @@
 				3717FB2630338F1A009D8DB2 /* Sauna TrackerUITests */,
 			);
 			name = "Sauna TrackerUITests";
-			packageProductDependencies = (
-			);
 			productName = "Sauna TrackerUITests";
 			productReference = 3717FB2330338F1A009D8DB2 /* Sauna TrackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		74DA4F4792B4045C8F6BA6D0 /* Sauna Tracker Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CDE69A1A13856A71AD59437 /* Build configuration list for PBXNativeTarget "Sauna Tracker Watch App" */;
+			buildPhases = (
+				9E64EDF8A629F96E6B60B668 /* Sources */,
+				933E15F6C4986857E406A3F0 /* Frameworks */,
+				C3501BBAE6EE627952E332A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0F43AC483EBD29BA8F086E9B /* Sauna Tracker Watch App */,
+				704E324A58E4BD1CB49D2EBE /* Shared */,
+			);
+			name = "Sauna Tracker Watch App";
+			productName = "Sauna Tracker Watch App";
+			productReference = 9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -192,6 +289,9 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				sv,
+				fi,
 			);
 			mainGroup = 3717FB0130338F18009D8DB2;
 			minimizedProjectReferenceProxies = 1;
@@ -203,6 +303,7 @@
 				3717FB0930338F18009D8DB2 /* Sauna Tracker */,
 				3717FB1830338F1A009D8DB2 /* Sauna TrackerTests */,
 				3717FB2230338F1A009D8DB2 /* Sauna TrackerUITests */,
+				74DA4F4792B4045C8F6BA6D0 /* Sauna Tracker Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +324,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3717FB2130338F1A009D8DB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3501BBAE6EE627952E332A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +361,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9E64EDF8A629F96E6B60B668 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +380,12 @@
 			isa = PBXTargetDependency;
 			target = 3717FB0930338F18009D8DB2 /* Sauna Tracker */;
 			targetProxy = 3717FB2430338F1A009D8DB2 /* PBXContainerItemProxy */;
+		};
+		71F9A2F69963ACE65BBCA3DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Sauna Tracker Watch App";
+			target = 74DA4F4792B4045C8F6BA6D0 /* Sauna Tracker Watch App */;
+			targetProxy = 8DBA5849D1ADA9B0E18590CE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -390,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Sauna Tracker/Sauna Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
@@ -398,6 +520,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sauna Tracker reads your sauna session history and body weight from Health to show statistics and estimate calories burned.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Sauna Tracker can update session notes stored in Health.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -434,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Sauna Tracker/Sauna Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
@@ -442,6 +567,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Sauna Tracker reads your sauna session history and body weight from Health to show statistics and estimate calories burned.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Sauna Tracker can update session notes stored in Health.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -575,9 +702,69 @@
 			};
 			name = Release;
 		};
+		3CF3CBFD2BBFF043805C928B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Sauna Tracker Watch App/Sauna Tracker Watch App.entitlements";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PZ2HQ4532Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Sauna Tracker Watch App/Info.plist";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Scheuber.Sauna-Tracker.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Release;
+		};
+		A552AE354E1572D0D024ABF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Sauna Tracker Watch App/Sauna Tracker Watch App.entitlements";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PZ2HQ4532Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Sauna Tracker Watch App/Info.plist";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Scheuber.Sauna-Tracker.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1CDE69A1A13856A71AD59437 /* Build configuration list for PBXNativeTarget "Sauna Tracker Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CF3CBFD2BBFF043805C928B /* Release */,
+				A552AE354E1572D0D024ABF1 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3717FB0530338F18009D8DB2 /* Build configuration list for PBXProject "Sauna Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
