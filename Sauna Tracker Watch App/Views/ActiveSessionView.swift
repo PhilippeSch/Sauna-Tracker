@@ -2,131 +2,141 @@
 //  ActiveSessionView.swift
 //  Sauna Tracker Watch App
 //
-//  The main session screen. Background stays near-black at all times for
-//  contrast and AOD power draw — the phase is communicated with a colored
-//  pill, not a screen tint. Elapsed time uses Text(timerInterval:), which
-//  keeps ticking correctly under Always-On Display without a manual Timer.
+//  Metrics page of a running session. Near-black background for contrast and
+//  Always-On power draw; the phase is carried by the navigation title plus
+//  the colour of the elapsed timer rather than a full screen tint.
+//
+//  Deliberately a fixed VStack rather than a ScrollView: both action buttons
+//  must be on screen at all times, because scrolling to end a session with
+//  wet hands in a hot room is exactly what we are designing against. The
+//  optional sensor readings live on the controls page instead.
 //
 
 import SwiftUI
-import WatchKit
 
 struct ActiveSessionView: View {
-    @Environment(\.isLuminanceReduced) private var isLuminanceReduced
     @Bindable var store: SessionStore
+    var onEndRequested: () -> Void
 
     private var phaseEndBound: Date {
-        store.phaseStartDate.addingTimeInterval(6 * 3600)
+        store.phaseStartDate.addingTimeInterval(3600)
+    }
+
+    private var isLastRound: Bool {
+        store.currentPhase == .rest && !store.canStartAnotherRound
     }
 
     var body: some View {
-        VStack(spacing: isLuminanceReduced ? 6 : 10) {
-            phasePill
-
+        VStack(spacing: 4) {
             Text(timerInterval: store.phaseStartDate...phaseEndBound, countsDown: false)
-                .font(.system(size: 42, weight: .semibold, design: .rounded))
+                .font(.system(size: 36, weight: .semibold, design: .rounded))
                 .monospacedDigit()
-                .minimumScaleFactor(0.6)
-                .foregroundStyle(.white)
-                .padding(.top, 10)
+                .lineLimit(1)
+                .layoutPriority(1)
+                .foregroundStyle(store.currentPhase.tintColor)
 
-            if !isLuminanceReduced {
-                roundIndicator
-                heartRateBlock
-                sensorRows
-                Spacer(minLength: 4)
-                PhaseControlBar(store: store)
+            roundIndicator
+            heartRateBlock
+
+            if !store.isRecordingToHealth {
+                notRecordingWarning
             }
+
+            Spacer(minLength: 0)
+
+            actionButtons
         }
-        .padding(.horizontal, 8)
-        .padding(.top, 22)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    WKInterfaceDevice.current().enableWaterLock()
-                } label: {
-                    Image(systemName: "drop.fill")
-                }
-                .accessibilityLabel(Text("Water Lock"))
-            }
-        }
-    }
-
-    private var phasePill: some View {
-        Text(store.currentPhase.displayName.uppercased())
-            .font(.system(size: 14, weight: .bold))
-            .tracking(1.2)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 4)
-            .background(store.currentPhase.tintColor.opacity(0.9), in: Capsule())
-            .foregroundStyle(.black)
+        .padding(.horizontal, 2)
+        // Keeps the big timer clear of the navigation title, which shares the
+        // top band with the system clock.
+        .padding(.top, 14)
     }
 
     private var roundIndicator: some View {
-        HStack(spacing: 5) {
+        HStack(spacing: 4) {
             ForEach(0..<store.maxConfiguredRounds, id: \.self) { index in
                 Circle()
                     .fill(index < store.roundCount ? store.currentPhase.tintColor : Color.white.opacity(0.25))
-                    .frame(width: 6, height: 6)
+                    .frame(width: 5, height: 5)
             }
             Text("Round \(store.roundCount) of \(store.maxConfiguredRounds)")
-                .font(.caption2)
+                .font(.system(size: 11))
                 .foregroundStyle(.secondary)
-                .padding(.leading, 4)
+                .padding(.leading, 3)
         }
     }
 
     private var heartRateBlock: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 18) {
-            VStack(alignment: .leading, spacing: 0) {
-                Label {
-                    Text(store.currentHeartRate.map { "\(Int($0))" } ?? "–")
-                        .font(.system(size: 30, weight: .semibold, design: .rounded))
-                        .monospacedDigit()
-                        .foregroundStyle(.white)
-                } icon: {
-                    Image(systemName: "heart.fill")
-                        .foregroundStyle(.red)
-                        .font(.system(size: 16))
-                }
-                Text("BPM")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+        HStack(alignment: .center, spacing: 12) {
+            HStack(spacing: 3) {
+                Image(systemName: "heart.fill")
+                    .foregroundStyle(.red)
+                    .font(.system(size: 14))
+                Text(store.currentHeartRate.map { "\(Int($0))" } ?? "–")
+                    .font(.system(size: 26, weight: .semibold, design: .rounded))
+                    .monospacedDigit()
+                    .foregroundStyle(.white)
             }
 
-            VStack(alignment: .leading, spacing: 0) {
-                Text("\(Int(store.maxHeartRateThisRound))")
-                    .font(.system(size: 20, weight: .medium, design: .rounded))
+            HStack(spacing: 3) {
+                Text(store.maxHeartRateThisRound > 0 ? "\(Int(store.maxHeartRateThisRound))" : "–")
+                    .font(.system(size: 16, weight: .medium, design: .rounded))
                     .monospacedDigit()
                     .foregroundStyle(.white.opacity(0.85))
-                Text("MAX THIS ROUND")
+                Text("MAX")
                     .font(.system(size: 9, weight: .semibold))
                     .tracking(0.5)
                     .foregroundStyle(.secondary)
             }
+
+            Spacer(minLength: 0)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 4)
+    }
+
+    private var notRecordingWarning: some View {
+        Label("Not saving to Health", systemImage: "exclamationmark.triangle.fill")
+            .font(.system(size: 10, weight: .medium))
+            .foregroundStyle(.yellow)
+            .lineLimit(1)
+            .minimumScaleFactor(0.8)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 4)
     }
 
     @ViewBuilder
-    private var sensorRows: some View {
-        let readings = store.latestSensorReadings
-        if readings.hasAnyReading {
-            VStack(spacing: 2) {
-                if let hrv = readings.hrv {
-                    SensorRow(symbol: "waveform.path.ecg", label: "HRV", value: "\(Int(hrv)) ms")
+    private var actionButtons: some View {
+        VStack(spacing: 5) {
+            // On the last round's rest there is no next round to start, so the
+            // primary action becomes ending the session rather than a dead button.
+            if isLastRound {
+                Button(action: onEndRequested) {
+                    Label("End Session", systemImage: "stop.fill")
+                        .font(.system(size: 15, weight: .semibold))
+                        .frame(maxWidth: .infinity, minHeight: 44)
                 }
-                if let rr = readings.respiratoryRate {
-                    SensorRow(symbol: "lungs.fill", label: "Resp. Rate", value: "\(Int(rr))/min")
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
+            } else {
+                Button {
+                    store.advancePhase()
+                } label: {
+                    Text(store.currentPhase == .sauna ? "Rest" : "Next Round")
+                        .font(.system(size: 16, weight: .semibold))
+                        .frame(maxWidth: .infinity, minHeight: 42)
                 }
-                if let spo2 = readings.spo2 {
-                    SensorRow(symbol: "drop.degreesign", label: "SpO2", value: "\(Int(spo2 * 100))%")
+                .buttonStyle(.borderedProminent)
+                .tint(store.currentPhase.tintColor)
+
+                Button(action: onEndRequested) {
+                    Label("End Session", systemImage: "stop.fill")
+                        .font(.system(size: 13, weight: .medium))
+                        .frame(maxWidth: .infinity, minHeight: 30)
                 }
-                if let temp = readings.wristTemperatureC {
-                    SensorRow(symbol: "thermometer", label: "Wrist Temp", value: String(format: "%.1f°C", temp))
-                }
+                .buttonStyle(.bordered)
+                .tint(.red)
             }
         }
     }

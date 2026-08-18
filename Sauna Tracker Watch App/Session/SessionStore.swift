@@ -16,6 +16,7 @@ final class SessionStore {
     enum Stage {
         case idle
         case active
+        case saving
         case summary(SaunaSession)
     }
 
@@ -33,6 +34,17 @@ final class SessionStore {
     var maxConfiguredRounds: Int { settings.maxRounds }
     var canStartAnotherRound: Bool { roundCount < settings.maxRounds }
     var isActive: Bool { if case .active = stage { true } else { false } }
+
+    /// False when HealthKit refused to start a live workout — the session
+    /// still runs locally, but nothing will land in Health, and the UI says so.
+    var isRecordingToHealth: Bool { recorder.isRecording }
+
+    /// Total sauna time so far, including the round currently running.
+    var totalSaunaDurationSoFar: TimeInterval {
+        let closed = intervals.filter { $0.phase == .sauna }.reduce(0) { $0 + $1.duration }
+        let live = currentPhase == .sauna ? Date.now.timeIntervalSince(phaseStartDate) : 0
+        return closed + live
+    }
 
     private let recorder: HealthKitSessionRecorder
     private let connectivity: WatchConnectivityService
@@ -68,12 +80,14 @@ final class SessionStore {
 
     func startSession() async {
         guard case .idle = stage else { return }
+        let start = Date.now
         sessionID = UUID()
-        sessionStartDate = .now
+        sessionStartDate = start
         intervals = []
         roundCount = 0
+        lastErrorDescription = nil
         stage = .active
-        await recorder.startWorkoutSession(startDate: sessionStartDate!)
+        await recorder.startWorkoutSession(startDate: start)
         beginPhase(.sauna)
     }
 
@@ -114,14 +128,17 @@ final class SessionStore {
         maxHeartRateThisRound = max(maxHeartRateThisRound, bpm)
     }
 
+    /// Ends the whole session from any phase and at any round, then saves.
     func endSession() async {
         guard case .active = stage, let start = sessionStartDate else { return }
         closeCurrentInterval()
         hapticScheduler.stop()
+        stage = .saving
 
         let bodyWeightKg = await BodyWeightReader.resolvedBodyWeightKg(
             override: settings.bodyWeightOverrideKg
-        ) ?? 75
+        ) ?? AppSettings.fallbackBodyWeightKg
+
         let kcal = CalorieCalculator.activeEnergyKcal(
             saunaIntervals: intervals,
             metValue: settings.metValue,
@@ -141,7 +158,7 @@ final class SessionStore {
             let workoutUUID = try await recorder.finishAndSave(
                 session: session,
                 maxRoundsConfigured: settings.maxRounds,
-                activeEnergyKcal: kcal
+                bodyWeightKg: bodyWeightKg
             )
             session.healthKitWorkoutUUID = workoutUUID
             connectivity.notifySessionSaved(workoutUUID: workoutUUID)

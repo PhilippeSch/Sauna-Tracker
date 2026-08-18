@@ -26,7 +26,7 @@ struct SessionRowView: View {
                 HStack(spacing: 8) {
                     Label(DurationFormatter.abbreviated(session.totalSaunaDuration), systemImage: "flame")
                     if let kcal = session.activeEnergyKcal {
-                        Label("\(Int(kcal)) kcal", systemImage: "bolt.fill")
+                        Label("\(Int(kcal.rounded())) kcal", systemImage: "bolt.fill")
                     }
                 }
                 .font(.caption)

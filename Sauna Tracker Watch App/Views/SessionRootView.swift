@@ -10,19 +10,19 @@ struct SessionRootView: View {
 
     var body: some View {
         NavigationStack {
-            Group {
-                switch store.stage {
-                case .idle:
-                    StartSessionView(store: store)
-                case .active:
-                    ActiveSessionView(store: store)
-                case .summary(let session):
-                    EndSessionSummaryView(
-                        session: session,
-                        errorDescription: store.lastErrorDescription,
-                        onDone: { store.reset() }
-                    )
-                }
+            switch store.stage {
+            case .idle:
+                StartSessionView(store: store)
+            case .active:
+                ActiveSessionPager(store: store)
+            case .saving:
+                SavingSessionView()
+            case .summary(let session):
+                EndSessionSummaryView(
+                    session: session,
+                    errorDescription: store.lastErrorDescription,
+                    onDone: { store.reset() }
+                )
             }
         }
         .onChange(of: WatchConnectivityService.shared.latestSettings) { _, newSettings in
@@ -35,5 +35,17 @@ struct SessionRootView: View {
                 store.applySettings(settings)
             }
         }
+    }
+}
+
+struct SavingSessionView: View {
+    var body: some View {
+        VStack(spacing: 10) {
+            ProgressView()
+            Text("Saving…")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

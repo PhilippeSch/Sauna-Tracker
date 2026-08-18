@@ -22,6 +22,11 @@ struct AppSettings: Codable, Sendable, Equatable {
         hapticIntervalMinutes: 5
     )
 
+    /// Used only when HealthKit has no body mass sample and the user set no
+    /// override — an average adult weight, so calories are a rough estimate
+    /// instead of nothing at all.
+    static let fallbackBodyWeightKg: Double = 75
+
     static let metRange: ClosedRange<Double> = 1.5...2.0
     static let maxRoundsRange: ClosedRange<Int> = 1...10
     static let hapticIntervalRange: ClosedRange<Int> = 1...15

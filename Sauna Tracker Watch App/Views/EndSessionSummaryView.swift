@@ -23,7 +23,7 @@ struct EndSessionSummaryView: View {
                 summaryRow(label: "Rounds", value: "\(session.roundCount)")
                 summaryRow(label: "Sauna Time", value: DurationFormatter.clock(session.totalSaunaDuration))
                 if let kcal = session.activeEnergyKcal {
-                    summaryRow(label: "Calories", value: "\(Int(kcal)) kcal")
+                    summaryRow(label: "Calories", value: "\(Int(kcal.rounded())) kcal")
                 }
             }
 
