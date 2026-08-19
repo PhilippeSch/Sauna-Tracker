@@ -28,15 +28,19 @@ private let intentLog = Logger(subsystem: "Scheuber.Sauna-Tracker", category: "I
 private func advanceRunningSession(from intent: String) {
     guard let store = SessionStore.current else {
         intentLog.error("\(intent): no live session store registered")
+        IntentDiagnostics.record(intent, "no store")
         return
     }
     guard store.isActive else {
         intentLog.info("\(intent): store found but no session is running")
+        IntentDiagnostics.record(intent, "store idle")
         return
     }
     let before = store.currentPhase.rawValue
     store.advancePhase()
-    intentLog.info("\(intent): phase \(before) -> \(store.currentPhase.rawValue)")
+    let outcome = "\(before) -> \(store.currentPhase.rawValue)"
+    intentLog.info("\(intent): phase \(outcome)")
+    IntentDiagnostics.record(intent, outcome)
 }
 
 /// The Action Button's workout picker needs something to name; a sauna
@@ -78,8 +82,10 @@ struct StartSaunaWorkoutIntent: AppIntent, StartWorkoutIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult {
+        IntentDiagnostics.record("start", "invoked")
         guard let store = SessionStore.current else {
             intentLog.error("start: no live session store registered")
+            IntentDiagnostics.record("start", "no store")
             return .result()
         }
         if store.isActive {
@@ -88,6 +94,7 @@ struct StartSaunaWorkoutIntent: AppIntent, StartWorkoutIntent {
         } else {
             await store.startSession()
             intentLog.info("start: session started")
+            IntentDiagnostics.record("start", "session started")
         }
         return .result()
     }
@@ -102,6 +109,7 @@ struct PauseSaunaWorkoutIntent: AppIntent, PauseWorkoutIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult {
+        IntentDiagnostics.record("pause", "invoked")
         advanceRunningSession(from: "pause")
         return .result()
     }
@@ -116,6 +124,7 @@ struct ResumeSaunaWorkoutIntent: AppIntent, ResumeWorkoutIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult {
+        IntentDiagnostics.record("resume", "invoked")
         advanceRunningSession(from: "resume")
         return .result()
     }

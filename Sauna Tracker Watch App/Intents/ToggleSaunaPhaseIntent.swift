@@ -18,8 +18,13 @@ struct ToggleSaunaPhaseIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult {
+        IntentDiagnostics.record("toggle", "invoked")
         if let store = SessionStore.current, store.isActive {
+            let before = store.currentPhase.rawValue
             store.advancePhase()
+            IntentDiagnostics.record("toggle", "\(before) -> \(store.currentPhase.rawValue)")
+        } else {
+            IntentDiagnostics.record("toggle", SessionStore.current == nil ? "no store" : "store idle")
         }
         return .result()
     }

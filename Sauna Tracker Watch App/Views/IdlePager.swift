@@ -22,6 +22,9 @@ struct IdlePager: View {
                 .tag(0)
             StartSessionView(store: store)
                 .tag(1)
+            // Temporary: Action Button investigation (issue #3).
+            IntentDiagnosticsView()
+                .tag(2)
         }
         .tabViewStyle(.page)
     }
