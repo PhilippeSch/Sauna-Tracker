@@ -17,6 +17,7 @@ sauna — with a rest phase between them.
 - Always-On display keeps phase, elapsed time and pulse visible
 - Optional reminder taps at a configurable interval, or switched off entirely
 - Action button support on Apple Watch Ultra to toggle between sauna and rest
+  (see [Action button](#action-button) for the one-time setup it needs)
 
 **On the iPhone**
 
@@ -27,6 +28,29 @@ sauna — with a rest phase between them.
 - Notes per session ("Finnish sauna 90 °C, Aufguss menthol")
 - Settings for MET value, maximum rounds, body weight override, vibration
 - Swipe left on a session to delete it
+
+## Action button
+
+An app cannot claim the Action button on its own. watchOS drives it through
+the system workout intents, so Sauna Tracker adopts them and maps them onto
+its phases:
+
+| System intent | In a sauna session |
+|---|---|
+| `StartWorkoutIntent` | Starts a session and its first round |
+| `PauseWorkoutIntent` | Switches to the rest phase |
+| `ResumeWorkoutIntent` | Starts the next sauna round |
+
+That makes the button toggle sauna and rest during a session, the same as the
+primary on-screen button.
+
+It has to be pointed at the app once, otherwise the press goes to whatever it
+is currently assigned to — by default the built-in Workout app:
+
+**Settings → Action Button → Action: Workout → App: Sauna Tracker**
+
+Alternatively set **Action: Shortcut** and pick *Toggle Phase*, which runs the
+same phase switch through the Shortcuts app.
 
 ## Where the data lives
 
