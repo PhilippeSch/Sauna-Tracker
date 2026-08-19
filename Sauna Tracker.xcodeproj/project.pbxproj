@@ -54,6 +54,7 @@
 		3717FB1930338F1A009D8DB2 /* Sauna TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sauna TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3717FB2330338F1A009D8DB2 /* Sauna TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sauna TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DE1F1C27BF9FEA5E2E987B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		82A0D02A112A0D4656AD9EEE /* Version.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 		9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sauna Tracker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -78,21 +79,29 @@
 		};
 		3717FB0C30338F18009D8DB2 /* Sauna Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "Sauna Tracker";
 			sourceTree = "<group>";
 		};
 		3717FB1C30338F1A009D8DB2 /* Sauna TrackerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "Sauna TrackerTests";
 			sourceTree = "<group>";
 		};
 		3717FB2630338F1A009D8DB2 /* Sauna TrackerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = "Sauna TrackerUITests";
 			sourceTree = "<group>";
 		};
 		704E324A58E4BD1CB49D2EBE /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -149,6 +158,7 @@
 				704E324A58E4BD1CB49D2EBE /* Shared */,
 				12F3C33D73657931A801370F /* Frameworks */,
 				0F43AC483EBD29BA8F086E9B /* Sauna Tracker Watch App */,
+				D4F610F5A4A5C3EAF1D06440 /* Config */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +179,15 @@
 				66DE1F1C27BF9FEA5E2E987B /* Foundation.framework */,
 			);
 			name = watchOS;
+			sourceTree = "<group>";
+		};
+		D4F610F5A4A5C3EAF1D06440 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				82A0D02A112A0D4656AD9EEE /* Version.xcconfig */,
+			);
+			name = Config;
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +265,7 @@
 				9E64EDF8A629F96E6B60B668 /* Sources */,
 				933E15F6C4986857E406A3F0 /* Frameworks */,
 				C3501BBAE6EE627952E332A2 /* Resources */,
+				66B1DE51E0E258DE8DAE4BD7 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -339,6 +359,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66B1DE51E0E258DE8DAE4BD7 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Sets the build number on every build to a YYYYMMDDHHMM timestamp. Only\n# Config/Version.xcconfig is written; every target reads\n# CURRENT_PROJECT_VERSION from BUILD_TIMESTAMP, so the iPhone app and the\n# Watch app always carry the same number.\n\n# project.pbxproj is deliberately never written (agvtool used to): changing\n# the project file mid-build makes Xcode reload the project and cancel the\n# run without an error message.\n\n# Skip while archiving — the archive carries the number that was resolved\n# when the run started. Press Cmd-B first if you want a fresh one.\nif [ \"$ACTION\" = \"install\" ]; then\n    echo \"note: archiving, build number stays at $CURRENT_PROJECT_VERSION\"\n    exit 0\nfi\n\nCONFIG=\"${SRCROOT}/Config/Version.xcconfig\"\nTIMESTAMP=$(date \"+%Y%m%d%H%M\")\n\n{\n    echo \"// Von der Build-Phase \\\"Set Build Number\\\" erzeugt. Nicht von Hand aendern.\"\n    echo \"BUILD_TIMESTAMP = $TIMESTAMP\"\n} > \"$CONFIG.new\" || exit 1\n\n# Within the same minute leave the file alone, so Xcode does not have to\n# re-resolve build settings.\nif cmp -s \"$CONFIG.new\" \"$CONFIG\"; then\n    rm -f \"$CONFIG.new\"\n    exit 0\nfi\n\nmv \"$CONFIG.new\" \"$CONFIG\" || exit 1\necho \"note: build number set to $TIMESTAMP (effective from the next build)\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3717FB0630338F18009D8DB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -392,6 +434,7 @@
 /* Begin XCBuildConfiguration section */
 		3717FB2B30338F1A009D8DB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82A0D02A112A0D4656AD9EEE /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -454,6 +497,7 @@
 		};
 		3717FB2C30338F1A009D8DB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82A0D02A112A0D4656AD9EEE /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -513,7 +557,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sauna Tracker/Sauna Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_TIMESTAMP)";
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -560,7 +604,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sauna Tracker/Sauna Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_TIMESTAMP)";
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -605,7 +649,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_TIMESTAMP)";
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
@@ -631,7 +675,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_TIMESTAMP)";
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
@@ -656,7 +700,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_TIMESTAMP)";
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
@@ -681,7 +725,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_TIMESTAMP)";
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
@@ -709,9 +753,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sauna Tracker Watch App/Sauna Tracker Watch App.entitlements";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_TIMESTAMP)";
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Sauna Tracker Watch App/Info.plist";
 				MARKETING_VERSION = 1.0;
@@ -735,9 +780,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Sauna Tracker Watch App/Sauna Tracker Watch App.entitlements";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_TIMESTAMP)";
 				DEVELOPMENT_TEAM = PZ2HQ4532Q;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Sauna Tracker Watch App/Info.plist";
 				MARKETING_VERSION = 1.0;
