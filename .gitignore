@@ -1,0 +1,8 @@
+build/
+DerivedData/
+.DS_Store
+xcuserdata/
+
+# Projektanweisungen, nur lokal
+CLAUDE.md
+.claude/

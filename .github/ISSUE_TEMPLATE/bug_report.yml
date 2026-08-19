@@ -1,0 +1,117 @@
+name: Bug report
+description: Something in the app behaves wrongly
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. The app collects nothing and sends nothing,
+        so there are no logs on my side — everything I know about a problem
+        comes from what you write here.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you saw, in one or two sentences.
+      placeholder: The round counter jumped from 2 to 4 when I started a new round.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can I reproduce it?
+      description: The taps that lead there, starting from the start screen.
+      placeholder: |
+        1. Start Sauna
+        2. Tap Rest after about a minute
+        3. Tap Next Round
+        4. …
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where in the app?
+      options:
+        - Watch — start screen
+        - Watch — running session (timer, pulse, rounds)
+        - Watch — controls page (End, Water Lock)
+        - Watch — Always-On display
+        - Watch — session summary after ending
+        - iPhone — statistics
+        - iPhone — history or session detail
+        - iPhone — notes
+        - iPhone — settings
+        - Health or Fitness (session missing, wrong calories, wrong heart rate)
+        - Somewhere else
+    validations:
+      required: true
+
+  - type: dropdown
+    id: recording
+    attributes:
+      label: Did the session end up in Health?
+      description: >
+        The app writes every finished session to Health as an "Other" workout.
+        Whether it arrived there narrows a problem down a lot.
+      options:
+        - "Yes, it is in Health"
+        - "No, it is missing"
+        - "It is there, but the numbers are wrong"
+        - "Not applicable"
+
+  - type: input
+    id: version
+    attributes:
+      label: App version and build
+      description: The build is a twelve-digit timestamp.
+      placeholder: 1.0 (202608190928)
+    validations:
+      required: true
+
+  - type: input
+    id: watch
+    attributes:
+      label: Which Apple Watch and watchOS version?
+      placeholder: Apple Watch Ultra 2, watchOS 26.5
+    validations:
+      required: true
+
+  - type: input
+    id: phone
+    attributes:
+      label: Which iPhone and iOS version?
+      placeholder: iPhone 15 Pro, iOS 26.5
+
+  - type: input
+    id: language
+    attributes:
+      label: Language your devices are set to
+      placeholder: German
+      description: >
+        The interface follows it, so a problem sometimes shows up in one
+        language and not in another.
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: A screenshot helps. Drag it in here.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the open and closed issues and did not find this one.
+          required: true

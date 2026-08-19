@@ -1,0 +1,68 @@
+name: Feature request
+description: Suggest something the app should do
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Two things worth knowing before you write, because they decide most
+        requests:
+
+        - The app **works offline and stores nothing of its own**. Sessions live
+          in Apple Health, there is no account, no server and no analytics —
+          that is the point of it, not a gap.
+        - The watch screen is meant to be read **with wet hands in a hot room**.
+          Anything that adds taps, small targets or things to read during a
+          session has a high bar to clear.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What would you like the app to do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: What are you trying to do?
+      description: >
+        The situation you are in when you miss it. This says more than the
+        feature itself and often points at a simpler answer.
+      placeholder: I do three rounds of different lengths and lose track of which one I am in.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where would it fit?
+      options:
+        - Watch — running session
+        - Watch — controls page
+        - Watch — Always-On display
+        - Watch — complication or Smart Stack
+        - iPhone — statistics
+        - iPhone — history or session detail
+        - iPhone — settings
+        - Health or Fitness integration
+        - A new interface language
+        - Somewhere else
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Anything you tried or considered?
+      description: Including what does not work well enough today.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched the open and closed issues and did not find this one.
+          required: true
+        - label: My request works without network access, an account or any data collection.
+          required: true
