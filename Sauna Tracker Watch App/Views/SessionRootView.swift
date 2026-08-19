@@ -10,12 +10,13 @@ struct SessionRootView: View {
         recorder: HealthKitSessionRecorder(),
         hapticScheduler: HapticScheduler()
     )
+    private var settings = SettingsStore.shared
 
     var body: some View {
         NavigationStack {
             switch store.stage {
             case .idle:
-                StartSessionView(store: store)
+                IdlePager(store: store, settings: settings)
             case .active:
                 ActiveSessionPager(store: store)
             case .saving:
@@ -28,15 +29,13 @@ struct SessionRootView: View {
                 )
             }
         }
-        .onChange(of: WatchConnectivityService.shared.latestSettings) { _, newSettings in
-            if let newSettings {
-                store.applySettings(newSettings)
-            }
+        // Settings can change on either device; keep the running session in
+        // step with whatever the store currently holds.
+        .onChange(of: settings.settings) { _, newSettings in
+            store.applySettings(newSettings)
         }
         .task {
-            if let settings = WatchConnectivityService.shared.latestSettings {
-                store.applySettings(settings)
-            }
+            store.applySettings(settings.settings)
         }
     }
 }

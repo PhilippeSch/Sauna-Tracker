@@ -87,6 +87,34 @@
         }
       }
     },
+    "Changes apply to the next session and sync to your iPhone.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Changes apply to the next session and sync to your iPhone."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gilt ab der nächsten Sitzung und wird mit dem iPhone abgeglichen."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gäller från nästa pass och synkas med din iPhone."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voimassa seuraavasta istunnosta ja synkronoituu iPhoneen."
+          }
+        }
+      }
+    },
     "Done": {
       "extractionState": "stale",
       "localizations": {
@@ -173,6 +201,34 @@
         }
       }
     },
+    "Every … min": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every … min"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alle … Min."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Var … min"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "… min välein"
+          }
+        }
+      }
+    },
     "HRV": {
       "extractionState": "stale",
       "localizations": {
@@ -226,6 +282,62 @@
           "stringUnit": {
             "state": "translated",
             "value": "MAX"
+          }
+        }
+      }
+    },
+    "MET": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MET"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MET"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MET"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MET"
+          }
+        }
+      }
+    },
+    "Max Rounds": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max Rounds"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max. Runden"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max omgångar"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kierroksia enint."
           }
         }
       }
@@ -527,6 +639,34 @@
         }
       }
     },
+    "Settings": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inställningar"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asetukset"
+          }
+        }
+      }
+    },
     "SpO2": {
       "extractionState": "stale",
       "localizations": {
@@ -636,6 +776,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "Yhteensä"
+          }
+        }
+      }
+    },
+    "Vibration": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vibration"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vibration"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vibration"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Värinä"
           }
         }
       }

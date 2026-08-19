@@ -73,6 +73,28 @@ struct SessionStoreTests {
         }
     }
 
+    @Test func firstRoundStartsWithTheSessionNotAfterHealthKitIsUp() async {
+        let (store, recorder, _) = StoreFactory.make()
+        recorder.startDelay = .milliseconds(150)
+
+        await store.startSession()
+        await store.endSession()
+
+        let session = try? #require(recorder.lastFinishedSession)
+        // Bringing HealthKit up takes a moment; the first round must still
+        // line up with the session start rather than trail it.
+        #expect(session?.startDate == session?.intervals.first?.startDate)
+    }
+
+    @Test func totalsAgreeAtTheStartOfASession() async {
+        let (store, _, _) = StoreFactory.make()
+        await store.startSession()
+
+        // Sauna time and overall time must not drift apart before anything
+        // has happened; they only diverge once a rest phase has run.
+        #expect(abs(store.totalSessionDurationSoFar - store.totalSaunaDurationSoFar) < 0.05)
+    }
+
     @Test func heartRateTracksCurrentAndRoundMaximum() async {
         let (store, recorder, _) = StoreFactory.make()
         await store.startSession()

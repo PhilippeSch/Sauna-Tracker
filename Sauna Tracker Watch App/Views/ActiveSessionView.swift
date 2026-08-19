@@ -15,8 +15,10 @@ import SwiftUI
 struct ActiveSessionView: View {
     @Bindable var store: SessionStore
 
+    // Text(timerInterval:) stops counting at the end of the range, so this
+    // bound has to be further out than any plausible phase — an hour was not.
     private var phaseEndBound: Date {
-        store.phaseStartDate.addingTimeInterval(3600)
+        store.phaseStartDate.addingTimeInterval(SaunaPhase.maxDisplayedPhaseDuration)
     }
 
     private var isLastRound: Bool {

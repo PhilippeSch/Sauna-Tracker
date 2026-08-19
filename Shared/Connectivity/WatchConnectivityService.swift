@@ -10,13 +10,15 @@
 
 import Foundation
 import WatchConnectivity
+import os
 
 @Observable
 final class WatchConnectivityService: NSObject {
     static let shared = WatchConnectivityService()
 
+    private static let log = Logger(subsystem: "Scheuber.Sauna-Tracker", category: "Connectivity")
+
     private(set) var isReachable = false
-    private(set) var latestSettings: AppSettings?
     private(set) var lastSavedWorkoutUUID: UUID?
 
     private override init() {
@@ -40,11 +42,25 @@ final class WatchConnectivityService: NSObject {
     private enum Transport { case applicationContext, userInfo }
 
     private func send(_ message: ConnectivityMessage, via transport: Transport) {
-        guard WCSession.isSupported(), WCSession.default.activationState == .activated else { return }
+        guard WCSession.isSupported() else { return }
+        guard WCSession.default.activationState == .activated else {
+            Self.log.error("Session not activated, dropping message")
+            return
+        }
         guard let data = try? JSONEncoder().encode(message) else { return }
+
         switch transport {
         case .applicationContext:
-            try? WCSession.default.updateApplicationContext(["message": data])
+            do {
+                try WCSession.default.updateApplicationContext(["message": data])
+            } catch {
+                // Application context is the right shape for settings — latest
+                // value wins — but it fails outright if the counterpart app
+                // looks uninstalled. Fall back to a queued transfer so the
+                // change still lands rather than disappearing silently.
+                Self.log.error("Application context failed (\(error.localizedDescription)), queueing transfer instead")
+                WCSession.default.transferUserInfo(["message": data])
+            }
         case .userInfo:
             WCSession.default.transferUserInfo(["message": data])
         }
@@ -55,7 +71,7 @@ final class WatchConnectivityService: NSObject {
         Task { @MainActor in
             switch message {
             case .settingsChanged(let settings):
-                self.latestSettings = settings
+                SettingsStore.shared.applyRemote(settings)
             case .sessionSaved(let workoutUUID):
                 self.lastSavedWorkoutUUID = workoutUUID
             }

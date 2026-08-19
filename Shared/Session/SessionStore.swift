@@ -97,12 +97,15 @@ final class SessionStore {
         lastErrorDescription = nil
         stage = .active
         await recorder.startWorkoutSession(startDate: start)
-        beginPhase(.sauna)
+        // Starts at `start`, not "now": bringing up the HealthKit session
+        // takes about a second, and the first round has to line up with the
+        // session it belongs to rather than trail it.
+        beginPhase(.sauna, at: start)
     }
 
-    private func beginPhase(_ phase: SaunaPhase) {
+    private func beginPhase(_ phase: SaunaPhase, at date: Date = .now) {
         currentPhase = phase
-        phaseStartDate = .now
+        phaseStartDate = date
         maxHeartRateThisRound = 0
         latestSensorReadings = .empty
         if phase == .sauna { roundCount += 1 }

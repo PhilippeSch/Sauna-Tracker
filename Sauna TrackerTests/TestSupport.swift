@@ -78,9 +78,14 @@ final class FakeRecorder: SessionRecording {
     private(set) var lastBodyWeightKg: Double?
     var stubbedUUID = UUID()
     var errorToThrow: Error?
+    /// Stands in for the real recorder taking a moment to bring HealthKit up.
+    var startDelay: Duration = .zero
 
     func startWorkoutSession(startDate: Date) async {
         startCallCount += 1
+        if startDelay > .zero {
+            try? await Task.sleep(for: startDelay)
+        }
     }
 
     func finishAndSave(

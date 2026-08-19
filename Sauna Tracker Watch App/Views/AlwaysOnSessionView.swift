@@ -13,8 +13,9 @@ import SwiftUI
 struct AlwaysOnSessionView: View {
     @Bindable var store: SessionStore
 
+    // Must outlast any plausible phase; the timer freezes at the range end.
     private var phaseEndBound: Date {
-        store.phaseStartDate.addingTimeInterval(6 * 3600)
+        store.phaseStartDate.addingTimeInterval(SaunaPhase.maxDisplayedPhaseDuration)
     }
 
     var body: some View {

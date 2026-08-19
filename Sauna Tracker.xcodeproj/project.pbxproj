@@ -79,29 +79,21 @@
 		};
 		3717FB0C30338F18009D8DB2 /* Sauna Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = "Sauna Tracker";
 			sourceTree = "<group>";
 		};
 		3717FB1C30338F1A009D8DB2 /* Sauna TrackerTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = "Sauna TrackerTests";
 			sourceTree = "<group>";
 		};
 		3717FB2630338F1A009D8DB2 /* Sauna TrackerUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = "Sauna TrackerUITests";
 			sourceTree = "<group>";
 		};
 		704E324A58E4BD1CB49D2EBE /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
@@ -186,7 +178,6 @@
 			children = (
 				82A0D02A112A0D4656AD9EEE /* Version.xcconfig */,
 			);
-			name = Config;
 			path = Config;
 			sourceTree = "<group>";
 		};
