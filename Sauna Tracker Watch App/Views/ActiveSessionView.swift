@@ -100,10 +100,13 @@ struct ActiveSessionView: View {
                     .tracking(0.5)
                     .foregroundStyle(.secondary)
             }
-
-            Spacer(minLength: 0)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        // Centred as one block, in line with the timer and round indicator
+        // above it. Scales down rather than clipping when both values are
+        // three digits on a small watch.
+        .frame(maxWidth: .infinity, alignment: .center)
+        .lineLimit(1)
+        .minimumScaleFactor(0.7)
         .padding(.horizontal, 4)
     }
 
