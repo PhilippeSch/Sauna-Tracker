@@ -46,9 +46,10 @@ final class SessionStore {
         return closed + live
     }
 
-    private let recorder: HealthKitSessionRecorder
+    private let recorder: SessionRecording
     private let connectivity: WatchConnectivityService
-    private let hapticScheduler: HapticScheduler
+    private let hapticScheduler: HapticScheduling
+    private let bodyWeightProvider: BodyWeightProviding
 
     private var sessionID = UUID()
     private var sessionStartDate: Date?
@@ -59,14 +60,16 @@ final class SessionStore {
     static weak var current: SessionStore?
 
     init(
-        recorder: HealthKitSessionRecorder? = nil,
+        recorder: SessionRecording,
         connectivity: WatchConnectivityService = .shared,
-        hapticScheduler: HapticScheduler? = nil
+        hapticScheduler: HapticScheduling,
+        bodyWeightProvider: @escaping BodyWeightProviding = DefaultBodyWeightProvider.live
     ) {
-        let recorder = recorder ?? HealthKitSessionRecorder()
+        var recorder = recorder
         self.recorder = recorder
         self.connectivity = connectivity
-        self.hapticScheduler = hapticScheduler ?? HapticScheduler()
+        self.hapticScheduler = hapticScheduler
+        self.bodyWeightProvider = bodyWeightProvider
 
         recorder.onHeartRateUpdate = { [weak self] bpm in
             self?.updateLiveHeartRate(bpm)
@@ -135,9 +138,8 @@ final class SessionStore {
         hapticScheduler.stop()
         stage = .saving
 
-        let bodyWeightKg = await BodyWeightReader.resolvedBodyWeightKg(
-            override: settings.bodyWeightOverrideKg
-        ) ?? AppSettings.fallbackBodyWeightKg
+        let bodyWeightKg = await bodyWeightProvider(settings.bodyWeightOverrideKg)
+            ?? AppSettings.fallbackBodyWeightKg
 
         let kcal = CalorieCalculator.activeEnergyKcal(
             saunaIntervals: intervals,

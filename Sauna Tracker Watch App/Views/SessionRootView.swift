@@ -6,7 +6,10 @@
 import SwiftUI
 
 struct SessionRootView: View {
-    @State private var store = SessionStore()
+    @State private var store = SessionStore(
+        recorder: HealthKitSessionRecorder(),
+        hapticScheduler: HapticScheduler()
+    )
 
     var body: some View {
         NavigationStack {

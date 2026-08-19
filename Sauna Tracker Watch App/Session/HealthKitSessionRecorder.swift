@@ -18,7 +18,7 @@ import HealthKit
 import os
 
 @MainActor
-final class HealthKitSessionRecorder: NSObject {
+final class HealthKitSessionRecorder: NSObject, SessionRecording {
     enum RecordingError: LocalizedError {
         case notStarted
         case saveFailed

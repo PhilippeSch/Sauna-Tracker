@@ -91,7 +91,14 @@ struct SaunaStatistics: Equatable, Sendable {
             stats.peakHeartRate = maxHeartRates.max()
         }
 
-        if let longest = scoped.max(by: { $0.totalSaunaDuration < $1.totalSaunaDuration }) {
+        // Ties broken by start date so the answer never depends on the order
+        // HealthKit happened to return the workouts in.
+        let longest = scoped.max { lhs, rhs in
+            lhs.totalSaunaDuration == rhs.totalSaunaDuration
+                ? lhs.startDate < rhs.startDate
+                : lhs.totalSaunaDuration < rhs.totalSaunaDuration
+        }
+        if let longest {
             stats.longestSessionSaunaTime = longest.totalSaunaDuration
             stats.longestSessionDate = longest.startDate
         }

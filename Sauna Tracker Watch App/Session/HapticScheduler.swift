@@ -11,7 +11,7 @@ import Foundation
 import WatchKit
 
 @MainActor
-final class HapticScheduler {
+final class HapticScheduler: HapticScheduling {
     private var task: Task<Void, Never>?
 
     func start(intervalMinutes: Int) {

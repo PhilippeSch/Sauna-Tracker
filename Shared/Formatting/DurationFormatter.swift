@@ -6,19 +6,19 @@
 import Foundation
 
 enum DurationFormatter {
-    private static let componentsFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .positional
-        formatter.zeroFormattingBehavior = .pad
-        return formatter
-    }()
-
     /// "12:34" while under an hour, "1:02:34" once it crosses an hour.
+    ///
+    /// Built by hand rather than with a shared DateComponentsFormatter: that
+    /// class is not safe to reconfigure per call from more than one thread,
+    /// and a clock readout should not vary with locale anyway.
     static func clock(_ duration: TimeInterval) -> String {
-        let clamped = max(0, duration)
-        componentsFormatter.allowedUnits = clamped >= 3600 ? [.hour, .minute, .second] : [.minute, .second]
-        return componentsFormatter.string(from: clamped) ?? "0:00"
+        let total = Int(max(0, duration).rounded())
+        let hours = total / 3600
+        let minutes = (total % 3600) / 60
+        let seconds = total % 60
+        return hours > 0
+            ? String(format: "%d:%02d:%02d", hours, minutes, seconds)
+            : String(format: "%02d:%02d", minutes, seconds)
     }
 
     /// Compact form for lists and stats. Sub-minute sessions report seconds
