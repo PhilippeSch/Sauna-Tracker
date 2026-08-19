@@ -171,19 +171,40 @@ struct SessionStoreTests {
         }
     }
 
-    @Test func hapticsRestartOnEveryPhaseAndStopWhenTheSessionEnds() async {
+    @Test func hapticsRunDuringSaunaRoundsOnly() async {
         var settings = AppSettings.default
         settings.hapticIntervalMinutes = 3
         let (store, _, haptics) = StoreFactory.make(settings: settings)
 
         await store.startSession()
+        #expect(haptics.startCallCount == 1, "the first sauna round schedules taps")
         #expect(haptics.lastInterval == 3)
 
-        store.advancePhase()
-        #expect(haptics.startCallCount == 2)
+        store.advancePhase()  // into rest
+        #expect(haptics.startCallCount == 1, "a rest phase must not schedule taps")
+        #expect(haptics.stopCallCount >= 1, "and must cancel the running scheduler")
 
+        store.advancePhase()  // back into sauna
+        #expect(haptics.startCallCount == 2, "taps resume with the next round")
+    }
+
+    @Test func hapticsStopWhenTheSessionEnds() async {
+        let (store, _, haptics) = StoreFactory.make()
+        await store.startSession()
         await store.endSession()
-        #expect(haptics.stopCallCount >= 2)
+        #expect(haptics.stopCallCount >= 1)
+    }
+
+    @Test func hapticsNeverStartWhenVibrationIsSwitchedOff() async {
+        var settings = AppSettings.default
+        settings.hapticIntervalMinutes = AppSettings.hapticsOff
+        let (store, _, haptics) = StoreFactory.make(settings: settings)
+
+        await store.startSession()
+        store.advancePhase()
+        store.advancePhase()
+
+        #expect(haptics.startCallCount == 0)
     }
 
     @Test func resetReturnsToIdleAndClearsLiveData() async {

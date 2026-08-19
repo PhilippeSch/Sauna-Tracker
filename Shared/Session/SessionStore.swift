@@ -109,7 +109,10 @@ final class SessionStore {
         maxHeartRateThisRound = 0
         latestSensorReadings = .empty
         if phase == .sauna { roundCount += 1 }
-        if settings.hapticsEnabled {
+        // The interval reminder is about time spent in the heat, so it runs
+        // during sauna rounds only — a tap in the middle of a rest phase is
+        // just noise. The else branch also cancels whatever was still running.
+        if phase == .sauna, settings.hapticsEnabled {
             hapticScheduler.start(intervalMinutes: settings.hapticIntervalMinutes)
         } else {
             hapticScheduler.stop()
