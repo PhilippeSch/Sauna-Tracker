@@ -26,7 +26,13 @@ struct HistoryListView: View {
                     )
                 } else {
                     List(sessions) { session in
-                        SessionRowView(session: session)
+                        NavigationLink {
+                            SessionDetailView(session: session) {
+                                Task { await loadSessions() }
+                            }
+                        } label: {
+                            SessionRowView(session: session)
+                        }
                     }
                 }
             }
