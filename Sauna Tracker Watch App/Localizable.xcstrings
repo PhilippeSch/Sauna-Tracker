@@ -1,7 +1,6 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "%@": {},
     "BPM": {
       "localizations": {
         "de": {
@@ -261,6 +260,7 @@
       }
     },
     "Not saving to Health": {
+      "extractionState": "stale",
       "localizations": {
         "de": {
           "stringUnit": {
@@ -584,6 +584,62 @@
         }
       }
     },
+    "Swipe to finish": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swipe to finish"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zum Beenden wischen"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Svep för att avsluta"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pyyhkäise lopettaaksesi"
+          }
+        }
+      }
+    },
+    "Total": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gesamt"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Totalt"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yhteensä"
+          }
+        }
+      }
+    },
     "Water Lock": {
       "localizations": {
         "de": {
@@ -637,6 +693,62 @@
           "stringUnit": {
             "state": "translated",
             "value": "Handledstemp."
+          }
+        }
+      }
+    },
+    "control.end": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "End"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beenden"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avsluta"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lopeta"
+          }
+        }
+      }
+    },
+    "control.lock": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lock"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sperre"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lås"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lukko"
           }
         }
       }
@@ -700,6 +812,7 @@
       }
     },
     "duration.seconds": {
+      "extractionState": "stale",
       "localizations": {
         "de": {
           "stringUnit": {
@@ -728,6 +841,7 @@
       }
     },
     "error.notRecorded": {
+      "extractionState": "stale",
       "localizations": {
         "de": {
           "stringUnit": {
@@ -756,6 +870,7 @@
       }
     },
     "error.saveFailed": {
+      "extractionState": "stale",
       "localizations": {
         "de": {
           "stringUnit": {

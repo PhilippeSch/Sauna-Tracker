@@ -22,7 +22,7 @@ struct ActiveSessionPager: View {
                 AlwaysOnSessionView(store: store)
             } else {
                 TabView(selection: $selection) {
-                    ActiveSessionView(store: store) { showingEndConfirmation = true }
+                    ActiveSessionView(store: store)
                         .tag(0)
                     SessionControlsView(store: store) { showingEndConfirmation = true }
                         .tag(1)
@@ -30,7 +30,10 @@ struct ActiveSessionPager: View {
                 .tabViewStyle(.page)
             }
         }
-        .navigationTitle(store.currentPhase.displayName)
+        // Only in Always-On, where the title sits quietly top-left. On the
+        // live screen it crowded the timer without adding anything the
+        // phase-coloured timer doesn't already say.
+        .navigationTitle(isLuminanceReduced ? store.currentPhase.displayName : "")
         .confirmationDialog(
             "End this sauna session?",
             isPresented: $showingEndConfirmation,

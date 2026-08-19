@@ -309,6 +309,118 @@
         }
       }
     },
+    "Cancel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abbrechen"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avbryt"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Peruuta"
+          }
+        }
+      }
+    },
+    "Could not delete": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not delete"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Löschen fehlgeschlagen"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunde inte radera"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Poisto epäonnistui"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Löschen"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Radera"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Poista"
+          }
+        }
+      }
+    },
+    "Delete this session?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete this session?"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diese Sitzung löschen?"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Radera detta pass?"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Poistetaanko tämä istunto?"
+          }
+        }
+      }
+    },
     "Done": {
       "localizations": {
         "en": {
@@ -417,6 +529,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "Esimerkiksi: suomalainen sauna 90 °C, löyly mentoli."
+          }
+        }
+      }
+    },
+    "For example: Finnish sauna 90 °C, Aufguss menthol.\nStored with the session, visible only in Sauna Tracker.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For example: Finnish sauna 90 °C, Aufguss menthol.\nStored with the session, visible only in Sauna Tracker."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zum Beispiel: Finnische Sauna 90 °C, Aufguss Menthol.\nWird bei der Sitzung gespeichert, sichtbar nur in Sauna Tracker."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Till exempel: finsk bastu 90 °C, uppguss mentol.\nSparas med passet, syns bara i Sauna Tracker."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esimerkiksi: suomalainen sauna 90 °C, löyly mentoli.\nTallennetaan istunnon mukana, näkyy vain Sauna Trackerissa."
           }
         }
       }
@@ -785,6 +925,34 @@
         }
       }
     },
+    "No taps during a session.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No taps during a session."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Impulse während einer Sitzung."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inga vibrationer under ett pass."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ei värinöitä istunnon aikana."
+          }
+        }
+      }
+    },
     "Note saved to Health.": {
       "localizations": {
         "en": {
@@ -813,6 +981,34 @@
         }
       }
     },
+    "Note saved.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Note saved."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notiz gesichert."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anteckningen sparad."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muistiinpano tallennettu."
+          }
+        }
+      }
+    },
     "Notes": {
       "localizations": {
         "en": {
@@ -837,6 +1033,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "Muistiinpanot"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
           }
         }
       }
@@ -1205,6 +1429,34 @@
         }
       }
     },
+    "This removes it from Health as well and cannot be undone.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This removes it from Health as well and cannot be undone."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sie wird auch aus Health entfernt und kann nicht wiederhergestellt werden."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Det tas även bort från Hälsa och kan inte ångras."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se poistetaan myös Terveydestä eikä sitä voi palauttaa."
+          }
+        }
+      }
+    },
     "Total": {
       "localizations": {
         "en": {
@@ -1285,6 +1537,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kokonaissauna-aika"
+          }
+        }
+      }
+    },
+    "Vibration": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vibration"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vibration"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vibration"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Värinä"
           }
         }
       }

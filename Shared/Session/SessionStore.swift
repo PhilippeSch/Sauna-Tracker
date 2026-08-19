@@ -46,6 +46,12 @@ final class SessionStore {
         return closed + live
     }
 
+    /// Wall-clock length of the whole session so far, sauna and rest together.
+    var totalSessionDurationSoFar: TimeInterval {
+        guard let sessionStartDate else { return 0 }
+        return Date.now.timeIntervalSince(sessionStartDate)
+    }
+
     private let recorder: SessionRecording
     private let connectivity: WatchConnectivityService
     private let hapticScheduler: HapticScheduling
@@ -100,7 +106,11 @@ final class SessionStore {
         maxHeartRateThisRound = 0
         latestSensorReadings = .empty
         if phase == .sauna { roundCount += 1 }
-        hapticScheduler.start(intervalMinutes: settings.hapticIntervalMinutes)
+        if settings.hapticsEnabled {
+            hapticScheduler.start(intervalMinutes: settings.hapticIntervalMinutes)
+        } else {
+            hapticScheduler.stop()
+        }
     }
 
     /// Ends the current phase and starts the next one. Bound to the primary

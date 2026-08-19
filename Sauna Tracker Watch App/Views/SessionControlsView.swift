@@ -2,9 +2,8 @@
 //  SessionControlsView.swift
 //  Sauna Tracker Watch App
 //
-//  Swipe-left page of a running session, mirroring the Workout app: big,
-//  unmissable targets for the two things you need with wet hands — ending
-//  the session and locking the screen against water.
+//  Swipe-left page of a running session: the two things you need with wet
+//  hands, side by side, plus a live running total of the session so far.
 //
 
 import SwiftUI
@@ -17,45 +16,85 @@ struct SessionControlsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
-                Button(action: onEndRequested) {
-                    VStack(spacing: 2) {
-                        Image(systemName: "stop.fill")
-                            .font(.system(size: 22))
-                        Text("End Session")
-                            .font(.system(size: 13, weight: .semibold))
+                HStack(spacing: 6) {
+                    controlButton(
+                        titleKey: "control.end",
+                        symbol: "stop.fill",
+                        tint: .red,
+                        prominent: true,
+                        action: onEndRequested
+                    )
+                    controlButton(
+                        titleKey: "control.lock",
+                        symbol: "drop.fill",
+                        tint: .blue,
+                        prominent: false
+                    ) {
+                        WKInterfaceDevice.current().enableWaterLock()
                     }
-                    .frame(maxWidth: .infinity, minHeight: 62)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.red)
-
-                Button {
-                    WKInterfaceDevice.current().enableWaterLock()
-                } label: {
-                    VStack(spacing: 2) {
-                        Image(systemName: "drop.fill")
-                            .font(.system(size: 22))
-                        Text("Water Lock")
-                            .font(.system(size: 13, weight: .semibold))
-                    }
-                    .frame(maxWidth: .infinity, minHeight: 62)
-                }
-                .buttonStyle(.bordered)
-                .tint(.blue)
 
                 summary
                 sensorRows
             }
             .padding(.horizontal, 4)
+            .padding(.top, 6)
         }
     }
 
-    private var summary: some View {
-        VStack(spacing: 3) {
-            row(label: "Rounds", value: "\(store.roundCount)")
-            row(label: "Sauna Time", value: DurationFormatter.clock(store.totalSaunaDurationSoFar))
+    @ViewBuilder
+    private func controlButton(
+        titleKey: LocalizedStringKey,
+        symbol: String,
+        tint: Color,
+        prominent: Bool,
+        action: @escaping () -> Void
+    ) -> some View {
+        let label = VStack(spacing: 2) {
+            Image(systemName: symbol)
+                .font(.system(size: 18))
+            Text(titleKey)
+                .font(.system(size: 12, weight: .semibold))
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
         }
-        .padding(.top, 4)
+        .frame(maxWidth: .infinity, minHeight: 52)
+
+        if prominent {
+            Button(action: action) { label }
+                .buttonStyle(.borderedProminent)
+                .tint(tint)
+        } else {
+            Button(action: action) { label }
+                .buttonStyle(.bordered)
+                .tint(tint)
+        }
+    }
+
+    /// Ticks once a second so the running totals move while the round is
+    /// still open, instead of only stepping at each phase change.
+    private var summary: some View {
+        TimelineView(.periodic(from: .now, by: 1)) { _ in
+            VStack(spacing: 3) {
+                row(label: "Rounds", value: "\(store.roundCount)")
+                row(label: "Sauna Time", value: DurationFormatter.clock(store.totalSaunaDurationSoFar))
+                row(label: "Total", value: DurationFormatter.clock(store.totalSessionDurationSoFar))
+            }
+        }
+        .padding(.top, 2)
+    }
+
+    private func row(label: LocalizedStringKey, value: String) -> some View {
+        HStack {
+            Text(label)
+                .font(.caption2)
+                .foregroundStyle(.secondary)
+            Spacer()
+            Text(value)
+                .font(.caption)
+                .monospacedDigit()
+                .foregroundStyle(.white)
+        }
     }
 
     /// Optional sensors, shown only when a real reading exists. HRV and
@@ -81,19 +120,6 @@ struct SessionControlsView: View {
                 }
             }
             .padding(.top, 2)
-        }
-    }
-
-    private func row(label: LocalizedStringKey, value: String) -> some View {
-        HStack {
-            Text(label)
-                .font(.caption2)
-                .foregroundStyle(.secondary)
-            Spacer()
-            Text(value)
-                .font(.caption)
-                .monospacedDigit()
-                .foregroundStyle(.white)
         }
     }
 }

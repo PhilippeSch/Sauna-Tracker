@@ -65,9 +65,12 @@ struct SessionDetailView: View {
                 if let errorMessage {
                     Text(errorMessage).foregroundStyle(.red)
                 } else if savedSuccessfully {
-                    Text("Note saved to Health.").foregroundStyle(.green)
+                    Text("Note saved.").foregroundStyle(.green)
                 } else {
-                    Text("For example: Finnish sauna 90 °C, Aufguss menthol.")
+                    // The note travels with the workout in Health, but Health
+                    // and Fitness never render third-party workout metadata,
+                    // so say plainly where it will and will not show up.
+                    Text("For example: Finnish sauna 90 °C, Aufguss menthol.\nStored with the session, visible only in Sauna Tracker.")
                 }
             }
         }

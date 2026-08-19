@@ -3,20 +3,17 @@
 //  Sauna Tracker Watch App
 //
 //  Metrics page of a running session. Near-black background for contrast and
-//  Always-On power draw; the phase is carried by the navigation title plus
-//  the colour of the elapsed timer rather than a full screen tint.
+//  Always-On power draw; the phase is carried by the colour of the elapsed
+//  timer, with no label competing with it for space.
 //
-//  Deliberately a fixed VStack rather than a ScrollView: both action buttons
-//  must be on screen at all times, because scrolling to end a session with
-//  wet hands in a hot room is exactly what we are designing against. The
-//  optional sensor readings live on the controls page instead.
+//  Ending a session lives on the controls page (swipe) only, so this screen
+//  keeps a single unmistakable action.
 //
 
 import SwiftUI
 
 struct ActiveSessionView: View {
     @Bindable var store: SessionStore
-    var onEndRequested: () -> Void
 
     private var phaseEndBound: Date {
         store.phaseStartDate.addingTimeInterval(3600)
@@ -29,7 +26,7 @@ struct ActiveSessionView: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(timerInterval: store.phaseStartDate...phaseEndBound, countsDown: false)
-                .font(.system(size: 36, weight: .semibold, design: .rounded))
+                .font(.system(size: 42, weight: .semibold, design: .rounded))
                 .monospacedDigit()
                 .lineLimit(1)
                 .layoutPriority(1)
@@ -44,13 +41,25 @@ struct ActiveSessionView: View {
 
             Spacer(minLength: 0)
 
-            actionButtons
+            if isLastRound {
+                // No round left to start, and ending is a swipe away — say so
+                // rather than leaving a button that cannot do anything.
+                swipeHint
+            } else {
+                Button {
+                    store.advancePhase()
+                } label: {
+                    Text(store.currentPhase == .sauna ? "Rest" : "Next Round")
+                        .font(.system(size: 16, weight: .semibold))
+                        .frame(maxWidth: .infinity, minHeight: 46)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(store.currentPhase.tintColor)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 2)
-        // Keeps the big timer clear of the navigation title, which shares the
-        // top band with the system clock.
-        .padding(.top, 14)
+        .padding(.top, 6)
     }
 
     private var roundIndicator: some View {
@@ -106,38 +115,13 @@ struct ActiveSessionView: View {
             .padding(.horizontal, 4)
     }
 
-    @ViewBuilder
-    private var actionButtons: some View {
-        VStack(spacing: 5) {
-            // On the last round's rest there is no next round to start, so the
-            // primary action becomes ending the session rather than a dead button.
-            if isLastRound {
-                Button(action: onEndRequested) {
-                    Label("End Session", systemImage: "stop.fill")
-                        .font(.system(size: 15, weight: .semibold))
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.red)
-            } else {
-                Button {
-                    store.advancePhase()
-                } label: {
-                    Text(store.currentPhase == .sauna ? "Rest" : "Next Round")
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(maxWidth: .infinity, minHeight: 42)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(store.currentPhase.tintColor)
-
-                Button(action: onEndRequested) {
-                    Label("End Session", systemImage: "stop.fill")
-                        .font(.system(size: 13, weight: .medium))
-                        .frame(maxWidth: .infinity, minHeight: 30)
-                }
-                .buttonStyle(.bordered)
-                .tint(.red)
-            }
+    private var swipeHint: some View {
+        HStack(spacing: 5) {
+            Image(systemName: "chevron.left")
+            Text("Swipe to finish")
         }
+        .font(.system(size: 13, weight: .medium))
+        .foregroundStyle(.secondary)
+        .frame(maxWidth: .infinity, minHeight: 46)
     }
 }

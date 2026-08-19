@@ -28,9 +28,27 @@ struct SettingsView: View {
                     }
                 }
 
-                Section("Session") {
+                Section {
                     Stepper("Max Rounds: \(maxRounds)", value: $maxRounds, in: AppSettings.maxRoundsRange)
-                    Stepper("Haptic Every \(hapticIntervalMinutes) min", value: $hapticIntervalMinutes, in: AppSettings.hapticIntervalRange)
+
+                    Toggle("Vibration", isOn: Binding(
+                        get: { hapticIntervalMinutes > AppSettings.hapticsOff },
+                        set: { hapticIntervalMinutes = $0 ? 5 : AppSettings.hapticsOff }
+                    ))
+
+                    if hapticIntervalMinutes > AppSettings.hapticsOff {
+                        Stepper(
+                            "Haptic Every \(hapticIntervalMinutes) min",
+                            value: $hapticIntervalMinutes,
+                            in: 1...AppSettings.hapticIntervalRange.upperBound
+                        )
+                    }
+                } header: {
+                    Text("Session")
+                } footer: {
+                    if hapticIntervalMinutes == AppSettings.hapticsOff {
+                        Text("No taps during a session.")
+                    }
                 }
 
                 Section("Body Weight") {

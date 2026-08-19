@@ -37,6 +37,28 @@ enum WorkoutHistoryStore {
         return workouts.compactMap(session(from:))
     }
 
+    /// Removes the session's workout from Health. HealthKit deletes the
+    /// samples it owns along with it, so the entry disappears everywhere.
+    static func delete(_ session: SaunaSession) async throws {
+        guard let healthStore = HealthKitAuthorization.healthStore else { return }
+        guard let uuid = session.healthKitWorkoutUUID else { return }
+
+        let workouts: [HKWorkout] = await withCheckedContinuation { continuation in
+            let query = HKSampleQuery(
+                sampleType: HealthKitTypes.workoutType,
+                predicate: HKQuery.predicateForObject(with: uuid),
+                limit: 1,
+                sortDescriptors: nil
+            ) { _, samples, _ in
+                continuation.resume(returning: (samples as? [HKWorkout]) ?? [])
+            }
+            healthStore.execute(query)
+        }
+
+        guard let workout = workouts.first else { return }
+        try await healthStore.delete(workout)
+    }
+
     private static func session(from workout: HKWorkout) -> SaunaSession? {
         guard
             let jsonString = workout.metadata?[SessionMetadataPayload.metadataKey] as? String,
