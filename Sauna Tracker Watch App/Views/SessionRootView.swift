@@ -35,20 +35,7 @@ struct SessionRootView: View {
             store.applySettings(newSettings)
         }
         .task {
-            // Registers the instance SwiftUI actually kept. Doing this from
-            // the store's init pointed App Intents at a discarded copy.
-            store.makeCurrent()
             store.applySettings(settings.settings)
-
-            // The Action button can start a session before the UI exists to
-            // register a store; finish that start now that it does.
-            if PendingSessionStart.isRequested {
-                PendingSessionStart.isRequested = false
-                if !store.isActive {
-                    IntentDiagnostics.record("start", "resumed after launch")
-                    await store.startSession()
-                }
-            }
         }
     }
 }

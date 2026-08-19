@@ -95,34 +95,6 @@ struct SessionStoreTests {
         #expect(abs(store.totalSessionDurationSoFar - store.totalSaunaDurationSoFar) < 0.05)
     }
 
-    @Test func creatingAStoreDoesNotHijackTheCurrentOne() async {
-        let (live, _, _) = StoreFactory.make()
-        live.makeCurrent()
-        await live.startSession()
-
-        // SwiftUI evaluates a @State default-value expression on every view
-        // init and throws the extra instances away. When init registered
-        // itself, `current` ended up on a discarded store and — being weak —
-        // went nil, which is why the Action Button did nothing.
-        _ = StoreFactory.make()
-        _ = StoreFactory.make()
-
-        #expect(SessionStore.current === live)
-        #expect(SessionStore.current?.isActive == true)
-    }
-
-    @Test func theRegisteredStoreIsTheOneIntentsAdvance() async {
-        let (live, _, _) = StoreFactory.make()
-        live.makeCurrent()
-        await live.startSession()
-        #expect(live.currentPhase == .sauna)
-
-        // Stands in for what an Action Button intent does.
-        SessionStore.current?.advancePhase()
-
-        #expect(live.currentPhase == .rest)
-    }
-
     @Test func heartRateTracksCurrentAndRoundMaximum() async {
         let (store, recorder, _) = StoreFactory.make()
         await store.startSession()

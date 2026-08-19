@@ -16,8 +16,6 @@ sauna — with a rest phase between them.
 - Swipe left for the controls page: end the session, or engage Water Lock
 - Always-On display keeps phase, elapsed time and pulse visible
 - Optional reminder taps at a configurable interval, or switched off entirely
-- Action button support on Apple Watch Ultra to toggle between sauna and rest
-  (see [Action button](#action-button) for the one-time setup it needs)
 
 **On the iPhone**
 
@@ -28,37 +26,6 @@ sauna — with a rest phase between them.
 - Notes per session ("Finnish sauna 90 °C, Aufguss menthol")
 - Settings for MET value, maximum rounds, body weight override, vibration
 - Swipe left on a session to delete it
-
-## Action button
-
-An app cannot claim the Action button on its own. watchOS drives it as a
-*chain*: whatever an intent returns from `perform()` becomes the thing the
-next press runs. Sauna Tracker adopts the system workout intents and maps
-them onto its phases:
-
-| Press | Intent | Effect |
-|---|---|---|
-| 1 | `StartWorkoutIntent` | Starts the session and its first round |
-| 2 | `PauseWorkoutIntent` | Switches to the rest phase |
-| 3 | `ResumeWorkoutIntent` | Starts the next sauna round |
-| … | | alternating from there |
-
-Two things have to be true for it to work.
-
-**Point the button at the app, once.** Otherwise the press goes wherever it is
-currently assigned — by default the built-in Workout app:
-
-**Settings → Action Button → Action: Workout → App: Sauna Tracker**
-
-**Start the session with the button.** The chain is bootstrapped by
-`StartWorkoutIntent`, so a session started with the on-screen button leaves the
-Action button unarmed — nothing ever returned the intent for the next press to
-run. That is how the mechanism works rather than something the app can route
-around: there is no API to arm the button from outside an intent's result.
-
-If you would rather start sessions on screen, set **Action: Shortcut** and pick
-*Toggle Phase* instead. That runs the same phase switch through the Shortcuts
-app and does not depend on the chain.
 
 ## Where the data lives
 
@@ -87,7 +54,7 @@ weight comes from Health unless overridden in settings.
 ## Requirements
 
 - watchOS 26.5, iOS 26.5, Xcode 26
-- Apple Watch Series 8 or later for wrist temperature; Ultra for the Action button
+- Apple Watch Series 8 or later for wrist temperature
 
 ## Build
 
