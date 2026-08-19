@@ -7,19 +7,37 @@
 //  directly: watchOS drives it through the system workout intents, and an app
 //  becomes selectable for it by adopting them.
 //
-//  The mapping onto our phases falls out naturally, because a sauna round is
-//  the "running" state and a rest phase is the "paused" one:
-//
-//      StartWorkoutIntent   -> start a session (first sauna round)
-//      PauseWorkoutIntent   -> switch to Rest
-//      ResumeWorkoutIntent  -> switch to the next Sauna round
-//
-//  So during a session the Action Button toggles sauna/rest, which is what
-//  the on-screen primary button does.
+//  Pause and Resume both simply advance the phase. The tidier mapping would
+//  be Pause -> Rest and Resume -> Sauna, but the system decides which of the
+//  two to send from the HKWorkoutSession's own state, and we deliberately
+//  never pause that session — pausing would stop heart rate collection, and
+//  we record pulse through the rest phase too. So the app cannot rely on the
+//  two alternating, and each press just toggles.
 //
 
 import AppIntents
 import Foundation
+import os
+
+private let intentLog = Logger(subsystem: "Scheuber.Sauna-Tracker", category: "Intents")
+
+/// Advances the phase of the running session, if there is one.
+/// Returns what happened so the intents can log it — an Action Button press
+/// that does nothing is otherwise invisible from the outside.
+@MainActor
+private func advanceRunningSession(from intent: String) {
+    guard let store = SessionStore.current else {
+        intentLog.error("\(intent): no live session store registered")
+        return
+    }
+    guard store.isActive else {
+        intentLog.info("\(intent): store found but no session is running")
+        return
+    }
+    let before = store.currentPhase.rawValue
+    store.advancePhase()
+    intentLog.info("\(intent): phase \(before) -> \(store.currentPhase.rawValue)")
+}
 
 /// The Action Button's workout picker needs something to name; a sauna
 /// session has exactly one style.
@@ -60,43 +78,45 @@ struct StartSaunaWorkoutIntent: AppIntent, StartWorkoutIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult {
-        if let store = SessionStore.current, !store.isActive {
+        guard let store = SessionStore.current else {
+            intentLog.error("start: no live session store registered")
+            return .result()
+        }
+        if store.isActive {
+            // The button was pressed to move the session on, not to begin one.
+            advanceRunningSession(from: "start(already running)")
+        } else {
             await store.startSession()
+            intentLog.info("start: session started")
         }
         return .result()
     }
 }
 
-/// Action Button while a round is running: go into the rest phase.
 struct PauseSaunaWorkoutIntent: AppIntent, PauseWorkoutIntent {
-    static var title: LocalizedStringResource = "Start Rest Phase"
-    static var description = IntentDescription("Ends the current sauna round and starts the rest phase.")
+    static var title: LocalizedStringResource = "Switch Sauna Phase"
+    static var description = IntentDescription("Switches between the sauna round and the rest phase.")
     static var openAppWhenRun: Bool = false
 
     init() {}
 
     @MainActor
     func perform() async throws -> some IntentResult {
-        if let store = SessionStore.current, store.isActive, store.currentPhase == .sauna {
-            store.advancePhase()
-        }
+        advanceRunningSession(from: "pause")
         return .result()
     }
 }
 
-/// Action Button while resting: start the next round.
 struct ResumeSaunaWorkoutIntent: AppIntent, ResumeWorkoutIntent {
-    static var title: LocalizedStringResource = "Start Next Round"
-    static var description = IntentDescription("Ends the rest phase and starts the next sauna round.")
+    static var title: LocalizedStringResource = "Switch Sauna Phase"
+    static var description = IntentDescription("Switches between the sauna round and the rest phase.")
     static var openAppWhenRun: Bool = false
 
     init() {}
 
     @MainActor
     func perform() async throws -> some IntentResult {
-        if let store = SessionStore.current, store.isActive, store.currentPhase == .rest {
-            store.advancePhase()
-        }
+        advanceRunningSession(from: "resume")
         return .result()
     }
 }

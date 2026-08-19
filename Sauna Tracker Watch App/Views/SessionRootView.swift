@@ -35,6 +35,9 @@ struct SessionRootView: View {
             store.applySettings(newSettings)
         }
         .task {
+            // Registers the instance SwiftUI actually kept. Doing this from
+            // the store's init pointed App Intents at a discarded copy.
+            store.makeCurrent()
             store.applySettings(settings.settings)
         }
     }
