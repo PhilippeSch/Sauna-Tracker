@@ -24,12 +24,18 @@ final class SettingsStore {
     private let defaults: UserDefaults
     private let push: (AppSettings) -> Void
 
+    // `push` defaults inside the body rather than in the signature: a default
+    // argument is evaluated in a nonisolated context, and both
+    // WatchConnectivityService.shared and sendSettings are main-actor bound —
+    // an error under the Swift 6 language mode.
     init(
         defaults: UserDefaults = .standard,
-        push: @escaping (AppSettings) -> Void = { WatchConnectivityService.shared.sendSettings($0) }
+        push: ((AppSettings) -> Void)? = nil
     ) {
         self.defaults = defaults
-        self.push = push
+        self.push = push ?? { settings in
+            WatchConnectivityService.shared.sendSettings(settings)
+        }
         self.settings = Self.load(from: defaults) ?? .default
     }
 

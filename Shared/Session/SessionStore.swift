@@ -65,18 +65,18 @@ final class SessionStore {
     /// the running session without us standing up app-wide DI for it.
     static weak var current: SessionStore?
 
+    // The shared singletons are resolved inside the body rather than as
+    // default arguments: those are evaluated in a nonisolated context, where
+    // touching a main-actor property is an error under the Swift 6 language
+    // mode.
     init(
         recorder: SessionRecording,
-        connectivity: WatchConnectivityService = .shared,
+        connectivity: WatchConnectivityService? = nil,
         hapticScheduler: HapticScheduling,
-        // Not a default argument: default arguments are evaluated in a
-        // nonisolated context, and referencing a main-actor property there is
-        // an error under the Swift 6 language mode.
         bodyWeightProvider: BodyWeightProviding? = nil
     ) {
-        var recorder = recorder
         self.recorder = recorder
-        self.connectivity = connectivity
+        self.connectivity = connectivity ?? .shared
         self.hapticScheduler = hapticScheduler
         self.bodyWeightProvider = bodyWeightProvider ?? DefaultBodyWeightProvider.live
 

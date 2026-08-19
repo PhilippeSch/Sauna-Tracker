@@ -173,9 +173,11 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
         guard let workoutSession, workoutSession.state != .ended else { return }
         await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
             endStateContinuation = continuation
+            // The task inherits this type's main-actor isolation, so the
+            // resume call is already on the right actor and needs no await.
             Task { [weak self] in
                 try? await Task.sleep(for: .seconds(timeout))
-                await self?.resumeEndStateWait()
+                self?.resumeEndStateWait()
             }
         }
     }
