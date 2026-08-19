@@ -1,1129 +1,1140 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "BPM": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "BPM"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+
+    },
+    "BPM" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BPM"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "BPM"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BPM"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "BPM"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BPM"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "BPM"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BPM"
           }
         }
       }
     },
-    "Calories": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kalorien"
+    "Calories" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalorien"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calories"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calories"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kalorit"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalorit"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kalorier"
-          }
-        }
-      }
-    },
-    "Cancel": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abbrechen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Peruuta"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avbryt"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kalorier"
           }
         }
       }
     },
-    "Changes apply to the next session and sync to your iPhone.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Changes apply to the next session and sync to your iPhone."
+    "Cancel" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gilt ab der nächsten Sitzung und wird mit dem iPhone abgeglichen."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gäller från nästa pass och synkas med din iPhone."
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peruuta"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Voimassa seuraavasta istunnosta ja synkronoituu iPhoneen."
-          }
-        }
-      }
-    },
-    "Done": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fertig"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Done"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Valmis"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Klar"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avbryt"
           }
         }
       }
     },
-    "End Session": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sitzung beenden"
+    "Changes apply to the next session and sync to your iPhone." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gilt ab der nächsten Sitzung und wird mit dem iPhone abgeglichen."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "End Session"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changes apply to the next session and sync to your iPhone."
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lopeta istunto"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voimassa seuraavasta istunnosta ja synkronoituu iPhoneen."
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avsluta pass"
-          }
-        }
-      }
-    },
-    "End this sauna session?": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Diese Saunasitzung beenden?"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "End this sauna session?"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lopetetaanko tämä saunaistunto?"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avsluta detta bastupass?"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gäller från nästa pass och synkas med din iPhone."
           }
         }
       }
     },
-    "Every … min": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Every … min"
+    "control.end" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beenden"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alle … Min."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "End"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Var … min"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lopeta"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "… min välein"
-          }
-        }
-      }
-    },
-    "HRV": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "HRV"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "HRV"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "HRV"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "HRV"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avsluta"
           }
         }
       }
     },
-    "MAX": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MAX"
+    "control.lock" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sperre"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MAX"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lock"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MAKS"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lukko"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MAX"
-          }
-        }
-      }
-    },
-    "MET": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MET"
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MET"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MET"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "MET"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lås"
           }
         }
       }
     },
-    "Max Rounds": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Max Rounds"
+    "Done" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Max. Runden"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Max omgångar"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valmis"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kierroksia enint."
-          }
-        }
-      }
-    },
-    "Next Round": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nächste Runde"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Next Round"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seuraava kierros"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nästa omgång"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klar"
           }
         }
       }
     },
-    "Not saving to Health": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wird nicht in Health gespeichert"
+    "duration.hoursMinutes" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lldh %2$lldm"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Not saving to Health"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lldh %2$lldm"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ei tallenneta Terveyteen"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lldh %2$lldmin"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sparas inte i Hälsa"
-          }
-        }
-      }
-    },
-    "Resp. Rate": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Atemfreq."
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Resp. Rate"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hengitystaajuus"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Andningsfrekv."
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lldh %2$lldm"
           }
         }
       }
     },
-    "Rest": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ruhepause"
+    "duration.minutes" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Min."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rest"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tauko"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vila"
-          }
-        }
-      }
-    },
-    "Round %@ of %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Round %1$@ of %2$@"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld min"
           }
         }
       }
     },
-    "Round %lld of %lld": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Runde %1$lld von %2$lld"
+    "duration.seconds" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld s"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Round %1$lld of %2$lld"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld s"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kierros %1$lld/%2$lld"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld s"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Omgång %1$lld av %2$lld"
-          }
-        }
-      }
-    },
-    "Rounds": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Runden"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rounds"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kierrokset"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Omgångar"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld s"
           }
         }
       }
     },
-    "Sauna Time": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saunazeit"
+    "End Session" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sitzung beenden"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna Time"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "End Session"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna-aika"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lopeta istunto"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bastutid"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avsluta pass"
           }
         }
       }
     },
-    "Sauna Tracker": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna Tracker"
+    "End this sauna session?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Saunasitzung beenden?"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna Tracker"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "End this sauna session?"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna Tracker"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lopetetaanko tämä saunaistunto?"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna Tracker"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avsluta detta bastupass?"
           }
         }
       }
     },
-    "Saving…": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Speichern…"
+    "error.notRecorded" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht in Health gespeichert"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saving…"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not saved to Health"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tallennetaan…"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ei tallennettu Terveyteen"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sparar…"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sparades inte i Hälsa"
           }
         }
       }
     },
-    "Session Saved": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sitzung gespeichert"
+    "error.saveFailed" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konnte nicht in Health gespeichert werden"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Session Saved"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not save to Health"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Istunto tallennettu"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tallennus Terveyteen epäonnistui"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Passet sparat"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunde inte sparas i Hälsa"
           }
         }
       }
     },
-    "Settings": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
+    "Every … min" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle … Min."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einstellungen"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every … min"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inställningar"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "… min välein"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Asetukset"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Var … min"
           }
         }
       }
     },
-    "SpO2": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SpO2"
+    "HRV" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HRV"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SpO2"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HRV"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SpO2"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HRV"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SpO2"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HRV"
           }
         }
       }
     },
-    "Start Sauna": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna starten"
+    "MAX" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MAX"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start Sauna"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MAX"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aloita sauna"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MAKS"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Starta bastu"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MAX"
           }
         }
       }
     },
-    "Swipe to finish": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Swipe to finish"
+    "Max Rounds" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max. Runden"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zum Beenden wischen"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max Rounds"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Svep för att avsluta"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kierroksia enint."
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pyyhkäise lopettaaksesi"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max omgångar"
           }
         }
       }
     },
-    "Total": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total"
+    "MET" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MET"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gesamt"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MET"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Totalt"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MET"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yhteensä"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MET"
           }
         }
       }
     },
-    "Vibration": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vibration"
+    "Next Round" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächste Runde"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vibration"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next Round"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vibration"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seuraava kierros"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Värinä"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nästa omgång"
           }
         }
       }
     },
-    "Water Lock": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wassersperre"
+    "Not saving to Health" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wird nicht in Health gespeichert"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Water Lock"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not saving to Health"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vesilukko"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ei tallenneta Terveyteen"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vattenlås"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sparas inte i Hälsa"
           }
         }
       }
     },
-    "Wrist Temp": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Handgelenktemp."
+    "phase.rest" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pause"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wrist Temp"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ranteen lämpötila"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tauko"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Handledstemp."
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vila"
           }
         }
       }
     },
-    "control.end": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "End"
+    "phase.sauna" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Beenden"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avsluta"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lopeta"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastu"
           }
         }
       }
     },
-    "control.lock": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lock"
+    "Resp. Rate" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atemfreq."
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sperre"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resp. Rate"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lås"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hengitystaajuus"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lukko"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andningsfrekv."
           }
         }
       }
     },
-    "duration.hoursMinutes": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lldh %2$lldm"
+    "Rest" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ruhepause"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lldh %2$lldm"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rest"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lldh %2$lldmin"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tauko"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lldh %2$lldm"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vila"
           }
         }
       }
     },
-    "duration.minutes": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld Min."
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld min"
-          }
-        },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld min"
-          }
-        },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld min"
+    "Round %@ of %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Round %1$@ of %2$@"
           }
         }
       }
     },
-    "duration.seconds": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld s"
+    "Round %lld of %lld" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Runde %1$lld von %2$lld"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld s"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Round %1$lld of %2$lld"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld s"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kierros %1$lld/%2$lld"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld s"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omgång %1$lld av %2$lld"
           }
         }
       }
     },
-    "error.notRecorded": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nicht in Health gespeichert"
+    "Rounds" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Runden"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Not saved to Health"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rounds"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ei tallennettu Terveyteen"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kierrokset"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sparades inte i Hälsa"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omgångar"
           }
         }
       }
     },
-    "error.saveFailed": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Konnte nicht in Health gespeichert werden"
+    "Sauna Time" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saunazeit"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Could not save to Health"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Time"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tallennus Terveyteen epäonnistui"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna-aika"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kunde inte sparas i Hälsa"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastutid"
           }
         }
       }
     },
-    "phase.rest": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pause"
+    "Sauna Tracker" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Tracker"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rest"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Tracker"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tauko"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Tracker"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vila"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Tracker"
           }
         }
       }
     },
-    "phase.sauna": {
-      "extractionState": "stale",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna"
+    "Saving…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern…"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saving…"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauna"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tallennetaan…"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bastu"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sparar…"
+          }
+        }
+      }
+    },
+    "Session Saved" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sitzung gespeichert"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Session Saved"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Istunto tallennettu"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passet sparat"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asetukset"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inställningar"
+          }
+        }
+      }
+    },
+    "SpO2" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SpO2"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SpO2"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SpO2"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SpO2"
+          }
+        }
+      }
+    },
+    "Start Sauna" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna starten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Sauna"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aloita sauna"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starta bastu"
+          }
+        }
+      }
+    },
+    "Swipe to finish" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zum Beenden wischen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swipe to finish"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pyyhkäise lopettaaksesi"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Svep för att avsluta"
+          }
+        }
+      }
+    },
+    "Total" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamt"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yhteensä"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Totalt"
+          }
+        }
+      }
+    },
+    "Vibration" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vibration"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vibration"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Värinä"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vibration"
+          }
+        }
+      }
+    },
+    "Water Lock" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wassersperre"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Water Lock"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vesilukko"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vattenlås"
+          }
+        }
+      }
+    },
+    "Wrist Temp" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Handgelenktemp."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrist Temp"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ranteen lämpötila"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Handledstemp."
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }
