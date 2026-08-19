@@ -7,11 +7,13 @@
 //
 
 import SwiftUI
-import WatchKit
 
 struct SessionControlsView: View {
     @Bindable var store: SessionStore
     var onEndRequested: () -> Void
+    /// Engaging Water Lock is the pager's job: it has to switch back to the
+    /// metrics page first, because the touchscreen stops responding after.
+    var onWaterLockRequested: () -> Void
 
     var body: some View {
         ScrollView {
@@ -28,10 +30,9 @@ struct SessionControlsView: View {
                         titleKey: "control.lock",
                         symbol: "drop.fill",
                         tint: .blue,
-                        prominent: false
-                    ) {
-                        WKInterfaceDevice.current().enableWaterLock()
-                    }
+                        prominent: false,
+                        action: onWaterLockRequested
+                    )
                 }
 
                 summary

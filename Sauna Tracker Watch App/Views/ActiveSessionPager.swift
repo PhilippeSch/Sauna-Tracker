@@ -8,12 +8,16 @@
 //
 
 import SwiftUI
+import WatchKit
 
 struct ActiveSessionPager: View {
+    /// The metrics page — the one worth being locked onto during a round.
+    private static let metricsPage = 0
+
     @Environment(\.isLuminanceReduced) private var isLuminanceReduced
     @Bindable var store: SessionStore
 
-    @State private var selection = 0
+    @State private var selection = ActiveSessionPager.metricsPage
     @State private var showingEndConfirmation = false
 
     var body: some View {
@@ -24,8 +28,18 @@ struct ActiveSessionPager: View {
                 TabView(selection: $selection) {
                     ActiveSessionView(store: store)
                         .tag(0)
-                    SessionControlsView(store: store) { showingEndConfirmation = true }
-                        .tag(1)
+                    SessionControlsView(
+                        store: store,
+                        onEndRequested: { showingEndConfirmation = true },
+                        // Water Lock kills the touchscreen, so the page has to
+                        // change before it is engaged — otherwise you are stuck
+                        // staring at the controls for the rest of the round.
+                        onWaterLockRequested: {
+                            selection = Self.metricsPage
+                            WKInterfaceDevice.current().enableWaterLock()
+                        }
+                    )
+                    .tag(1)
                 }
                 .tabViewStyle(.page)
             }
