@@ -21,14 +21,20 @@ enum DurationFormatter {
         return componentsFormatter.string(from: clamped) ?? "0:00"
     }
 
-    /// "42 min" / "1h 12m" for summary contexts (history list, stats).
+    /// Compact form for lists and stats. Sub-minute sessions report seconds
+    /// rather than collapsing to a meaningless "0 min".
     static func abbreviated(_ duration: TimeInterval) -> String {
-        let minutes = Int(duration / 60)
+        let seconds = Int(max(0, duration).rounded())
+        if seconds < 60 {
+            return String(localized: "duration.seconds", defaultValue: "\(seconds) s")
+        }
+        let minutes = seconds / 60
         if minutes < 60 {
             return String(localized: "duration.minutes", defaultValue: "\(minutes) min")
         }
-        let hours = minutes / 60
-        let remainder = minutes % 60
-        return String(localized: "duration.hoursMinutes", defaultValue: "\(hours)h \(remainder)m")
+        return String(
+            localized: "duration.hoursMinutes",
+            defaultValue: "\(minutes / 60)h \(minutes % 60)m"
+        )
     }
 }

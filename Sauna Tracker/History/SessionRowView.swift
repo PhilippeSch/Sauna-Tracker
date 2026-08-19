@@ -13,15 +13,20 @@ struct SessionRowView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(session.startDate, format: .dateTime.weekday(.wide).month().day())
                     .font(.headline)
-                Text(session.startDate, format: .dateTime.hour().minute())
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                HStack(spacing: 6) {
+                    Text(session.startDate, format: .dateTime.hour().minute())
+                    if let notes = session.notes, !notes.isEmpty {
+                        Image(systemName: "note.text")
+                    }
+                }
+                .font(.caption)
+                .foregroundStyle(.secondary)
             }
 
             Spacer()
 
             VStack(alignment: .trailing, spacing: 4) {
-                Text("\(session.roundCount) rounds")
+                Text("^[\(session.roundCount) round](inflect: true)")
                     .font(.subheadline)
                 HStack(spacing: 8) {
                     Label(DurationFormatter.abbreviated(session.totalSaunaDuration), systemImage: "flame")
