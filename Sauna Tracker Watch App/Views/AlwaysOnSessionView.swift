@@ -4,7 +4,14 @@
 //
 //  What stays on screen when the wrist is down. Deliberately only three
 //  things — phase, elapsed time and pulse — in a dim, low-power palette.
-//  The heart rate shown here is the last value the system delivered; watchOS
+//
+//  The elapsed time is rendered from a TimelineView rather than
+//  Text(timerInterval:): watchOS drops the seconds from a timer text once the
+//  luminance is reduced, which showed up as "5:–". A running HKWorkoutSession
+//  earns the app a faster Always-On cadence than the once-a-minute default,
+//  so driving the label ourselves keeps the seconds visible.
+//
+//  The heart rate here is the last value the system delivered; watchOS
 //  throttles sensor updates in this state, so it can lag the live screen.
 //
 
@@ -13,11 +20,6 @@ import SwiftUI
 struct AlwaysOnSessionView: View {
     @Bindable var store: SessionStore
 
-    // Must outlast any plausible phase; the timer freezes at the range end.
-    private var phaseEndBound: Date {
-        store.phaseStartDate.addingTimeInterval(SaunaPhase.maxDisplayedPhaseDuration)
-    }
-
     var body: some View {
         VStack(spacing: 6) {
             Text(store.currentPhase.displayName.uppercased())
@@ -25,12 +27,14 @@ struct AlwaysOnSessionView: View {
                 .tracking(1.5)
                 .foregroundStyle(store.currentPhase.tintColor)
 
-            Text(timerInterval: store.phaseStartDate...phaseEndBound, countsDown: false)
-                .font(.system(size: 38, weight: .semibold, design: .rounded))
-                .monospacedDigit()
-                .minimumScaleFactor(0.5)
-                .lineLimit(1)
-                .foregroundStyle(.white)
+            TimelineView(.periodic(from: store.phaseStartDate, by: 1)) { context in
+                Text(DurationFormatter.clock(context.date.timeIntervalSince(store.phaseStartDate)))
+                    .font(.system(size: 38, weight: .semibold, design: .rounded))
+                    .monospacedDigit()
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+                    .foregroundStyle(.white)
+            }
 
             HStack(spacing: 5) {
                 Image(systemName: "heart.fill")

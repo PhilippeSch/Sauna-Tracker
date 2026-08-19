@@ -44,10 +44,10 @@ struct ActiveSessionPager: View {
                 .tabViewStyle(.page)
             }
         }
-        // Only in Always-On, where the title sits quietly top-left. On the
-        // live screen it crowded the timer without adding anything the
-        // phase-coloured timer doesn't already say.
-        .navigationTitle(isLuminanceReduced ? store.currentPhase.displayName : "")
+        // No navigation title on either screen: the live one is carried by the
+        // phase-coloured timer, and in Always-On the coloured label in the
+        // middle already names the phase — a title there just said it twice.
+        .navigationTitle("")
         .confirmationDialog(
             "End this sauna session?",
             isPresented: $showingEndConfirmation,
