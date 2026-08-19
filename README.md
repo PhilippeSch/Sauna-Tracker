@@ -31,26 +31,34 @@ sauna — with a rest phase between them.
 
 ## Action button
 
-An app cannot claim the Action button on its own. watchOS drives it through
-the system workout intents, so Sauna Tracker adopts them and maps them onto
-its phases:
+An app cannot claim the Action button on its own. watchOS drives it as a
+*chain*: whatever an intent returns from `perform()` becomes the thing the
+next press runs. Sauna Tracker adopts the system workout intents and maps
+them onto its phases:
 
-| System intent | In a sauna session |
-|---|---|
-| `StartWorkoutIntent` | Starts a session and its first round |
-| `PauseWorkoutIntent` | Switches to the rest phase |
-| `ResumeWorkoutIntent` | Starts the next sauna round |
+| Press | Intent | Effect |
+|---|---|---|
+| 1 | `StartWorkoutIntent` | Starts the session and its first round |
+| 2 | `PauseWorkoutIntent` | Switches to the rest phase |
+| 3 | `ResumeWorkoutIntent` | Starts the next sauna round |
+| … | | alternating from there |
 
-That makes the button toggle sauna and rest during a session, the same as the
-primary on-screen button.
+Two things have to be true for it to work.
 
-It has to be pointed at the app once, otherwise the press goes to whatever it
-is currently assigned to — by default the built-in Workout app:
+**Point the button at the app, once.** Otherwise the press goes wherever it is
+currently assigned — by default the built-in Workout app:
 
 **Settings → Action Button → Action: Workout → App: Sauna Tracker**
 
-Alternatively set **Action: Shortcut** and pick *Toggle Phase*, which runs the
-same phase switch through the Shortcuts app.
+**Start the session with the button.** The chain is bootstrapped by
+`StartWorkoutIntent`, so a session started with the on-screen button leaves the
+Action button unarmed — nothing ever returned the intent for the next press to
+run. That is how the mechanism works rather than something the app can route
+around: there is no API to arm the button from outside an intent's result.
+
+If you would rather start sessions on screen, set **Action: Shortcut** and pick
+*Toggle Phase* instead. That runs the same phase switch through the Shortcuts
+app and does not depend on the chain.
 
 ## Where the data lives
 

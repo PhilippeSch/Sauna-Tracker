@@ -2,17 +2,27 @@
 //  WorkoutIntents.swift
 //  Sauna Tracker Watch App
 //
-//  What makes the Action Button on Apple Watch Ultra usable for a sauna
-//  session. The button's "Workout" action is not something an app can grab
-//  directly: watchOS drives it through the system workout intents, and an app
-//  becomes selectable for it by adopting them.
+//  Action button support on Apple Watch Ultra.
 //
-//  Pause and Resume both simply advance the phase. The tidier mapping would
-//  be Pause -> Rest and Resume -> Sauna, but the system decides which of the
-//  two to send from the HKWorkoutSession's own state, and we deliberately
-//  never pause that session — pausing would stop heart rate collection, and
-//  we record pulse through the rest phase too. So the app cannot rely on the
-//  two alternating, and each press just toggles.
+//  The button is not something an app polls or claims. watchOS drives it as a
+//  *chain*: whatever an intent returns from `perform()` via
+//  `.result(actionButtonIntent:)` becomes the thing the next press runs. The
+//  chain is bootstrapped by StartWorkoutIntent, so it only exists once the
+//  session was started by the button:
+//
+//      press 1  StartSaunaWorkoutIntent   -> starts the session,
+//                                            arms Pause
+//      press 2  PauseSaunaWorkoutIntent   -> switches to Rest, arms Resume
+//      press 3  ResumeSaunaWorkoutIntent  -> starts the next round, arms Pause
+//      ...
+//
+//  Consequence worth knowing: starting a session with the on-screen button
+//  leaves the Action button unarmed, because nothing ever returned an
+//  `actionButtonIntent`. That is the mechanism, not a bug in the app — see the
+//  Action button section of the README.
+//
+//  Every perform() therefore returns `.result(actionButtonIntent:)` rather
+//  than `.result()`, or the chain would end after one press.
 //
 
 import AppIntents
@@ -21,9 +31,18 @@ import os
 
 private let intentLog = Logger(subsystem: "Scheuber.Sauna-Tracker", category: "Intents")
 
+/// Set when a start arrives before the UI has registered its store, so the
+/// session can still begin once the app finishes launching.
+enum PendingSessionStart {
+    private static let key = "saunaTracker.pendingStart"
+
+    static var isRequested: Bool {
+        get { UserDefaults.standard.bool(forKey: key) }
+        set { UserDefaults.standard.set(newValue, forKey: key) }
+    }
+}
+
 /// Advances the phase of the running session, if there is one.
-/// Returns what happened so the intents can log it — an Action Button press
-/// that does nothing is otherwise invisible from the outside.
 @MainActor
 private func advanceRunningSession(from intent: String) {
     guard let store = SessionStore.current else {
@@ -43,7 +62,7 @@ private func advanceRunningSession(from intent: String) {
     IntentDiagnostics.record(intent, outcome)
 }
 
-/// The Action Button's workout picker needs something to name; a sauna
+/// The Action button's workout picker needs something to name; a sauna
 /// session has exactly one style.
 enum SaunaWorkoutStyle: String, AppEnum {
     case sauna
@@ -60,6 +79,9 @@ enum SaunaWorkoutStyle: String, AppEnum {
 struct StartSaunaWorkoutIntent: AppIntent, StartWorkoutIntent {
     static var title: LocalizedStringResource = "Start Sauna Session"
     static var description = IntentDescription("Starts a sauna session and its first round.")
+
+    /// Brings the app up, so the session it just started is on screen.
+    static var openAppWhenRun: Bool { true }
 
     @Parameter(title: "Type")
     var workoutStyle: SaunaWorkoutStyle
@@ -83,27 +105,31 @@ struct StartSaunaWorkoutIntent: AppIntent, StartWorkoutIntent {
     @MainActor
     func perform() async throws -> some IntentResult {
         IntentDiagnostics.record("start", "invoked")
-        guard let store = SessionStore.current else {
-            intentLog.error("start: no live session store registered")
-            IntentDiagnostics.record("start", "no store")
-            return .result()
-        }
-        if store.isActive {
-            // The button was pressed to move the session on, not to begin one.
-            advanceRunningSession(from: "start(already running)")
+
+        if let store = SessionStore.current {
+            if store.isActive {
+                advanceRunningSession(from: "start(already running)")
+            } else {
+                await store.startSession()
+                IntentDiagnostics.record("start", "session started")
+            }
         } else {
-            await store.startSession()
-            intentLog.info("start: session started")
-            IntentDiagnostics.record("start", "session started")
+            // Launched by the button: the UI has not come up to register a
+            // store yet, so leave a note for it to start on appearance.
+            PendingSessionStart.isRequested = true
+            IntentDiagnostics.record("start", "queued until app is up")
         }
-        return .result()
+
+        // Arms the next press regardless — the chain must not depend on
+        // whether the store happened to exist yet.
+        return .result(actionButtonIntent: PauseSaunaWorkoutIntent())
     }
 }
 
 struct PauseSaunaWorkoutIntent: AppIntent, PauseWorkoutIntent {
-    static var title: LocalizedStringResource = "Switch Sauna Phase"
-    static var description = IntentDescription("Switches between the sauna round and the rest phase.")
-    static var openAppWhenRun: Bool = false
+    static var title: LocalizedStringResource = "Start Rest Phase"
+    static var description = IntentDescription("Ends the current sauna round and starts the rest phase.")
+    static var openAppWhenRun: Bool { false }
 
     init() {}
 
@@ -111,14 +137,14 @@ struct PauseSaunaWorkoutIntent: AppIntent, PauseWorkoutIntent {
     func perform() async throws -> some IntentResult {
         IntentDiagnostics.record("pause", "invoked")
         advanceRunningSession(from: "pause")
-        return .result()
+        return .result(actionButtonIntent: ResumeSaunaWorkoutIntent())
     }
 }
 
 struct ResumeSaunaWorkoutIntent: AppIntent, ResumeWorkoutIntent {
-    static var title: LocalizedStringResource = "Switch Sauna Phase"
-    static var description = IntentDescription("Switches between the sauna round and the rest phase.")
-    static var openAppWhenRun: Bool = false
+    static var title: LocalizedStringResource = "Start Next Round"
+    static var description = IntentDescription("Ends the rest phase and starts the next sauna round.")
+    static var openAppWhenRun: Bool { false }
 
     init() {}
 
@@ -126,6 +152,6 @@ struct ResumeSaunaWorkoutIntent: AppIntent, ResumeWorkoutIntent {
     func perform() async throws -> some IntentResult {
         IntentDiagnostics.record("resume", "invoked")
         advanceRunningSession(from: "resume")
-        return .result()
+        return .result(actionButtonIntent: PauseSaunaWorkoutIntent())
     }
 }

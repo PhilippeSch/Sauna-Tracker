@@ -4,6 +4,9 @@
     "%@" : {
 
     },
+    "Action Button" : {
+
+    },
     "BPM" : {
       "localizations" : {
         "de" : {
@@ -579,6 +582,9 @@
           }
         }
       }
+    },
+    "No intent has run yet. Press the Action button, then come back to this page." : {
+
     },
     "Not saving to Health" : {
       "extractionState" : "stale",
