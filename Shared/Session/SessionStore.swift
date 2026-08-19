@@ -69,13 +69,16 @@ final class SessionStore {
         recorder: SessionRecording,
         connectivity: WatchConnectivityService = .shared,
         hapticScheduler: HapticScheduling,
-        bodyWeightProvider: @escaping BodyWeightProviding = DefaultBodyWeightProvider.live
+        // Not a default argument: default arguments are evaluated in a
+        // nonisolated context, and referencing a main-actor property there is
+        // an error under the Swift 6 language mode.
+        bodyWeightProvider: BodyWeightProviding? = nil
     ) {
         var recorder = recorder
         self.recorder = recorder
         self.connectivity = connectivity
         self.hapticScheduler = hapticScheduler
-        self.bodyWeightProvider = bodyWeightProvider
+        self.bodyWeightProvider = bodyWeightProvider ?? DefaultBodyWeightProvider.live
 
         recorder.onHeartRateUpdate = { [weak self] bpm in
             self?.updateLiveHeartRate(bpm)
