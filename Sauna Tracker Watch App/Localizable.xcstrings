@@ -4,6 +4,34 @@
     "%@" : {
 
     },
+    "Action Button" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktionstaste"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Action Button"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toimintopainike"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funktionsknapp"
+          }
+        }
+      }
+    },
     "BPM" : {
       "localizations" : {
         "de" : {
@@ -350,6 +378,35 @@
         }
       }
     },
+    "Ends the current sauna round or rest phase and starts the other one." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beendet die laufende Sauna-Runde oder Pause und startet die jeweils andere."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ends the current sauna round or rest phase and starts the other one."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Päättää nykyisen saunakierroksen tai tauon ja aloittaa toisen."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avslutar den pågående bastuomgången eller vilan och startar den andra."
+          }
+        }
+      }
+    },
     "error.notRecorded" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -408,6 +465,34 @@
         }
       }
     },
+    "Every press during a session then switches phase — Water Lock and all." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danach wechselt jeder Druck während einer Sitzung die Phase — auch mit Wassersperre."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every press during a session then switches phase — Water Lock and all."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen jälkeen jokainen painallus istunnon aikana vaihtaa vaihetta — myös vesilukon ollessa päällä."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sedan växlar varje tryck under ett pass fas — även med vattenlås på."
+          }
+        }
+      }
+    },
     "Every … min" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -433,6 +518,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Var … min"
+          }
+        }
+      }
+    },
+    "Got it" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verstanden"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Got it"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selvä"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uppfattat"
           }
         }
       }
@@ -667,6 +781,34 @@
         }
       }
     },
+    "Point it here once:" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einmalig hierher richten:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Point it here once:"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Osoita se tänne kerran:"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peka den hit en gång:"
+          }
+        }
+      }
+    },
     "Resp. Rate" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -789,6 +931,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Omgångar"
+          }
+        }
+      }
+    },
+    "Sauna Session" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna-Sitzung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Session"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saunaistunto"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastupass"
           }
         }
       }
@@ -934,6 +1105,34 @@
         }
       }
     },
+    "Settings → Action Button → Action: Workout → App: Sauna Tracker" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen → Aktionstaste → Aktion: Training → App: Sauna Tracker"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings → Action Button → Action: Workout → App: Sauna Tracker"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asetukset → Toimintopainike → Toiminto: Treeni → Appi: Sauna Tracker"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inställningar → Funktionsknapp → Åtgärd: Träning → App: Sauna Tracker"
+          }
+        }
+      }
+    },
     "SpO2" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -991,6 +1190,64 @@
         }
       }
     },
+    "Start Sauna Session" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna-Sitzung starten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Sauna Session"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aloita saunaistunto"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starta bastupass"
+          }
+        }
+      }
+    },
+    "Starts a sauna session and its first round." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startet eine Sauna-Sitzung und ihre erste Runde."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starts a sauna session and its first round."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aloittaa saunaistunnon ja sen ensimmäisen kierroksen."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startar ett bastupass och dess första omgång."
+          }
+        }
+      }
+    },
     "Swipe to finish" : {
       "localizations" : {
         "de" : {
@@ -1015,6 +1272,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Svep för att avsluta"
+          }
+        }
+      }
+    },
+    "Switch Phase" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phase wechseln"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switch Phase"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaihda vaihe"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Växla fas"
           }
         }
       }
@@ -1044,6 +1329,63 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Totalt"
+          }
+        }
+      }
+    },
+    "Type" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typ"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tyyppi"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typ"
+          }
+        }
+      }
+    },
+    "Version %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versio %@"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@"
           }
         }
       }
@@ -1131,6 +1473,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Handledstemp."
+          }
+        }
+      }
+    },
+    "Your Ultra's Action button can switch between sauna and rest." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Aktionstaste deiner Ultra kann zwischen Sauna und Pause wechseln."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Ultra's Action button can switch between sauna and rest."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ultran toimintopainike voi vaihtaa saunan ja tauon välillä."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funktionsknappen på din Ultra kan växla mellan bastu och vila."
           }
         }
       }

@@ -60,6 +60,22 @@ final class SessionStore {
     private var sessionID = UUID()
     private var sessionStartDate: Date?
 
+    /// Weak reference to whichever instance is currently live, so the Action
+    /// button intents (a separate, short-lived execution) can reach the
+    /// running session without standing up app-wide DI for it.
+    ///
+    /// Registered explicitly by whoever owns the live store, never from
+    /// `init`: SwiftUI re-evaluates a `@State` default-value expression on
+    /// every view-struct initialisation and keeps only the first instance, so
+    /// an `init` side effect here pointed this at a discarded store — and,
+    /// being weak, it then went nil. App Intents found nothing to act on.
+    static weak var current: SessionStore?
+
+    /// Marks this instance as the one App Intents should drive.
+    func makeCurrent() {
+        Self.current = self
+    }
+
     // The shared singletons are resolved inside the body rather than as
     // default arguments: those are evaluated in a nonisolated context, where
     // touching a main-actor property is an error under the Swift 6 language

@@ -77,6 +77,12 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
             try await beginCollection(builder, start: startDate)
             isRecording = true
             Self.log.info("Workout session started, collecting: \(dataSource.typesToCollect.map(\.identifier).joined(separator: ", "))")
+
+            // The Action button only runs a "next action" while a workout
+            // session is live, and it has to be donated from wherever the
+            // session actually starts — here — so that a session started with
+            // the on-screen button arms the button just the same.
+            await ActionButton.armPhaseToggle()
         } catch {
             isRecording = false
             workoutSession = nil

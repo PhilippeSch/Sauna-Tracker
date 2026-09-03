@@ -6,11 +6,17 @@
 import SwiftUI
 
 struct SessionRootView: View {
-    @State private var store = SessionStore(
-        recorder: HealthKitSessionRecorder(),
-        hapticScheduler: HapticScheduler()
-    )
+    @Bindable var store: SessionStore
     private var settings = SettingsStore.shared
+
+    /// The Action button has to be pointed at this app in Settings, which is
+    /// worth saying once on the models that have one.
+    @AppStorage("saunaTracker.hasSeenActionButtonInfo") private var hasSeenActionButtonInfo = false
+    @State private var showingActionButtonInfo = false
+
+    init(store: SessionStore) {
+        self.store = store
+    }
 
     var body: some View {
         NavigationStack {
@@ -34,8 +40,28 @@ struct SessionRootView: View {
         .onChange(of: settings.settings) { _, newSettings in
             store.applySettings(newSettings)
         }
+        .sheet(isPresented: $showingActionButtonInfo) {
+            // Also covers a swipe-down dismissal, so it never comes back.
+            hasSeenActionButtonInfo = true
+        } content: {
+            ActionButtonInfoView { showingActionButtonInfo = false }
+        }
         .task {
+            // Re-asserts the registration made at launch, against the instance
+            // the UI actually kept.
+            store.makeCurrent()
             store.applySettings(settings.settings)
+
+            // The Action button can start a session before there is a store to
+            // act on; finish that start now that there is one.
+            if PendingSessionStart.isRequested {
+                PendingSessionStart.isRequested = false
+                if !store.isActive {
+                    await store.startSession()
+                }
+            }
+
+            showingActionButtonInfo = !hasSeenActionButtonInfo && WatchHardware.hasActionButton
         }
     }
 }
