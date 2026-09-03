@@ -51,6 +51,12 @@ struct WatchSettingsView: View {
                     .font(.system(size: 11))
                     .foregroundStyle(.secondary)
                     .padding(.top, 2)
+
+                Text("Version \(AppVersion.displayString)")
+                    .font(.system(size: 10))
+                    .foregroundStyle(.tertiary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top, 6)
             }
             .padding(.horizontal, 4)
         }

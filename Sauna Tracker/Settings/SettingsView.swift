@@ -112,6 +112,13 @@ struct SettingsView: View {
                         }
                     }
                 }
+
+                Section {
+                } footer: {
+                    Text("Version \(AppVersion.displayString)")
+                        .font(.footnote)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
             }
             .navigationTitle("Settings")
             .onAppear {
