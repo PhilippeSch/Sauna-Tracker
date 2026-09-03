@@ -68,8 +68,11 @@ enum WorkoutHistoryStore {
         let kcal = workout.statistics(for: HealthKitTypes.activeEnergy)?
             .sumQuantity()?.doubleValue(for: .kilocalorie())
 
+        // The workout UUID is the session's identity, not a fresh one per
+        // fetch: SwiftUI diffs the history list by it, and random ids made
+        // every reload look like a full replacement — the rows visibly jumped.
         return SaunaSession(
-            id: UUID(),
+            id: workout.uuid,
             startDate: workout.startDate,
             endDate: workout.endDate,
             intervals: payload.intervals,

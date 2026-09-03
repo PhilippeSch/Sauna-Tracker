@@ -87,10 +87,21 @@ struct HistoryListView: View {
 
     private func delete(_ session: SaunaSession) async {
         pendingDeletion = nil
+
+        // Take the row out right away. Waiting for the HealthKit round-trip
+        // first left the swiped-open row sitting under the dismissed dialog,
+        // and it then vanished unanimated once the reload came back.
+        let previousIndex = sessions.firstIndex { $0.id == session.id }
+        withAnimation { sessions.removeAll { $0.id == session.id } }
+
         do {
             try await WorkoutHistoryStore.delete(session)
             await loadSessions()
         } catch {
+            // Deletion failed, so put the row back where it was before saying so.
+            if let previousIndex, previousIndex <= sessions.count {
+                withAnimation { sessions.insert(session, at: previousIndex) }
+            }
             deletionError = error.localizedDescription
         }
     }
