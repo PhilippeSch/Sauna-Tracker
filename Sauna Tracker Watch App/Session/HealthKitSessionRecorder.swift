@@ -144,6 +144,25 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
         return workout.uuid
     }
 
+    /// Ends the live workout and throws the recording away. Nothing is
+    /// written to Health — used when the session was a false start and the
+    /// user asks for it to be deleted rather than saved.
+    func discard() async {
+        guard let session = workoutSession, let liveBuilder = builder else {
+            isRecording = false
+            return
+        }
+
+        session.end()
+        await waitForEndedState()
+        liveBuilder.discardWorkout()
+
+        workoutSession = nil
+        builder = nil
+        isRecording = false
+        Self.log.info("Workout discarded — nothing written to Health")
+    }
+
     /// One active-energy sample per Sauna round, so rest phases contribute
     /// nothing and the energy lines up with the time actually spent in heat.
     private func energySamples(

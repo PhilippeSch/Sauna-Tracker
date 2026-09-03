@@ -56,6 +56,12 @@ struct ActiveSessionPager: View {
             Button("End Session", role: .destructive) {
                 Task { await store.endSession() }
             }
+            // Deliberately the second entry, never the first: throwing a
+            // session away is the rare case, and it must not be the button
+            // that falls under a thumb aiming for the one that saves it.
+            Button("Delete Session", role: .destructive) {
+                Task { await store.discardSession() }
+            }
             Button("Cancel", role: .cancel) {}
         }
     }

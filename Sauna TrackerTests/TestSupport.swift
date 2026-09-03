@@ -74,6 +74,7 @@ final class FakeRecorder: SessionRecording {
 
     private(set) var startCallCount = 0
     private(set) var finishCallCount = 0
+    private(set) var discardCallCount = 0
     private(set) var lastFinishedSession: SaunaSession?
     private(set) var lastBodyWeightKg: Double?
     var stubbedUUID = UUID()
@@ -98,6 +99,11 @@ final class FakeRecorder: SessionRecording {
         lastBodyWeightKg = bodyWeightKg
         if let errorToThrow { throw errorToThrow }
         return stubbedUUID
+    }
+
+    func discard() async {
+        discardCallCount += 1
+        isRecording = false
     }
 
     /// Drives the heart-rate callback the way the live builder would.

@@ -198,6 +198,17 @@ final class SessionStore {
         stage = .summary(session)
     }
 
+    /// Ends the session and throws it away: the live workout is discarded, so
+    /// nothing lands in Health and there is no summary to acknowledge. The UI
+    /// returns to idle straight away — the discard itself is just cleanup.
+    func discardSession() async {
+        guard case .active = stage else { return }
+        hapticScheduler.stop()
+        reset()
+        sessionStartDate = nil
+        await recorder.discard()
+    }
+
     func reset() {
         stage = .idle
         currentPhase = .sauna

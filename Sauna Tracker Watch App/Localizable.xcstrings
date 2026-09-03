@@ -204,6 +204,35 @@
         }
       }
     },
+    "Delete Session" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sitzung löschen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Session"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poista istunto"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Radera pass"
+          }
+        }
+      }
+    },
     "Done" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -465,34 +494,6 @@
         }
       }
     },
-    "Every press during a session then switches phase — Water Lock and all." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Danach wechselt jeder Druck während einer Sitzung die Phase — auch mit Wassersperre."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Every press during a session then switches phase — Water Lock and all."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sen jälkeen jokainen painallus istunnon aikana vaihtaa vaihetta — myös vesilukon ollessa päällä."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sedan växlar varje tryck under ett pass fas — även med vattenlås på."
-          }
-        }
-      }
-    },
     "Every … min" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -518,6 +519,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Var … min"
+          }
+        }
+      }
+    },
+    "Every press during a session then switches phase — Water Lock and all." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danach wechselt jeder Druck während einer Sitzung die Phase — auch mit Wassersperre."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every press during a session then switches phase — Water Lock and all."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen jälkeen jokainen painallus istunnon aikana vaihtaa vaihetta — myös vesilukon ollessa päällä."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sedan växlar varje tryck under ett pass fas — även med vattenlås på."
           }
         }
       }
@@ -1277,6 +1306,7 @@
       }
     },
     "Switch Phase" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

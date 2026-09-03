@@ -235,6 +235,27 @@ struct SessionStoreTests {
         #expect(haptics.startCallCount == 0)
     }
 
+    @Test func discardingASessionSavesNothingAndReturnsToIdle() async {
+        let (store, recorder, haptics) = StoreFactory.make()
+        await store.startSession()
+        store.advancePhase()
+
+        await store.discardSession()
+
+        #expect(recorder.discardCallCount == 1)
+        #expect(recorder.finishCallCount == 0, "a discarded session must never reach HealthKit")
+        #expect(store.isActive == false)
+        #expect(store.roundCount == 0)
+        #expect(store.intervals.isEmpty)
+        #expect(haptics.stopCallCount >= 1)
+    }
+
+    @Test func discardingIsIgnoredWhenNoSessionIsRunning() async {
+        let (store, recorder, _) = StoreFactory.make()
+        await store.discardSession()
+        #expect(recorder.discardCallCount == 0)
+    }
+
     @Test func resetReturnsToIdleAndClearsLiveData() async {
         let (store, recorder, _) = StoreFactory.make()
         await store.startSession()

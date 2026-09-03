@@ -22,6 +22,8 @@ protocol SessionRecording: AnyObject {
         maxRoundsConfigured: Int,
         bodyWeightKg: Double
     ) async throws -> UUID
+    /// Ends the live workout and throws it away — nothing reaches Health.
+    func discard() async
 }
 
 @MainActor
