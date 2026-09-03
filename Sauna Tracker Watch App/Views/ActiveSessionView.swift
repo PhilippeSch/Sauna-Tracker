@@ -61,7 +61,11 @@ struct ActiveSessionView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 2)
-        .padding(.top, 6)
+        // Negative, on purpose: this screen has no title, so the band watchOS
+        // reserves above the safe area sits empty and pushed the whole block
+        // down. Reclaiming most of it lifts the timer without letting it run
+        // into the system clock; the button keeps its place at the bottom.
+        .padding(.top, -14)
     }
 
     private var roundIndicator: some View {
