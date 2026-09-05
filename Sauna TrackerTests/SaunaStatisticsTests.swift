@@ -5,7 +5,7 @@
 
 import Testing
 import Foundation
-@testable import Sauna_Tracker
+@testable import Sauna_Companion
 
 struct SaunaStatisticsTests {
     private let calendar = Fixture.utcCalendar

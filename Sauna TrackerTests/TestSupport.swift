@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import Sauna_Tracker
+@testable import Sauna_Companion
 
 enum Fixture {
     /// A fixed reference date so nothing depends on the wall clock.

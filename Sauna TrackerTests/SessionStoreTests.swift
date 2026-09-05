@@ -8,7 +8,7 @@
 
 import Testing
 import Foundation
-@testable import Sauna_Tracker
+@testable import Sauna_Companion
 
 @MainActor
 struct SessionStoreTests {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		49904C3E7872225D1EF38BA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DE1F1C27BF9FEA5E2E987B /* Foundation.framework */; };
-		C5C5114561EB36D14D92563C /* Sauna Tracker Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C5C5114561EB36D14D92563C /* Sauna Companion Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9C268C195810D52475BCBDFA /* Sauna Companion Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -17,21 +17,21 @@
 			containerPortal = 3717FB0230338F18009D8DB2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3717FB0930338F18009D8DB2;
-			remoteInfo = "Sauna Tracker";
+			remoteInfo = "Sauna Companion";
 		};
 		3717FB2430338F1A009D8DB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3717FB0230338F18009D8DB2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3717FB0930338F18009D8DB2;
-			remoteInfo = "Sauna Tracker";
+			remoteInfo = "Sauna Companion";
 		};
 		8DBA5849D1ADA9B0E18590CE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3717FB0230338F18009D8DB2 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 74DA4F4792B4045C8F6BA6D0;
-			remoteInfo = "Sauna Tracker Watch App";
+			remoteInfo = "Sauna Companion Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,21 +50,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3717FB0A30338F18009D8DB2 /* Sauna Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sauna Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3717FB0A30338F18009D8DB2 /* Sauna Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sauna Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3717FB1930338F1A009D8DB2 /* Sauna TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sauna TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3717FB2330338F1A009D8DB2 /* Sauna TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sauna TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DE1F1C27BF9FEA5E2E987B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		82A0D02A112A0D4656AD9EEE /* Version.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
-		9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sauna Tracker Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C268C195810D52475BCBDFA /* Sauna Companion Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sauna Companion Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F7F8E6A5F1D9EAF37033323C /* Exceptions for "Sauna Tracker Watch App" folder in "Sauna Tracker Watch App" target */ = {
+		F7F8E6A5F1D9EAF37033323C /* Exceptions for "Sauna Tracker Watch App" folder in "Sauna Companion Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 74DA4F4792B4045C8F6BA6D0 /* Sauna Tracker Watch App */;
+			target = 74DA4F4792B4045C8F6BA6D0 /* Sauna Companion Watch App */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -157,10 +157,10 @@
 		3717FB0B30338F18009D8DB2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3717FB0A30338F18009D8DB2 /* Sauna Tracker.app */,
+				3717FB0A30338F18009D8DB2 /* Sauna Companion.app */,
 				3717FB1930338F1A009D8DB2 /* Sauna TrackerTests.xctest */,
 				3717FB2330338F1A009D8DB2 /* Sauna TrackerUITests.xctest */,
-				9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */,
+				9C268C195810D52475BCBDFA /* Sauna Companion Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,9 +184,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3717FB0930338F18009D8DB2 /* Sauna Tracker */ = {
+		3717FB0930338F18009D8DB2 /* Sauna Companion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3717FB2D30338F1A009D8DB2 /* Build configuration list for PBXNativeTarget "Sauna Tracker" */;
+			buildConfigurationList = 3717FB2D30338F1A009D8DB2 /* Build configuration list for PBXNativeTarget "Sauna Companion" */;
 			buildPhases = (
 				3717FB0630338F18009D8DB2 /* Sources */,
 				3717FB0730338F18009D8DB2 /* Frameworks */,
@@ -202,9 +202,9 @@
 				3717FB0C30338F18009D8DB2 /* Sauna Tracker */,
 				704E324A58E4BD1CB49D2EBE /* Shared */,
 			);
-			name = "Sauna Tracker";
-			productName = "Sauna Tracker";
-			productReference = 3717FB0A30338F18009D8DB2 /* Sauna Tracker.app */;
+			name = "Sauna Companion";
+			productName = "Sauna Companion";
+			productReference = 3717FB0A30338F18009D8DB2 /* Sauna Companion.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3717FB1830338F1A009D8DB2 /* Sauna TrackerTests */ = {
@@ -249,9 +249,9 @@
 			productReference = 3717FB2330338F1A009D8DB2 /* Sauna TrackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		74DA4F4792B4045C8F6BA6D0 /* Sauna Tracker Watch App */ = {
+		74DA4F4792B4045C8F6BA6D0 /* Sauna Companion Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1CDE69A1A13856A71AD59437 /* Build configuration list for PBXNativeTarget "Sauna Tracker Watch App" */;
+			buildConfigurationList = 1CDE69A1A13856A71AD59437 /* Build configuration list for PBXNativeTarget "Sauna Companion Watch App" */;
 			buildPhases = (
 				9E64EDF8A629F96E6B60B668 /* Sources */,
 				933E15F6C4986857E406A3F0 /* Frameworks */,
@@ -266,9 +266,9 @@
 				0F43AC483EBD29BA8F086E9B /* Sauna Tracker Watch App */,
 				704E324A58E4BD1CB49D2EBE /* Shared */,
 			);
-			name = "Sauna Tracker Watch App";
-			productName = "Sauna Tracker Watch App";
-			productReference = 9C268C195810D52475BCBDFA /* Sauna Tracker Watch App.app */;
+			name = "Sauna Companion Watch App";
+			productName = "Sauna Companion Watch App";
+			productReference = 9C268C195810D52475BCBDFA /* Sauna Companion Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -311,10 +311,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3717FB0930338F18009D8DB2 /* Sauna Tracker */,
+				3717FB0930338F18009D8DB2 /* Sauna Companion */,
 				3717FB1830338F1A009D8DB2 /* Sauna TrackerTests */,
 				3717FB2230338F1A009D8DB2 /* Sauna TrackerUITests */,
-				74DA4F4792B4045C8F6BA6D0 /* Sauna Tracker Watch App */,
+				74DA4F4792B4045C8F6BA6D0 /* Sauna Companion Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -406,18 +406,18 @@
 /* Begin PBXTargetDependency section */
 		3717FB1B30338F1A009D8DB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3717FB0930338F18009D8DB2 /* Sauna Tracker */;
+			target = 3717FB0930338F18009D8DB2 /* Sauna Companion */;
 			targetProxy = 3717FB1A30338F1A009D8DB2 /* PBXContainerItemProxy */;
 		};
 		3717FB2530338F1A009D8DB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3717FB0930338F18009D8DB2 /* Sauna Tracker */;
+			target = 3717FB0930338F18009D8DB2 /* Sauna Companion */;
 			targetProxy = 3717FB2430338F1A009D8DB2 /* PBXContainerItemProxy */;
 		};
 		71F9A2F69963ACE65BBCA3DA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Sauna Tracker Watch App";
-			target = 74DA4F4792B4045C8F6BA6D0 /* Sauna Tracker Watch App */;
+			name = "Sauna Companion Watch App";
+			target = 74DA4F4792B4045C8F6BA6D0 /* Sauna Companion Watch App */;
 			targetProxy = 8DBA5849D1ADA9B0E18590CE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -658,7 +658,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sauna Tracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sauna Tracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sauna Companion.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sauna Companion";
 				XROS_DEPLOYMENT_TARGET = 26.5;
 			};
 			name = Debug;
@@ -684,7 +684,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sauna Tracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sauna Tracker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sauna Companion.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sauna Companion";
 				XROS_DEPLOYMENT_TARGET = 26.5;
 			};
 			name = Release;
@@ -709,7 +709,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,7";
-				TEST_TARGET_NAME = "Sauna Tracker";
+				TEST_TARGET_NAME = "Sauna Companion";
 				XROS_DEPLOYMENT_TARGET = 26.5;
 			};
 			name = Debug;
@@ -734,7 +734,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,7";
-				TEST_TARGET_NAME = "Sauna Tracker";
+				TEST_TARGET_NAME = "Sauna Companion";
 				XROS_DEPLOYMENT_TARGET = 26.5;
 			};
 			name = Release;
@@ -795,7 +795,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1CDE69A1A13856A71AD59437 /* Build configuration list for PBXNativeTarget "Sauna Tracker Watch App" */ = {
+		1CDE69A1A13856A71AD59437 /* Build configuration list for PBXNativeTarget "Sauna Companion Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3CF3CBFD2BBFF043805C928B /* Release */,
@@ -813,7 +813,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3717FB2D30338F1A009D8DB2 /* Build configuration list for PBXNativeTarget "Sauna Tracker" */ = {
+		3717FB2D30338F1A009D8DB2 /* Build configuration list for PBXNativeTarget "Sauna Companion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3717FB2E30338F1A009D8DB2 /* Debug */,
