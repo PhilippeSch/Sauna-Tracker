@@ -61,13 +61,13 @@ Svenska, engelska, tyska, finska.
 ## Support-URL
 
 ```
-https://github.com/PhilippeSch/Sauna-Tracker/issues
+https://github.com/PhilippeSch/Sauna-Companion/issues
 ```
 
 ## Integritetspolicy-URL
 
 ```
-https://github.com/PhilippeSch/Sauna-Tracker/blob/main/docs/Privacy.md
+https://github.com/PhilippeSch/Sauna-Companion/blob/main/docs/Privacy.md
 ```
 
 ## Copyright

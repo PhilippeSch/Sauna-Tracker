@@ -61,13 +61,13 @@ Suomi, englanti, saksa, ruotsi.
 ## Tuki-URL
 
 ```
-https://github.com/PhilippeSch/Sauna-Tracker/issues
+https://github.com/PhilippeSch/Sauna-Companion/issues
 ```
 
 ## Tietosuojakäytännön URL
 
 ```
-https://github.com/PhilippeSch/Sauna-Tracker/blob/main/docs/Privacy.md
+https://github.com/PhilippeSch/Sauna-Companion/blob/main/docs/Privacy.md
 ```
 
 ## Copyright
