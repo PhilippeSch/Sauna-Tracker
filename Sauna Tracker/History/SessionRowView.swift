@@ -37,8 +37,8 @@ struct SessionRowView: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
-                .fixedSize(horizontal: true, vertical: false)
             }
+            .layoutPriority(1)
         }
         .padding(.vertical, 4)
     }
