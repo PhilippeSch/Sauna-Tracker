@@ -867,7 +867,11 @@
         }
       }
     },
+    "Round %@" : {
+
+    },
     "Round %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
