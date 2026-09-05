@@ -11,7 +11,6 @@ import Foundation
 
 struct AppSettings: Codable, Sendable, Equatable {
     var metValue: Double
-    var maxRounds: Int
     var bodyWeightOverrideKg: Double?
     /// Minutes between reminder taps, or `hapticsOff` for none at all.
     var hapticIntervalMinutes: Int
@@ -23,7 +22,6 @@ struct AppSettings: Codable, Sendable, Equatable {
 
     static let `default` = AppSettings(
         metValue: 1.75,
-        maxRounds: 5,
         bodyWeightOverrideKg: nil,
         hapticIntervalMinutes: 5
     )
@@ -34,7 +32,6 @@ struct AppSettings: Codable, Sendable, Equatable {
     static let fallbackBodyWeightKg: Double = 75
 
     static let metRange: ClosedRange<Double> = 1.5...2.0
-    static let maxRoundsRange: ClosedRange<Int> = 1...10
     /// Starts at 0 so vibration can be switched off entirely.
     static let hapticIntervalRange: ClosedRange<Int> = 0...15
 }

@@ -66,10 +66,7 @@ enum WorkoutNotesEditor {
         }
 
         var metadata = original.metadata ?? [:]
-        let payload = SessionMetadataPayload(
-            session: updated,
-            maxRoundsConfigured: storedMaxRounds(in: original) ?? updated.roundCount
-        )
+        let payload = SessionMetadataPayload(session: updated)
         if let encoded = SessionMetadataCoding.encode(payload) {
             metadata[SessionMetadataPayload.metadataKey] = encoded
         }
@@ -89,14 +86,6 @@ enum WorkoutNotesEditor {
         }
 
         return replacement.uuid
-    }
-
-    private static func storedMaxRounds(in workout: HKWorkout) -> Int? {
-        guard
-            let json = workout.metadata?[SessionMetadataPayload.metadataKey] as? String,
-            let payload = SessionMetadataCoding.decode(json)
-        else { return nil }
-        return payload.maxRoundsConfigured
     }
 
     private static func workout(withUUID uuid: UUID, store: HKHealthStore) async -> HKWorkout? {

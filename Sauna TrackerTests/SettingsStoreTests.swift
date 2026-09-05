@@ -29,11 +29,11 @@ struct SettingsStoreTests {
         var pushed: [AppSettings] = []
         let store = SettingsStore(defaults: makeDefaults(), push: { pushed.append($0) })
 
-        store.modify { $0.maxRounds = 3 }
+        store.modify { $0.hapticIntervalMinutes = 3 }
 
-        #expect(store.settings.maxRounds == 3)
+        #expect(store.settings.hapticIntervalMinutes == 3)
         #expect(pushed.count == 1)
-        #expect(pushed.first?.maxRounds == 3)
+        #expect(pushed.first?.hapticIntervalMinutes == 3)
     }
 
     @Test func remoteEditIsStoredButNotEchoedBack() {
@@ -41,10 +41,10 @@ struct SettingsStoreTests {
         let store = SettingsStore(defaults: makeDefaults(), push: { pushed.append($0) })
 
         var incoming = AppSettings.default
-        incoming.maxRounds = 2
+        incoming.hapticIntervalMinutes = 2
         store.applyRemote(incoming)
 
-        #expect(store.settings.maxRounds == 2)
+        #expect(store.settings.hapticIntervalMinutes == 2)
         #expect(pushed.isEmpty, "echoing a remote change would ping-pong between the devices")
     }
 
@@ -53,7 +53,7 @@ struct SettingsStoreTests {
         let store = SettingsStore(defaults: makeDefaults(), push: { pushed.append($0) })
 
         store.update(AppSettings.default)
-        store.modify { $0.maxRounds = AppSettings.default.maxRounds }
+        store.modify { $0.hapticIntervalMinutes = AppSettings.default.hapticIntervalMinutes }
 
         #expect(pushed.isEmpty)
     }

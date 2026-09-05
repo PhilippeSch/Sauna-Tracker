@@ -49,7 +49,7 @@ struct AlwaysOnSessionView: View {
                     .foregroundStyle(.secondary)
             }
 
-            Text("Round \(store.roundCount) of \(store.maxConfiguredRounds)")
+            Text("Round \(store.roundCount)")
                 .font(.system(size: 11))
                 .foregroundStyle(.secondary)
         }

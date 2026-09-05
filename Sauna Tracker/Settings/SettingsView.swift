@@ -37,15 +37,6 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Stepper(
-                        "Max Rounds: \(settings.maxRounds)",
-                        value: Binding(
-                            get: { settings.maxRounds },
-                            set: { newValue in store.modify { $0.maxRounds = newValue } }
-                        ),
-                        in: AppSettings.maxRoundsRange
-                    )
-
                     Toggle("Vibration", isOn: Binding(
                         get: { settings.hapticsEnabled },
                         set: { on in

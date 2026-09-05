@@ -31,8 +31,6 @@ final class SessionStore {
     private(set) var lastErrorDescription: String?
 
     var settings: AppSettings = .default
-    var maxConfiguredRounds: Int { settings.maxRounds }
-    var canStartAnotherRound: Bool { roundCount < settings.maxRounds }
     var isActive: Bool { if case .active = stage { true } else { false } }
 
     /// False when HealthKit refused to start a live workout — the session
@@ -134,9 +132,11 @@ final class SessionStore {
     /// Ends the current phase and starts the next one. Bound to the primary
     /// on-screen button and to the Action Button intent — both call the
     /// same code path.
+    ///
+    /// There is no cap on the number of rounds: a session runs until it is
+    /// ended explicitly.
     func advancePhase() {
         guard case .active = stage else { return }
-        if currentPhase == .rest && !canStartAnotherRound { return }
         closeCurrentInterval()
         beginPhase(currentPhase == .sauna ? .rest : .sauna)
     }
@@ -187,7 +187,6 @@ final class SessionStore {
         do {
             let workoutUUID = try await recorder.finishAndSave(
                 session: session,
-                maxRoundsConfigured: settings.maxRounds,
                 bodyWeightKg: bodyWeightKg
             )
             session.healthKitWorkoutUUID = workoutUUID

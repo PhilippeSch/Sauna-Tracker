@@ -29,7 +29,7 @@ steam,sweat,banya,löyly,rounds,heart rate,timer,wellness,recovery,heat,session,
 ```
 A sauna visit is made of rounds. Sauna Tracker counts them — on your wrist, in the heat, with wet hands.
 
-On Apple Watch a large timer runs in the colour of the phase: orange in the sauna, teal during the rest. Beside it, your current pulse, the highest pulse of the round, and the round against your chosen maximum. Swipe left to end the session or engage Water Lock.
+On Apple Watch a large timer runs in the colour of the phase: orange in the sauna, teal during the rest. Beside it, your current pulse, the highest pulse of the round, and the round you are on. Swipe left to end the session or engage Water Lock.
 
 ON THE WATCH
 • Large phase timer, orange for sauna, teal for rest
@@ -46,7 +46,7 @@ ON THE IPHONE
 • Longest session, favourite weekday, favourite time of day
 • History with every single round
 • A note per session: "Finnish sauna 90 °C, Aufguss menthol"
-• MET value, maximum rounds and body weight adjustable
+• MET value and body weight adjustable
 
 EVERYTHING STAYS WITH YOU
 Apple Health is the only store. Each finished session is written as a workout, with heart rate per round and the estimated energy burned; the round structure and the note ride along as metadata. The app keeps no database of its own, has no account, no server and no advertising, works fully offline and collects nothing. Delete a session in the app and it is deleted in Health too.

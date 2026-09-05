@@ -946,34 +946,6 @@
         }
       }
     },
-    "Max Rounds: %lld" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Max. Runden: %lld"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Max Rounds: %lld"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kierroksia enintään: %lld"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Max antal omgångar: %lld"
-          }
-        }
-      }
-    },
     "MET" : {
       "localizations" : {
         "de" : {

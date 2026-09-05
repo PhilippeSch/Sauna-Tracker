@@ -91,7 +91,6 @@ final class FakeRecorder: SessionRecording {
 
     func finishAndSave(
         session: SaunaSession,
-        maxRoundsConfigured: Int,
         bodyWeightKg: Double
     ) async throws -> UUID {
         finishCallCount += 1

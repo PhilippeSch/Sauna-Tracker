@@ -19,7 +19,6 @@ protocol SessionRecording: AnyObject {
     func startWorkoutSession(startDate: Date) async
     func finishAndSave(
         session: SaunaSession,
-        maxRoundsConfigured: Int,
         bodyWeightKg: Double
     ) async throws -> UUID
     /// Ends the live workout and throws it away — nothing reaches Health.

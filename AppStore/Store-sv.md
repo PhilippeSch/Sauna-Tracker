@@ -29,7 +29,7 @@ bastu,basta,bastupass,svettas,ångbastu,varv,puls,timer,välmående,återhämtni
 ```
 Ett bastubesök består av varv. Sauna Tracker räknar dem — på handleden, i hettan, med våta händer.
 
-På Apple Watch löper en stor timer i fasens färg: orange i bastun, turkos under pausen. Bredvid den din puls just nu, varvets högsta puls och vilket varv du är på av ditt valda maximum. Svep åt vänster för att avsluta passet eller slå på vattenlåset.
+På Apple Watch löper en stor timer i fasens färg: orange i bastun, turkos under pausen. Bredvid den din puls just nu, varvets högsta puls och vilket varv du är på. Svep åt vänster för att avsluta passet eller slå på vattenlåset.
 
 PÅ KLOCKAN
 • Stor fastimer, orange för bastu, turkos för paus
@@ -46,7 +46,7 @@ PÅ IPHONE
 • Längsta passet, favoritveckodag, favorittid på dygnet
 • Historik med varje enskilt varv
 • En anteckning per pass: ”Finsk bastu 90 °C, uppgjutning mentol”
-• MET-värde, högsta antal varv och kroppsvikt går att ställa in
+• MET-värde och kroppsvikt går att ställa in
 
 ALLT STANNAR HOS DIG
 Apple Health är den enda lagringsplatsen. Varje avslutat pass sparas som ett träningspass, med puls per varv och beräknad förbrukning; varvstrukturen och anteckningen följer med som metadata. Appen har ingen egen databas, inget konto, ingen server och ingen reklam, fungerar helt offline och samlar inte in något. Raderar du ett pass i appen raderas det även i Health.

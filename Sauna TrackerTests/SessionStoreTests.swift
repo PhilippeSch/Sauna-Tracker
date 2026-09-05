@@ -2,8 +2,8 @@
 //  SessionStoreTests.swift
 //  Sauna TrackerTests
 //
-//  The watch session state machine: rounds, phase alternation, the max-round
-//  boundary, and what actually gets handed to HealthKit on finish.
+//  The watch session state machine: rounds, phase alternation, and what
+//  actually gets handed to HealthKit on finish.
 //
 
 import Testing
@@ -39,31 +39,25 @@ struct SessionStoreTests {
         #expect(store.roundCount == 2)
     }
 
-    @Test func advancePhaseIsBlockedAfterTheFinalRound() async {
-        var settings = AppSettings.default
-        settings.maxRounds = 2
-        let (store, _, _) = StoreFactory.make(settings: settings)
+    @Test func roundsAreNotCapped() async {
+        let (store, _, _) = StoreFactory.make()
         await store.startSession()
 
-        store.advancePhase()  // rest after round 1
-        store.advancePhase()  // round 2
-        #expect(store.roundCount == 2)
-        #expect(store.canStartAnotherRound == false)
+        // Ten rounds, well past any number a session would realistically
+        // reach: the button must keep working instead of running out.
+        for _ in 1..<10 {
+            store.advancePhase()  // rest
+            store.advancePhase()  // next round
+        }
 
-        store.advancePhase()  // rest after the final round
-        #expect(store.currentPhase == .rest)
-
-        store.advancePhase()  // must not start round 3
-        #expect(store.currentPhase == .rest)
-        #expect(store.roundCount == 2)
+        #expect(store.currentPhase == .sauna)
+        #expect(store.roundCount == 10)
     }
 
-    @Test func endingIsAlwaysPossibleOnTheFinalRest() async {
-        var settings = AppSettings.default
-        settings.maxRounds = 1
-        let (store, recorder, _) = StoreFactory.make(settings: settings)
+    @Test func endingIsPossibleDuringARestPhase() async {
+        let (store, recorder, _) = StoreFactory.make()
         await store.startSession()
-        store.advancePhase()  // rest after the only round
+        store.advancePhase()  // rest after the first round
 
         await store.endSession()
 
@@ -284,13 +278,12 @@ struct SessionStoreTests {
     @Test func settingsPushedFromThePhoneApplyToTheRunningSession() async {
         let (store, _, _) = StoreFactory.make()
         await store.startSession()
-        #expect(store.maxConfiguredRounds == 5)
+        #expect(store.settings.metValue == AppSettings.default.metValue)
 
         var updated = AppSettings.default
-        updated.maxRounds = 2
+        updated.metValue = 1.9
         store.applySettings(updated)
 
-        #expect(store.maxConfiguredRounds == 2)
-        #expect(store.canStartAnotherRound, "one round done, two allowed")
+        #expect(store.settings.metValue == 1.9)
     }
 }

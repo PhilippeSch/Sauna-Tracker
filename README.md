@@ -12,7 +12,7 @@ sauna — with a rest phase between them.
 **On the watch**
 
 - Large phase-coloured timer, current pulse and the round's maximum pulse
-- Round indicator against the configured maximum
+- Round counter — a session runs for as many rounds as you like
 - Swipe left for the controls page: end the session, or engage Water Lock
 - Always-On display keeps phase, elapsed time and pulse visible
 - Optional reminder taps at a configurable interval, or switched off entirely
@@ -26,7 +26,7 @@ sauna — with a rest phase between them.
   which day and time of day you go most often
 - History with a round-by-round breakdown of every session
 - Notes per session ("Finnish sauna 90 °C, Aufguss menthol")
-- Settings for MET value, maximum rounds, body weight override, vibration
+- Settings for MET value, body weight override, vibration
 - Swipe left on a session to delete it
 
 ## Action button

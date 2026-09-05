@@ -95,7 +95,6 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
     /// workout and saves it. Returns the resulting workout UUID.
     func finishAndSave(
         session: SaunaSession,
-        maxRoundsConfigured: Int,
         bodyWeightKg: Double
     ) async throws -> UUID {
         guard let workoutSession, let builder else {
@@ -114,7 +113,7 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
         }
 
         // 2. Metadata, still before endCollection.
-        let payload = SessionMetadataPayload(session: session, maxRoundsConfigured: maxRoundsConfigured)
+        let payload = SessionMetadataPayload(session: session)
         if let encoded = SessionMetadataCoding.encode(payload) {
             do {
                 try await builder.addMetadata([SessionMetadataPayload.metadataKey: encoded])

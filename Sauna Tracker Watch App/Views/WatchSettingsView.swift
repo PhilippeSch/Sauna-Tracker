@@ -19,14 +19,6 @@ struct WatchSettingsView: View {
                     .font(.headline)
                     .padding(.top, 4)
 
-                stepperRow(
-                    title: "Max Rounds",
-                    value: store.settings.maxRounds,
-                    range: AppSettings.maxRoundsRange
-                ) { newValue in
-                    store.modify { $0.maxRounds = newValue }
-                }
-
                 Toggle("Vibration", isOn: Binding(
                     get: { store.settings.hapticsEnabled },
                     set: { on in

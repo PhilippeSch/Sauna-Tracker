@@ -33,7 +33,7 @@ The app is not a medical device. Its readings and its calorie estimate are for y
 
 ## What is stored on your devices
 
-Your settings stay on the iPhone and the Apple Watch alone, in the app's own storage area: MET value, maximum number of rounds, a body-weight override if you set one, and the vibration interval. These are not health data and are not written to Health. Deleting the app deletes them along with it.
+Your settings stay on the iPhone and the Apple Watch alone, in the app's own storage area: MET value, a body-weight override if you set one, and the vibration interval. These are not health data and are not written to Health. Deleting the app deletes them along with it.
 
 ## Children
 
@@ -83,7 +83,7 @@ Die App ist kein Medizinprodukt. Ihre Messwerte und die Kalorienschätzung diene
 
 ### Was auf Ihren Geräten gespeichert wird
 
-Ihre Einstellungen bleiben allein auf iPhone und Apple Watch, im eigenen Speicherbereich der App: MET-Wert, maximale Rundenzahl, ein allfällig gesetztes Körpergewicht und der Vibrationsabstand. Das sind keine Gesundheitsdaten; sie werden nicht nach Health geschrieben. Wird die App gelöscht, sind sie mit ihr gelöscht.
+Ihre Einstellungen bleiben allein auf iPhone und Apple Watch, im eigenen Speicherbereich der App: MET-Wert, ein allfällig gesetztes Körpergewicht und der Vibrationsabstand. Das sind keine Gesundheitsdaten; sie werden nicht nach Health geschrieben. Wird die App gelöscht, sind sie mit ihr gelöscht.
 
 ### Kinder
 
@@ -133,7 +133,7 @@ Appen är ingen medicinteknisk produkt. Dess mätvärden och kaloriberäkning ä
 
 ### Vad som sparas på dina enheter
 
-Dina inställningar stannar enbart på iPhone och Apple Watch, i appens eget lagringsutrymme: MET-värde, högsta antal varv, en eventuellt angiven kroppsvikt och vibrationsintervallet. Det är inga hälsodata och skrivs inte till Hälsa. Raderas appen raderas de med den.
+Dina inställningar stannar enbart på iPhone och Apple Watch, i appens eget lagringsutrymme: MET-värde, en eventuellt angiven kroppsvikt och vibrationsintervallet. Det är inga hälsodata och skrivs inte till Hälsa. Raderas appen raderas de med den.
 
 ### Barn
 
@@ -183,7 +183,7 @@ Sovellus ei ole lääkinnällinen laite. Sen lukemat ja kalorioarvio ovat omaksi
 
 ### Mitä laitteillesi tallennetaan
 
-Asetuksesi pysyvät vain iPhonessa ja Apple Watchissa, sovelluksen omassa tallennustilassa: MET-arvo, kierrosten enimmäismäärä, mahdollisesti asetettu paino ja värinäväli. Nämä eivät ole terveystietoja eikä niitä kirjoiteta Terveyteen. Kun sovellus poistetaan, ne poistuvat sen mukana.
+Asetuksesi pysyvät vain iPhonessa ja Apple Watchissa, sovelluksen omassa tallennustilassa: MET-arvo, mahdollisesti asetettu paino ja värinäväli. Nämä eivät ole terveystietoja eikä niitä kirjoiteta Terveyteen. Kun sovellus poistetaan, ne poistuvat sen mukana.
 
 ### Lapset
 

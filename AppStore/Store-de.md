@@ -29,7 +29,7 @@ Aufguss,Saunagang,Schwitzen,Dampfbad,Banja,Runden,Puls,Timer,Wellness,Erholung,s
 ```
 Ein Saunabesuch besteht aus Runden. Sauna Tracker zählt sie mit — auf der Uhr, im heissen Raum, mit nassen Händen.
 
-Auf der Apple Watch läuft ein grosser Timer in der Farbe der Phase: Orange in der Sauna, Türkis in der Pause. Daneben der aktuelle Puls, der höchste Puls der Runde und die Runde gegen dein Maximum. Ein Wisch nach links beendet die Sitzung oder schaltet die Wassersperre ein.
+Auf der Apple Watch läuft ein grosser Timer in der Farbe der Phase: Orange in der Sauna, Türkis in der Pause. Daneben der aktuelle Puls, der höchste Puls der Runde und die laufende Runde. Ein Wisch nach links beendet die Sitzung oder schaltet die Wassersperre ein.
 
 AUF DER UHR
 • Grosser Phasen-Timer, orange für Sauna, türkis für Pause
@@ -46,7 +46,7 @@ AUF DEM IPHONE
 • Längste Sitzung, liebster Wochentag, liebste Tageszeit
 • Verlauf mit jeder einzelnen Runde
 • Notiz pro Sitzung: «Finnische Sauna 90 °C, Aufguss Menthol»
-• MET-Wert, maximale Rundenzahl und Körpergewicht einstellbar
+• MET-Wert und Körpergewicht einstellbar
 
 ALLES BLEIBT BEI DIR
 Apple Health ist der einzige Speicher. Jede beendete Sitzung wird als Workout gesichert, mit Puls je Runde und geschätztem Kalorienverbrauch; Rundenstruktur und Notiz reisen als Metadaten mit. Die App hat keine eigene Datenbank, kein Konto, keinen Server und keine Werbung, arbeitet vollständig offline und erfasst nichts. Wer eine Sitzung in der App löscht, löscht sie auch in Health.

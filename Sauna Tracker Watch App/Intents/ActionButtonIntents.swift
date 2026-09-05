@@ -133,12 +133,10 @@ struct TogglePhaseIntent: AppIntent {
         if let store = SessionStore.current, store.isActive {
             let before = store.currentPhase
             store.advancePhase()
-            if store.currentPhase != before {
-                // The press happens with the app in the background and often
-                // with Water Lock on, so a tap is the only confirmation the
-                // phase actually changed.
-                WKInterfaceDevice.current().play(.success)
-            }
+            // The press happens with the app in the background and often with
+            // Water Lock on, so a tap is the only confirmation the phase
+            // actually changed.
+            WKInterfaceDevice.current().play(.success)
             intentLog.info("Phase toggle: \(before.rawValue) -> \(store.currentPhase.rawValue)")
         } else {
             intentLog.info("Phase toggle with no running session")

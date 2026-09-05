@@ -21,10 +21,6 @@ struct ActiveSessionView: View {
         store.phaseStartDate.addingTimeInterval(SaunaPhase.maxDisplayedPhaseDuration)
     }
 
-    private var isLastRound: Bool {
-        store.currentPhase == .rest && !store.canStartAnotherRound
-    }
-
     var body: some View {
         VStack(spacing: 4) {
             Text(timerInterval: store.phaseStartDate...phaseEndBound, countsDown: false)
@@ -43,21 +39,17 @@ struct ActiveSessionView: View {
 
             Spacer(minLength: 0)
 
-            if isLastRound {
-                // No round left to start, and ending is a swipe away — say so
-                // rather than leaving a button that cannot do anything.
-                swipeHint
-            } else {
-                Button {
-                    store.advancePhase()
-                } label: {
-                    Text(store.currentPhase == .sauna ? "Rest" : "Next Round")
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(maxWidth: .infinity, minHeight: 46)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(store.currentPhase.tintColor)
+            // A session runs for as many rounds as the user wants, so this
+            // button never runs out — ending is the swipe to the controls page.
+            Button {
+                store.advancePhase()
+            } label: {
+                Text(store.currentPhase == .sauna ? "Rest" : "Next Round")
+                    .font(.system(size: 16, weight: .semibold))
+                    .frame(maxWidth: .infinity, minHeight: 46)
             }
+            .buttonStyle(.borderedProminent)
+            .tint(store.currentPhase.tintColor)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 2)
@@ -69,17 +61,9 @@ struct ActiveSessionView: View {
     }
 
     private var roundIndicator: some View {
-        HStack(spacing: 4) {
-            ForEach(0..<store.maxConfiguredRounds, id: \.self) { index in
-                Circle()
-                    .fill(index < store.roundCount ? store.currentPhase.tintColor : Color.white.opacity(0.25))
-                    .frame(width: 5, height: 5)
-            }
-            Text("Round \(store.roundCount) of \(store.maxConfiguredRounds)")
-                .font(.system(size: 11))
-                .foregroundStyle(.secondary)
-                .padding(.leading, 3)
-        }
+        Text("Round \(store.roundCount)")
+            .font(.system(size: 11))
+            .foregroundStyle(.secondary)
     }
 
     private var heartRateBlock: some View {
@@ -122,15 +106,5 @@ struct ActiveSessionView: View {
             .minimumScaleFactor(0.8)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 4)
-    }
-
-    private var swipeHint: some View {
-        HStack(spacing: 5) {
-            Image(systemName: "chevron.left")
-            Text("Swipe to finish")
-        }
-        .font(.system(size: 13, weight: .medium))
-        .foregroundStyle(.secondary)
-        .frame(maxWidth: .infinity, minHeight: 46)
     }
 }

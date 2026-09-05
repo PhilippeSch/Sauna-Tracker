@@ -24,7 +24,7 @@ struct SessionMetadataCodingTests {
             notes: "Finnish sauna 90°C",
             metUsed: 1.75
         )
-        let payload = SessionMetadataPayload(session: session, maxRoundsConfigured: 5)
+        let payload = SessionMetadataPayload(session: session)
 
         let encoded = SessionMetadataCoding.encode(payload)
         #expect(encoded != nil)
@@ -34,7 +34,7 @@ struct SessionMetadataCodingTests {
         #expect(decoded?.intervals.count == 1)
         #expect(decoded?.intervals.first?.maxHeartRateBPM == 142)
         #expect(decoded?.intervals.first?.sensorReadings.hrv == 45)
-        #expect(decoded?.maxRoundsConfigured == 5)
+        #expect(decoded?.metUsed == 1.75)
     }
 
     @Test func decodeFailsGracefullyOnGarbage() {

@@ -13,13 +13,11 @@ struct SessionMetadataPayload: Codable {
     static let metadataKey = "com.philippescheuber.SaunaTracker.session"
 
     var schemaVersion: Int = 1
-    var maxRoundsConfigured: Int
     var metUsed: Double
     var intervals: [SaunaInterval]
     var notes: String?
 
-    init(session: SaunaSession, maxRoundsConfigured: Int) {
-        self.maxRoundsConfigured = maxRoundsConfigured
+    init(session: SaunaSession) {
         self.metUsed = session.metUsed
         self.intervals = session.intervals
         self.notes = session.notes

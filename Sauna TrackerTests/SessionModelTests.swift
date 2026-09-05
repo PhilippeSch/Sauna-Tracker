@@ -95,21 +95,18 @@ struct AppSettingsTests {
     @Test func defaultsMatchTheDocumentedValues() {
         let settings = AppSettings.default
         #expect(settings.metValue == 1.75)
-        #expect(settings.maxRounds == 5)
         #expect(settings.hapticIntervalMinutes == 5)
         #expect(settings.bodyWeightOverrideKg == nil)
     }
 
     @Test func defaultMetSitsInsideTheAllowedRange() {
         #expect(AppSettings.metRange.contains(AppSettings.default.metValue))
-        #expect(AppSettings.maxRoundsRange.contains(AppSettings.default.maxRounds))
         #expect(AppSettings.hapticIntervalRange.contains(AppSettings.default.hapticIntervalMinutes))
     }
 
     @Test func settingsSurviveEncodingForWatchConnectivity() throws {
         var settings = AppSettings.default
         settings.metValue = 1.9
-        settings.maxRounds = 3
         settings.bodyWeightOverrideKg = 72.5
 
         let data = try JSONEncoder().encode(ConnectivityMessage.settingsChanged(settings))
