@@ -3,7 +3,7 @@
 ## Nimi (enint. 30)
 
 ```
-Sauna Tracker
+Saunakaveri
 ```
 
 ## Alaotsikko (enint. 30)

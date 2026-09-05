@@ -43,7 +43,7 @@ struct ActionButtonInfoView: View {
                     .foregroundStyle(.secondary)
                     .padding(.top, 2)
 
-                Text("Settings → Action Button → Action: Workout → App: Sauna Tracker")
+                Text("Settings → Action Button → Action: Workout → App: Sauna Companion")
                     .font(.system(size: 13, weight: .semibold))
                     .padding(8)
                     .frame(maxWidth: .infinity)

@@ -1,4 +1,4 @@
-# Sauna Tracker
+# Sauna Companion
 
 An Apple Watch app for tracking sauna visits, with an iPhone companion for
 statistics and history. Built to be read with wet hands in a hot room: dark,
@@ -53,7 +53,7 @@ the first doing nothing.
 **One-time setup.** An app cannot claim the button; it has to be pointed here,
 and the assignment is global rather than per-app:
 
-**Settings → Action Button → Action: Workout → App: Sauna Tracker**
+**Settings → Action Button → Action: Workout → App: Sauna Companion**
 
 While it points here, a press no longer starts a workout in Apple's Workout
 app. `ActionButtonInfoView` says all of this on first launch, on Ultra models
@@ -69,7 +69,7 @@ has no account and collects nothing. Deleting a session in the app deletes the
 workout in Health.
 
 A note is stored with the workout, but Health and Fitness do not render
-third-party workout metadata — so notes are only visible inside Sauna Tracker.
+third-party workout metadata — so notes are only visible inside Sauna Companion.
 
 ## Calories
 

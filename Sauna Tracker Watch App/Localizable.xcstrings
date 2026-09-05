@@ -986,30 +986,30 @@
         }
       }
     },
-    "Sauna Tracker" : {
+    "Sauna Companion" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauna Tracker"
+            "value" : "Sauna Companion"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauna Tracker"
+            "value" : "Sauna Companion"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauna Tracker"
+            "value" : "Saunakaveri"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sauna Tracker"
+            "value" : "Bastukompis"
           }
         }
       }
@@ -1098,30 +1098,30 @@
         }
       }
     },
-    "Settings → Action Button → Action: Workout → App: Sauna Tracker" : {
+    "Settings → Action Button → Action: Workout → App: Sauna Companion" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Einstellungen → Aktionstaste → Aktion: Training → App: Sauna Tracker"
+            "value" : "Einstellungen → Aktionstaste → Aktion: Training → App: Sauna Companion"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Settings → Action Button → Action: Workout → App: Sauna Tracker"
+            "value" : "Settings → Action Button → Action: Workout → App: Sauna Companion"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asetukset → Toimintopainike → Toiminto: Treeni → Appi: Sauna Tracker"
+            "value" : "Asetukset → Toimintopainike → Toiminto: Treeni → Appi: Saunakaveri"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inställningar → Funktionsknapp → Åtgärd: Träning → App: Sauna Tracker"
+            "value" : "Inställningar → Funktionsknapp → Åtgärd: Träning → App: Bastukompis"
           }
         }
       }

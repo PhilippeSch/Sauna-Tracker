@@ -3,7 +3,7 @@
 ## Name (max. 30)
 
 ```
-Sauna Tracker
+Sauna Companion
 ```
 
 ## Untertitel (max. 30)

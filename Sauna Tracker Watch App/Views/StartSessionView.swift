@@ -14,7 +14,7 @@ struct StartSessionView: View {
                 .font(.system(size: 32))
                 .foregroundStyle(.orange)
 
-            Text("Sauna Tracker")
+            Text("Sauna Companion")
                 .font(.system(size: 17, weight: .semibold))
                 .foregroundStyle(.white)
 

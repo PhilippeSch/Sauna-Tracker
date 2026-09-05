@@ -3,7 +3,7 @@
 ## Namn (max. 30)
 
 ```
-Sauna Tracker
+Bastukompis
 ```
 
 ## Underrubrik (max. 30)

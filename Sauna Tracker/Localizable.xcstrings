@@ -694,30 +694,30 @@
         }
       }
     },
-    "For example: Finnish sauna 90 °C, Aufguss menthol.\nStored with the session, visible only in Sauna Tracker." : {
+    "For example: Finnish sauna 90 °C, Aufguss menthol.\nStored with the session, visible only in Sauna Companion." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zum Beispiel: Finnische Sauna 90 °C, Aufguss Menthol.\nWird bei der Sitzung gespeichert, sichtbar nur in Sauna Tracker."
+            "value" : "Zum Beispiel: Finnische Sauna 90 °C, Aufguss Menthol.\nWird bei der Sitzung gespeichert, sichtbar nur in Sauna Companion."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For example: Finnish sauna 90 °C, Aufguss menthol.\nStored with the session, visible only in Sauna Tracker."
+            "value" : "For example: Finnish sauna 90 °C, Aufguss menthol.\nStored with the session, visible only in Sauna Companion."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Esimerkiksi: suomalainen sauna 90 °C, löyly mentoli.\nTallennetaan istunnon mukana, näkyy vain Sauna Trackerissa."
+            "value" : "Esimerkiksi: suomalainen sauna 90 °C, löyly mentoli.\nTallennetaan istunnon mukana, näkyy vain Saunakaverissa."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Till exempel: finsk bastu 90 °C, uppguss mentol.\nSparas med passet, syns bara i Sauna Tracker."
+            "value" : "Till exempel: finsk bastu 90 °C, uppguss mentol.\nSparas med passet, syns bara i Bastukompis."
           }
         }
       }
