@@ -1,6 +1,6 @@
 //
 //  SessionMetadataCoding.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  The lean payload we round-trip through HKWorkout.metadata. Raw heart
 //  rate samples are NOT included here — they're saved as proper

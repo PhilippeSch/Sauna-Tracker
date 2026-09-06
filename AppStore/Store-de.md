@@ -27,7 +27,7 @@ Aufguss,Saunagang,Schwitzen,Dampfbad,Banja,Runden,Puls,Timer,Wellness,Erholung,s
 ## Beschreibung (max. 4000)
 
 ```
-Ein Saunabesuch besteht aus Runden. Sauna Tracker zählt sie mit — auf der Uhr, im heissen Raum, mit nassen Händen.
+Ein Saunabesuch besteht aus Runden. Sauna Companion zählt sie mit — auf der Uhr, im heissen Raum, mit nassen Händen.
 
 Auf der Apple Watch läuft ein grosser Timer in der Farbe der Phase: Orange in der Sauna, Türkis in der Pause. Daneben der aktuelle Puls, der höchste Puls der Runde und die laufende Runde. Ein Wisch nach links beendet die Sitzung oder schaltet die Wassersperre ein.
 
@@ -53,7 +53,7 @@ Apple Health ist der einzige Speicher. Jede beendete Sitzung wird als Workout ge
 
 Kalorien schätzt die App nach dem MET-Modell und rechnet nur die Zeit in der Sauna. Der MET-Wert ist zwischen 1,5 und 2,0 einstellbar, das Gewicht kommt aus Health oder aus den Einstellungen.
 
-Sauna Tracker ist kein Medizinprodukt und dient nicht der Diagnose oder Behandlung.
+Sauna Companion ist kein Medizinprodukt und dient nicht der Diagnose oder Behandlung.
 
 Deutsch, Englisch, Schwedisch, Finnisch.
 ```

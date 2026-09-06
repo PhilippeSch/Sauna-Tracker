@@ -1,6 +1,6 @@
 //
 //  AppSettings.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  User-configurable defaults. Lives locally on each device (AppStorage on
 //  iOS driving a mirrored copy on the Watch via WatchConnectivity) — never

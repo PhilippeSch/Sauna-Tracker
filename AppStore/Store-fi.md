@@ -27,7 +27,7 @@ löyly,saunominen,kiuas,hikoilu,höyry,kierros,syke,ajastin,hyvinvointi,palautum
 ## Kuvaus (enint. 4000)
 
 ```
-Saunareissu koostuu kierroksista. Sauna Tracker laskee ne — ranteessa, kuumassa löylyssä, märin käsin.
+Saunareissu koostuu kierroksista. Saunakaveri laskee ne — ranteessa, kuumassa löylyssä, märin käsin.
 
 Apple Watchissa käy iso ajastin vaiheen värissä: oranssi saunassa, turkoosi tauolla. Vieressä nykyinen syke, kierroksen korkein syke ja monesko kierros on menossa. Pyyhkäisy vasemmalle päättää kerran tai kytkee vesilukon.
 
@@ -53,7 +53,7 @@ Apple Health on ainoa tallennuspaikka. Jokainen päättynyt kerta tallentuu tree
 
 Kalorit arvioidaan MET-mallilla, ja mukaan lasketaan vain saunassa vietetty aika. MET-arvo on säädettävissä välillä 1,5–2,0; paino tulee Healthista tai asetuksista.
 
-Sauna Tracker ei ole lääkinnällinen laite eikä sitä ole tarkoitettu diagnosointiin tai hoitoon.
+Saunakaveri ei ole lääkinnällinen laite eikä sitä ole tarkoitettu diagnosointiin tai hoitoon.
 
 Suomi, englanti, saksa, ruotsi.
 ```

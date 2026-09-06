@@ -1,6 +1,6 @@
 //
 //  SessionDependencies.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  The seams SessionStore is written against. The watch supplies the real
 //  HealthKit recorder and WatchKit haptics; tests supply fakes, which is what

@@ -1,6 +1,6 @@
 //
 //  SaunaInterval.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  One contiguous Sauna or Rest segment within a Session.
 //

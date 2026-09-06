@@ -1,6 +1,6 @@
 //
 //  SessionStore.swift
-//  Sauna Tracker Watch App
+//  Sauna Companion Watch App
 //
 //  Drives the whole session flow: start -> sauna round -> rest -> repeat ->
 //  end -> save. This is the single source of truth ActiveSessionView (and

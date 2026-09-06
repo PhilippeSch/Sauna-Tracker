@@ -1,6 +1,6 @@
 //
 //  WatchConnectivityService.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  Thin WCSession wrapper shared by both targets. Settings flow iPhone ->
 //  Watch as application context (state). A finished session flows

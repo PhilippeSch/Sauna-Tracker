@@ -1,6 +1,6 @@
 //
 //  DurationFormatter.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 
 import Foundation

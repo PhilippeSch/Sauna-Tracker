@@ -1,6 +1,6 @@
 //
 //  BodyWeightReader.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 
 import HealthKit

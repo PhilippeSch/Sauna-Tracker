@@ -27,7 +27,7 @@ bastu,basta,bastupass,svettas,ångbastu,varv,puls,timer,välmående,återhämtni
 ## Beskrivning (max. 4000)
 
 ```
-Ett bastubesök består av varv. Sauna Tracker räknar dem — på handleden, i hettan, med våta händer.
+Ett bastubesök består av varv. Bastukompis räknar dem — på handleden, i hettan, med våta händer.
 
 På Apple Watch löper en stor timer i fasens färg: orange i bastun, turkos under pausen. Bredvid den din puls just nu, varvets högsta puls och vilket varv du är på. Svep åt vänster för att avsluta passet eller slå på vattenlåset.
 
@@ -53,7 +53,7 @@ Apple Health är den enda lagringsplatsen. Varje avslutat pass sparas som ett tr
 
 Kalorier beräknas med MET-modellen och räknar bara tiden i bastun. MET-värdet kan ställas in mellan 1,5 och 2,0; vikten hämtas från Health eller från inställningarna.
 
-Sauna Tracker är ingen medicinteknisk produkt och är inte avsedd för diagnos eller behandling.
+Bastukompis är ingen medicinteknisk produkt och är inte avsedd för diagnos eller behandling.
 
 Svenska, engelska, tyska, finska.
 ```

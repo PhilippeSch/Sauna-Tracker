@@ -1,6 +1,6 @@
 //
 //  SettingsStore.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  One settings value per device, persisted locally and mirrored to the
 //  other device. Either side may edit: a local edit is pushed across, an

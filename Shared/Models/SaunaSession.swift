@@ -1,6 +1,6 @@
 //
 //  SaunaSession.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  A full sauna visit: one or more Sauna/Rest intervals, saved as a single
 //  HKWorkout. This is the in-memory representation used while recording on

@@ -1,6 +1,6 @@
 //
 //  WorkoutHistoryStore.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  Reads past sauna sessions back out of HealthKit. We only ever query
 //  `.other` workouts that carry our metadata key, so other "Other" workouts

@@ -1,6 +1,6 @@
 //
 //  SaunaPhase.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  Shared between the watchOS and iOS targets.
 //

@@ -1,6 +1,6 @@
 //
 //  SensorReadings.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  Optional, best-effort sensor snapshot captured for a single round.
 //  Every field is nil unless a genuinely fresh HealthKit sample existed —

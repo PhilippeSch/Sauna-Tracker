@@ -1,6 +1,6 @@
 //
 //  SaunaStatistics.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  Pure aggregation over a list of sessions. Deliberately free of HealthKit
 //  and SwiftUI, and takes `now`/`calendar` as parameters rather than reading

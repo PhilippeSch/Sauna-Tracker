@@ -90,7 +90,7 @@ weight comes from Health unless overridden in settings.
 
 ## Build
 
-Open `Sauna Tracker.xcodeproj` and run the *Sauna Tracker Watch App* scheme.
+Open `Sauna Companion.xcodeproj` and run the *Sauna Companion Watch App* scheme.
 
 The build number is a `YYYYMMDDHHMM` timestamp shared by both apps: a build
 phase writes `Config/Version.xcconfig`, and every target takes
@@ -100,7 +100,7 @@ watch app always carry the same number. It takes effect from the next build.
 ## Tests
 
 ```
-xcodebuild test -scheme "Sauna Tracker" -destination 'platform=iOS Simulator,name=iPhone 17'
+xcodebuild test -scheme "Sauna Companion" -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
 Covers the session state machine, statistics, the calorie model, duration

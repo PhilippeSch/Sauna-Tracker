@@ -1,6 +1,6 @@
 //
 //  HealthKitAuthorization.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  Single source of truth for which HealthKit types this app touches, and
 //  the authorization request used by both targets on launch.

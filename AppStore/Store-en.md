@@ -27,7 +27,7 @@ steam,sweat,banya,löyly,rounds,heart rate,timer,wellness,recovery,heat,session,
 ## Description (max. 4000)
 
 ```
-A sauna visit is made of rounds. Sauna Tracker counts them — on your wrist, in the heat, with wet hands.
+A sauna visit is made of rounds. Sauna Companion counts them — on your wrist, in the heat, with wet hands.
 
 On Apple Watch a large timer runs in the colour of the phase: orange in the sauna, teal during the rest. Beside it, your current pulse, the highest pulse of the round, and the round you are on. Swipe left to end the session or engage Water Lock.
 
@@ -53,7 +53,7 @@ Apple Health is the only store. Each finished session is written as a workout, w
 
 Calories are estimated with the MET model, counting only the time actually spent in the sauna. The MET value is adjustable between 1.5 and 2.0; body weight comes from Health or from settings.
 
-Sauna Tracker is not a medical device and is not intended for diagnosis or treatment.
+Sauna Companion is not a medical device and is not intended for diagnosis or treatment.
 
 English, German, Swedish, Finnish.
 ```

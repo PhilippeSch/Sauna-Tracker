@@ -1,6 +1,6 @@
 //
 //  ConnectivityMessage.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 
 import Foundation

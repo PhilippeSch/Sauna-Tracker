@@ -1,6 +1,6 @@
 //
 //  AppVersion.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  The build number is a YYYYMMDDHHMM timestamp written by the "Set Build
 //  Number" build phase, so version + build identifies a build exactly.

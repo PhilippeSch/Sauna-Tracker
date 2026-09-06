@@ -1,6 +1,6 @@
 //
 //  WorkoutNotesEditor.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  HealthKit has no API to patch metadata on an already saved HKWorkout, so
 //  editing a note means writing a replacement workout and removing the old

@@ -1,6 +1,6 @@
 //
 //  CalorieCalculator.swift
-//  Sauna Tracker
+//  Sauna Companion
 //
 //  MET-based energy estimate. Only Sauna-phase time counts — Rest phases
 //  contribute 0 kcal.
