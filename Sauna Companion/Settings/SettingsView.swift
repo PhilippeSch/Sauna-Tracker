@@ -16,6 +16,7 @@ import SwiftUI
 struct SettingsView: View {
     @Bindable private var store = SettingsStore.shared
     @State private var weightText: String = ""
+    @FocusState private var weightFocused: Bool
 
     private var settings: AppSettings { store.settings }
 
@@ -67,7 +68,9 @@ struct SettingsView: View {
                         get: { settings.bodyWeightOverrideKg != nil },
                         set: { on in
                             store.modify {
-                                $0.bodyWeightOverrideKg = on ? (Double(weightText) ?? 75) : nil
+                                $0.bodyWeightOverrideKg = on
+                                    ? (AppSettings.parsedBodyWeightKg(weightText) ?? AppSettings.fallbackBodyWeightKg)
+                                    : nil
                             }
                         }
                     ))
@@ -80,8 +83,15 @@ struct SettingsView: View {
                                 .keyboardType(.decimalPad)
                                 .multilineTextAlignment(.trailing)
                                 .frame(width: 80)
+                                .focused($weightFocused)
+                                // Committing per keystroke pushed a fresh
+                                // application context to the watch for every
+                                // digit — two of them just to type "80". The
+                                // value is taken once the field is done with.
                                 .onSubmit(commitWeight)
-                                .onChange(of: weightText) { _, _ in commitWeight() }
+                                .onChange(of: weightFocused) { _, focused in
+                                    if !focused { commitWeight() }
+                                }
                         }
                     }
                 }
@@ -113,13 +123,17 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .onAppear {
-                weightText = settings.bodyWeightOverrideKg.map { String(format: "%g", $0) } ?? "75"
+                weightText = AppSettings.bodyWeightText(
+                    settings.bodyWeightOverrideKg ?? AppSettings.fallbackBodyWeightKg
+                )
             }
         }
     }
 
     private func commitWeight() {
-        guard settings.bodyWeightOverrideKg != nil, let value = Double(weightText), value > 0 else { return }
+        guard settings.bodyWeightOverrideKg != nil,
+              let value = AppSettings.parsedBodyWeightKg(weightText)
+        else { return }
         store.modify { $0.bodyWeightOverrideKg = value }
     }
 }
