@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # The runner image ships several Xcodes under version-suffixed names,
+      # so pick the newest rather than pinning a path that moves.
+      - name: Select the newest installed Xcode
+        run: |
+          latest=$(ls -d /Applications/Xcode*.app | sort -V | tail -1)
+          echo "Using $latest"
+          sudo xcode-select -switch "$latest"
+
+      - name: Show versions
+        run: |
+          xcodebuild -version
+          xcrun simctl list devices available
+
+      # The runner holds no certificates, so the watchOS device build has to
+      # be told not to sign. The simulator tests below deliberately keep their
+      # default ad-hoc signing: an unsigned .xctrunner fails to launch.
+      - name: Build the watch app
+        run: |
+          xcodebuild build \
+            -scheme "Sauna Companion Watch App" \
+            -destination 'generic/platform=watchOS' \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Test the iPhone app
+        run: |
+          xcodebuild test \
+            -scheme "Sauna Companion" \
+            -destination 'platform=iOS Simulator,name=iPhone 17'

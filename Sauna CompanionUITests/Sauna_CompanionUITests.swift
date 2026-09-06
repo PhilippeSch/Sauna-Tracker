@@ -2,7 +2,10 @@
 //  Sauna_CompanionUITests.swift
 //  Sauna CompanionUITests
 //
-//  Created by Philippe Scheuber on 17.08.2026.
+//  A smoke test over the three tabs. It needs no Health data and grants no
+//  permissions, so it runs the same on a clean simulator and on CI: what it
+//  proves is that each tab builds and presents without crashing, which is
+//  exactly the regression a change to any one screen tends to cause.
 //
 
 import XCTest
@@ -10,32 +13,58 @@ import XCTest
 final class Sauna_CompanionUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    /// English is forced so the assertions below can match on text without
+    /// depending on the simulator's language — the app ships in four.
+    @MainActor
+    private func launchApp() -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launch()
+        return app
     }
 
     @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func testEachTabOpens() throws {
+        let app = launchApp()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // XCUIAutomation Documentation
-        // https://developer.apple.com/documentation/xcuiautomation
+        // Statistics is the tab the app opens on.
+        XCTAssertTrue(
+            app.navigationBars["Statistics"].waitForExistence(timeout: 10),
+            "the app should open on the Statistics tab"
+        )
+
+        for tab in ["History", "Settings"] {
+            let button = app.tabBars.buttons[tab]
+            XCTAssertTrue(button.waitForExistence(timeout: 5), "missing tab: \(tab)")
+            button.tap()
+            XCTAssertTrue(
+                app.navigationBars[tab].waitForExistence(timeout: 5),
+                "tapping \(tab) should show the \(tab) screen"
+            )
+        }
+    }
+
+    @MainActor
+    func testSettingsShowsItsControls() throws {
+        let app = launchApp()
+
+        let settings = app.tabBars.buttons["Settings"]
+        XCTAssertTrue(settings.waitForExistence(timeout: 10))
+        settings.tap()
+
+        // The three things settings is for. The weight field itself only
+        // appears once the override is switched on, so only its toggle is
+        // asserted here.
+        XCTAssertTrue(app.staticTexts["Calorie Estimate"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.switches["Vibration"].exists, "missing the vibration toggle")
+        XCTAssertTrue(app.switches["Override HealthKit Weight"].exists, "missing the weight override toggle")
     }
 
     @MainActor
     func testLaunchPerformance() throws {
-        // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {
             XCUIApplication().launch()
         }
