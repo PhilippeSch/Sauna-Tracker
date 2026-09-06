@@ -4,8 +4,11 @@
 //
 
 import HealthKit
+import os
 
 enum BodyWeightReader {
+    private static let log = Logger(subsystem: "Scheuber.Sauna-Tracker", category: "BodyWeight")
+
     /// Most recent body mass sample from HealthKit, in kilograms.
     static func latestBodyWeightKg() async -> Double? {
         guard let healthStore = HealthKitAuthorization.healthStore else { return nil }
@@ -17,7 +20,12 @@ enum BodyWeightReader {
                 predicate: nil,
                 limit: 1,
                 sortDescriptors: sort
-            ) { _, samples, _ in
+            ) { _, samples, error in
+                // Otherwise a refused read is indistinguishable from a user
+                // who has simply never recorded a weight.
+                if let error {
+                    log.error("Reading body mass failed: \(error.localizedDescription)")
+                }
                 let kg = (samples?.first as? HKQuantitySample)?
                     .quantity.doubleValue(for: .gramUnit(with: .kilo))
                 continuation.resume(returning: kg)

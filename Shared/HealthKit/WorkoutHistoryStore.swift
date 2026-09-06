@@ -8,8 +8,11 @@
 //
 
 import HealthKit
+import os
 
 enum WorkoutHistoryStore {
+    private static let log = Logger(subsystem: "Scheuber.Sauna-Tracker", category: "History")
+
     static func fetchAllSessions() async -> [SaunaSession] {
         guard let healthStore = HealthKitAuthorization.healthStore else { return [] }
 
@@ -28,7 +31,12 @@ enum WorkoutHistoryStore {
                 predicate: predicate,
                 limit: HKObjectQueryNoLimit,
                 sortDescriptors: sort
-            ) { _, samples, _ in
+            ) { _, samples, error in
+                // A refused read comes back as an error, not as zero rows.
+                // Without this it looked exactly like an empty history.
+                if let error {
+                    log.error("Reading sauna workouts failed: \(error.localizedDescription)")
+                }
                 continuation.resume(returning: (samples as? [HKWorkout]) ?? [])
             }
             healthStore.execute(query)
@@ -49,7 +57,10 @@ enum WorkoutHistoryStore {
                 predicate: HKQuery.predicateForObject(with: uuid),
                 limit: 1,
                 sortDescriptors: nil
-            ) { _, samples, _ in
+            ) { _, samples, error in
+                if let error {
+                    log.error("Looking up the workout to delete failed: \(error.localizedDescription)")
+                }
                 continuation.resume(returning: (samples as? [HKWorkout]) ?? [])
             }
             healthStore.execute(query)

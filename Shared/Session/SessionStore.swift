@@ -29,6 +29,15 @@ final class SessionStore {
     private(set) var roundCount: Int = 0
     private(set) var lastErrorDescription: String?
 
+    /// Shortest phase that counts. Below this a press is treated as a
+    /// bounce rather than a real phase change. `nonisolated` so it can be
+    /// used as a default argument, which is evaluated off the main actor.
+    nonisolated static let defaultMinimumPhaseDuration: TimeInterval = 3
+
+    /// Injected so tests can drive rounds back to back; production always
+    /// uses `defaultMinimumPhaseDuration`.
+    let minimumPhaseDuration: TimeInterval
+
     var settings: AppSettings = .default
     var isActive: Bool { if case .active = stage { true } else { false } }
 
@@ -81,8 +90,10 @@ final class SessionStore {
         recorder: SessionRecording,
         connectivity: WatchConnectivityService? = nil,
         hapticScheduler: HapticScheduling,
-        bodyWeightProvider: BodyWeightProviding? = nil
+        bodyWeightProvider: BodyWeightProviding? = nil,
+        minimumPhaseDuration: TimeInterval = SessionStore.defaultMinimumPhaseDuration
     ) {
+        self.minimumPhaseDuration = minimumPhaseDuration
         self.recorder = recorder
         self.connectivity = connectivity ?? .shared
         self.hapticScheduler = hapticScheduler
@@ -130,18 +141,27 @@ final class SessionStore {
     ///
     /// There is no cap on the number of rounds: a session runs until it is
     /// ended explicitly.
+    ///
+    /// A press inside `minimumPhaseDuration` of the last one is ignored: wet
+    /// hands and Water Lock make a double press easy, and it would otherwise
+    /// record a zero-length interval and count a round that never happened.
+    /// Ending a session is deliberately not rate-limited — see `endSession`.
     func advancePhase() {
         guard case .active = stage else { return }
+        guard Date.now.timeIntervalSince(phaseStartDate) >= minimumPhaseDuration else { return }
         closeCurrentInterval()
         beginPhase(currentPhase == .sauna ? .rest : .sauna)
     }
 
-    private func closeCurrentInterval() {
+    /// `end` is a parameter so `endSession` can close the last interval on
+    /// the same instant it stamps the session with, instead of drifting apart
+    /// across the HealthKit body-weight lookup that sits between the two.
+    private func closeCurrentInterval(at end: Date = .now) {
         intervals.append(
             SaunaInterval(
                 phase: currentPhase,
                 startDate: phaseStartDate,
-                endDate: .now,
+                endDate: end,
                 maxHeartRateBPM: maxHeartRateThisRound > 0 ? maxHeartRateThisRound : nil
             )
         )
@@ -156,7 +176,11 @@ final class SessionStore {
     /// Ends the whole session from any phase and at any round, then saves.
     func endSession() async {
         guard case .active = stage, let start = sessionStartDate else { return }
-        closeCurrentInterval()
+        // One instant for the whole ending, so the intervals add up to the
+        // session's own duration. Reading it twice put the body-weight lookup
+        // in between and left the difference unaccounted for in any round.
+        let end = Date.now
+        closeCurrentInterval(at: end)
         hapticScheduler.stop()
         stage = .saving
 
@@ -172,7 +196,7 @@ final class SessionStore {
         var session = SaunaSession(
             id: sessionID,
             startDate: start,
-            endDate: .now,
+            endDate: end,
             intervals: intervals,
             metUsed: settings.metValue,
             activeEnergyKcal: kcal

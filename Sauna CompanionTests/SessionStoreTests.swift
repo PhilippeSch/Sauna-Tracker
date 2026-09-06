@@ -54,6 +54,57 @@ struct SessionStoreTests {
         #expect(store.roundCount == 10)
     }
 
+    @Test func aSecondPressStraightAfterTheFirstIsIgnored() async throws {
+        // A short window rather than the production three seconds, so the
+        // test can wait it out; the mechanism is the same.
+        let window: TimeInterval = 0.2
+        let (store, _, _) = StoreFactory.make(minimumPhaseDuration: window)
+        await store.startSession()
+        try await Task.sleep(for: .seconds(window * 2))
+
+        store.advancePhase()
+        store.advancePhase()
+
+        // Wet hands and Water Lock make a double press easy. The second one
+        // would otherwise record a zero-length interval and count a round
+        // that never happened.
+        #expect(store.currentPhase == .rest, "the bounce must not switch back")
+        #expect(store.roundCount == 1)
+        #expect(store.intervals.count == 1)
+    }
+
+    @Test func aPressIsAcceptedOnceTheWindowHasPassed() async throws {
+        let window: TimeInterval = 0.2
+        let (store, _, _) = StoreFactory.make(minimumPhaseDuration: window)
+        await store.startSession()
+
+        try await Task.sleep(for: .seconds(window * 2))
+        store.advancePhase()
+        #expect(store.currentPhase == .rest)
+
+        try await Task.sleep(for: .seconds(window * 2))
+        store.advancePhase()
+        #expect(store.currentPhase == .sauna)
+        #expect(store.roundCount == 2)
+    }
+
+    @Test func theDebounceWindowIsThreeSeconds() {
+        #expect(SessionStore.defaultMinimumPhaseDuration == 3)
+    }
+
+    @Test func endingIsNeverBlockedByTheDebounce() async {
+        let (store, recorder, _) = StoreFactory.make(
+            minimumPhaseDuration: SessionStore.defaultMinimumPhaseDuration
+        )
+        await store.startSession()
+
+        // A session has to be endable at any moment, however briefly it ran.
+        await store.endSession()
+
+        #expect(recorder.finishCallCount == 1)
+        #expect(recorder.lastFinishedSession?.intervals.count == 1)
+    }
+
     @Test func endingIsPossibleDuringARestPhase() async {
         let (store, recorder, _) = StoreFactory.make()
         await store.startSession()
@@ -155,6 +206,21 @@ struct SessionStoreTests {
         #expect(session?.intervals.last?.phase == .rest)
         #expect(session?.intervals.last?.maxHeartRateBPM == 95)
         #expect(session?.roundCount == 1)
+    }
+
+    @Test func intervalsAddUpToTheSessionDuration() async {
+        let (store, recorder, _) = StoreFactory.make()
+        await store.startSession()
+        store.advancePhase()
+        await store.endSession()
+
+        let session = try? #require(recorder.lastFinishedSession)
+        let summed = session?.intervals.reduce(0) { $0 + $1.duration } ?? -1
+        // endSession used to read Date.now twice, with the HealthKit body
+        // weight lookup in between; that gap landed in the total but in no
+        // interval, so the rounds no longer summed to the whole.
+        #expect(abs(summed - (session?.totalDuration ?? 0)) < 0.001)
+        #expect(session?.endDate == session?.intervals.last?.endDate)
     }
 
     @Test func endSessionUsesResolvedBodyWeightAndConfiguredMet() async {

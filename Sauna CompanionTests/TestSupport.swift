@@ -134,16 +134,22 @@ final class FakeHapticScheduler: HapticScheduling {
 
 @MainActor
 enum StoreFactory {
+    /// `minimumPhaseDuration` defaults to zero so a suite can drive rounds
+    /// back to back instead of waiting out the real debounce window. The
+    /// debounce itself is covered by its own test, which passes the
+    /// production value explicitly.
     static func make(
         settings: AppSettings = .default,
-        bodyWeightKg: Double? = 80
+        bodyWeightKg: Double? = 80,
+        minimumPhaseDuration: TimeInterval = 0
     ) -> (SessionStore, FakeRecorder, FakeHapticScheduler) {
         let recorder = FakeRecorder()
         let haptics = FakeHapticScheduler()
         let store = SessionStore(
             recorder: recorder,
             hapticScheduler: haptics,
-            bodyWeightProvider: { override in override ?? bodyWeightKg }
+            bodyWeightProvider: { override in override ?? bodyWeightKg },
+            minimumPhaseDuration: minimumPhaseDuration
         )
         store.settings = settings
         return (store, recorder, haptics)

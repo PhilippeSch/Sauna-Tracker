@@ -16,7 +16,9 @@ struct EndSessionSummaryView: View {
                 .font(.system(size: 28))
                 .foregroundStyle(errorDescription == nil ? .green : .yellow)
 
-            Text("Session Saved")
+            // Icon and message already switch on the error; the heading has
+            // to follow, or it claims a save that did not happen.
+            Text(errorDescription == nil ? "Session Saved" : "Not Saved")
                 .font(.system(size: 16, weight: .semibold))
 
             VStack(spacing: 2) {

@@ -110,7 +110,10 @@ enum WorkoutNotesEditor {
                 predicate: HKQuery.predicateForObject(with: uuid),
                 limit: 1,
                 sortDescriptors: nil
-            ) { _, samples, _ in
+            ) { _, samples, error in
+                if let error {
+                    log.error("Looking up the workout to edit failed: \(error.localizedDescription)")
+                }
                 continuation.resume(returning: samples?.first as? HKWorkout)
             }
             store.execute(query)
@@ -126,7 +129,12 @@ enum WorkoutNotesEditor {
                     predicate: HKQuery.predicateForObjects(from: workout),
                     limit: HKObjectQueryNoLimit,
                     sortDescriptors: nil
-                ) { _, samples, _ in
+                ) { _, samples, error in
+                    // Logged rather than swallowed: an empty result here means
+                    // the replacement is saved without that sample type.
+                    if let error {
+                        log.error("Reading attached \(type.identifier) samples failed: \(error.localizedDescription)")
+                    }
                     continuation.resume(returning: samples ?? [])
                 }
                 store.execute(query)
