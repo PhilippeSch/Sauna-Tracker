@@ -14,8 +14,7 @@ struct SessionMetadataCodingTests {
             phase: .sauna,
             startDate: start,
             endDate: start.addingTimeInterval(600),
-            maxHeartRateBPM: 142,
-            sensorReadings: RoundSensorReadings(hrv: 45, respiratoryRate: 16, spo2: 0.98, wristTemperatureC: 33.2)
+            maxHeartRateBPM: 142
         )
         let session = SaunaSession(
             startDate: start,
@@ -33,7 +32,6 @@ struct SessionMetadataCodingTests {
         #expect(decoded?.notes == "Finnish sauna 90°C")
         #expect(decoded?.intervals.count == 1)
         #expect(decoded?.intervals.first?.maxHeartRateBPM == 142)
-        #expect(decoded?.intervals.first?.sensorReadings.hrv == 45)
         #expect(decoded?.metUsed == 1.75)
     }
 

@@ -25,7 +25,6 @@ final class SessionStore {
     private(set) var phaseStartDate: Date = .now
     private(set) var currentHeartRate: Double?
     private(set) var maxHeartRateThisRound: Double = 0
-    private(set) var latestSensorReadings: RoundSensorReadings = .empty
     private(set) var intervals: [SaunaInterval] = []
     private(set) var roundCount: Int = 0
     private(set) var lastErrorDescription: String?
@@ -92,9 +91,6 @@ final class SessionStore {
         recorder.onHeartRateUpdate = { [weak self] bpm in
             self?.updateLiveHeartRate(bpm)
         }
-        recorder.onSensorReadingsUpdate = { [weak self] readings in
-            self?.latestSensorReadings = readings
-        }
     }
 
     func startSession() async {
@@ -117,7 +113,6 @@ final class SessionStore {
         currentPhase = phase
         phaseStartDate = date
         maxHeartRateThisRound = 0
-        latestSensorReadings = .empty
         if phase == .sauna { roundCount += 1 }
         // The interval reminder is about time spent in the heat, so it runs
         // during sauna rounds only — a tap in the middle of a rest phase is
@@ -147,8 +142,7 @@ final class SessionStore {
                 phase: currentPhase,
                 startDate: phaseStartDate,
                 endDate: .now,
-                maxHeartRateBPM: maxHeartRateThisRound > 0 ? maxHeartRateThisRound : nil,
-                sensorReadings: latestSensorReadings
+                maxHeartRateBPM: maxHeartRateThisRound > 0 ? maxHeartRateThisRound : nil
             )
         )
         hapticScheduler.stop()
@@ -213,7 +207,6 @@ final class SessionStore {
         currentPhase = .sauna
         currentHeartRate = nil
         maxHeartRateThisRound = 0
-        latestSensorReadings = .empty
         intervals = []
         roundCount = 0
         lastErrorDescription = nil

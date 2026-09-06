@@ -34,7 +34,6 @@ Apple Watchissa käy iso ajastin vaiheen värissä: oranssi saunassa, turkoosi t
 KELLOSSA
 • Iso vaiheajastin, oranssi saunalle, turkoosi tauolle
 • Nykyinen syke ja käynnissä olevan kierroksen maksimi
-• HRV, hengitystiheys, SpO2 ja ranteen lämpötila yhdellä silmäyksellä
 • Always-On: vaihe, aika ja syke pysyvät näkyvissä
 • Vesilukko estää hien aiheuttamat vahinkopainallukset
 • Värinämuistutus valitsemallasi välillä tai kokonaan pois

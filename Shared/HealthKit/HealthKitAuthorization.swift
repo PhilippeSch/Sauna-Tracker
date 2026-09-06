@@ -12,16 +12,12 @@ enum HealthKitTypes {
     static let heartRate = HKQuantityType(.heartRate)
     static let activeEnergy = HKQuantityType(.activeEnergyBurned)
     static let bodyMass = HKQuantityType(.bodyMass)
-    static let hrv = HKQuantityType(.heartRateVariabilitySDNN)
-    static let respiratoryRate = HKQuantityType(.respiratoryRate)
-    static let oxygenSaturation = HKQuantityType(.oxygenSaturation)
-    static let wristTemperature = HKQuantityType(.appleSleepingWristTemperature)
     static let workoutType = HKObjectType.workoutType()
 
-    /// Types we read: live/optional sensors during a session, plus body mass
-    /// for the calorie formula and workouts/HR for history.
+    /// Types we read: heart rate during a session, body mass for the calorie
+    /// formula, and workouts/energy for history.
     static var readTypes: Set<HKObjectType> {
-        [workoutType, heartRate, activeEnergy, bodyMass, hrv, respiratoryRate, oxygenSaturation, wristTemperature]
+        [workoutType, heartRate, activeEnergy, bodyMass]
     }
 
     /// Types we write: only from the Watch, while recording a session.

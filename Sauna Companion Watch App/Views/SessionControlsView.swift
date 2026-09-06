@@ -36,7 +36,6 @@ struct SessionControlsView: View {
                 }
 
                 summary
-                sensorRows
             }
             .padding(.horizontal, 4)
             .padding(.top, 6)
@@ -95,32 +94,6 @@ struct SessionControlsView: View {
                 .font(.caption)
                 .monospacedDigit()
                 .foregroundStyle(.white)
-        }
-    }
-
-    /// Optional sensors, shown only when a real reading exists. HRV and
-    /// respiratory rate may appear during a workout; SpO2 and wrist
-    /// temperature realistically will not, since watchOS never measures
-    /// those on demand for third-party apps.
-    @ViewBuilder
-    private var sensorRows: some View {
-        let readings = store.latestSensorReadings
-        if readings.hasAnyReading {
-            VStack(spacing: 2) {
-                if let hrv = readings.hrv {
-                    SensorRow(symbol: "waveform.path.ecg", label: "HRV", value: "\(Int(hrv)) ms")
-                }
-                if let rr = readings.respiratoryRate {
-                    SensorRow(symbol: "lungs.fill", label: "Resp. Rate", value: "\(Int(rr))/min")
-                }
-                if let spo2 = readings.spo2 {
-                    SensorRow(symbol: "drop.degreesign", label: "SpO2", value: "\(Int(spo2 * 100))%")
-                }
-                if let temp = readings.wristTemperatureC {
-                    SensorRow(symbol: "thermometer", label: "Wrist Temp", value: String(format: "%.1f°C", temp))
-                }
-            }
-            .padding(.top, 2)
         }
     }
 }

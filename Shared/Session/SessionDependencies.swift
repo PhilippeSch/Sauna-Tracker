@@ -14,7 +14,6 @@ protocol SessionRecording: AnyObject {
     /// False when HealthKit refused to start a live workout.
     var isRecording: Bool { get }
     var onHeartRateUpdate: ((Double) -> Void)? { get set }
-    var onSensorReadingsUpdate: ((RoundSensorReadings) -> Void)? { get set }
 
     func startWorkoutSession(startDate: Date) async
     func finishAndSave(

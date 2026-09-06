@@ -3,9 +3,9 @@
 //  Sauna Companion Watch App
 //
 //  Wraps HKWorkoutSession + HKLiveWorkoutBuilder: starts a live `.other`
-//  indoor workout, streams heart rate (and whichever optional sensors the
-//  system happens to surface) up to SessionStore, and on finish writes the
-//  MET-based active energy samples + our session metadata blob, then saves.
+//  indoor workout, streams heart rate up to SessionStore, and on finish
+//  writes the MET-based active energy samples + our session metadata blob,
+//  then saves.
 //
 //  Ordering matters and is easy to get wrong: endCollection(withEnd:)
 //  *deactivates* the builder, so every sample and all metadata must be added
@@ -34,7 +34,6 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
     private static let log = Logger(subsystem: "Scheuber.Sauna-Tracker", category: "HealthKit")
 
     var onHeartRateUpdate: ((Double) -> Void)?
-    var onSensorReadingsUpdate: ((RoundSensorReadings) -> Void)?
 
     /// True once a live workout session is actually running, so the UI can
     /// tell the user their session is not being recorded to Health.
@@ -42,7 +41,6 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
 
     private var workoutSession: HKWorkoutSession?
     private var builder: HKLiveWorkoutBuilder?
-    private var latestReadings = RoundSensorReadings.empty
     private var endStateContinuation: CheckedContinuation<Void, Never>?
 
     func startWorkoutSession(startDate: Date) async {
@@ -285,25 +283,6 @@ extension HealthKitSessionRecorder: HKLiveWorkoutBuilderDelegate {
                 .doubleValue(for: .count().unitDivided(by: .minute()))
             else { return }
             onHeartRateUpdate?(bpm)
-
-        case HealthKitTypes.hrv:
-            latestReadings.hrv = statistics.mostRecentQuantity()?
-                .doubleValue(for: .secondUnit(with: .milli))
-            onSensorReadingsUpdate?(latestReadings)
-
-        case HealthKitTypes.respiratoryRate:
-            latestReadings.respiratoryRate = statistics.mostRecentQuantity()?
-                .doubleValue(for: .count().unitDivided(by: .minute()))
-            onSensorReadingsUpdate?(latestReadings)
-
-        case HealthKitTypes.oxygenSaturation:
-            latestReadings.spo2 = statistics.mostRecentQuantity()?.doubleValue(for: .percent())
-            onSensorReadingsUpdate?(latestReadings)
-
-        case HealthKitTypes.wristTemperature:
-            latestReadings.wristTemperatureC = statistics.mostRecentQuantity()?
-                .doubleValue(for: .degreeCelsius())
-            onSensorReadingsUpdate?(latestReadings)
 
         default:
             break

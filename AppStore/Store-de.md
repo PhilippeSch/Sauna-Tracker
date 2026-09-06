@@ -34,7 +34,6 @@ Auf der Apple Watch läuft ein grosser Timer in der Farbe der Phase: Orange in d
 AUF DER UHR
 • Grosser Phasen-Timer, orange für Sauna, türkis für Pause
 • Aktueller Puls und Maximum der laufenden Runde
-• HRV, Atemfrequenz, SpO2 und Handgelenktemperatur auf einen Blick
 • Always-On: Phase, Zeit und Puls bleiben sichtbar
 • Wassersperre gegen Fehleingaben durch Schweiss
 • Vibration als Erinnerung, im gewählten Abstand oder ganz aus

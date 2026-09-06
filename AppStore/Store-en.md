@@ -34,7 +34,6 @@ On Apple Watch a large timer runs in the colour of the phase: orange in the saun
 ON THE WATCH
 • Large phase timer, orange for sauna, teal for rest
 • Current pulse and the maximum of the running round
-• HRV, respiratory rate, SpO2 and wrist temperature at a glance
 • Always-On: phase, elapsed time and pulse stay visible
 • Water Lock against stray taps from sweat
 • Reminder taps at an interval you choose, or switched off entirely

@@ -34,7 +34,6 @@ På Apple Watch löper en stor timer i fasens färg: orange i bastun, turkos und
 PÅ KLOCKAN
 • Stor fastimer, orange för bastu, turkos för paus
 • Aktuell puls och det pågående varvets maximum
-• HRV, andningsfrekvens, SpO2 och handledstemperatur i en översikt
 • Always-On: fas, tid och puls förblir synliga
 • Vattenlås mot feltryck av svett
 • Vibration som påminnelse, med valt intervall eller helt avstängd

@@ -580,35 +580,6 @@
         }
       }
     },
-    "HRV" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "HRV"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "HRV"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "HRV"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "HRV"
-          }
-        }
-      }
-    },
     "MAX" : {
       "localizations" : {
         "de" : {
@@ -805,35 +776,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Peka den hit en gång:"
-          }
-        }
-      }
-    },
-    "Resp. Rate" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Atemfreq."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Resp. Rate"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hengitystaajuus"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Andningsfrekv."
           }
         }
       }
@@ -1126,35 +1068,6 @@
         }
       }
     },
-    "SpO2" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SpO2"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SpO2"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SpO2"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SpO2"
-          }
-        }
-      }
-    },
     "Start Sauna" : {
       "localizations" : {
         "de" : {
@@ -1410,35 +1323,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vattenlås"
-          }
-        }
-      }
-    },
-    "Wrist Temp" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Handgelenktemp."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wrist Temp"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ranteen lämpötila"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Handledstemp."
           }
         }
       }

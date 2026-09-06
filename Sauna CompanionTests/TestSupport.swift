@@ -70,7 +70,6 @@ enum Fixture {
 final class FakeRecorder: SessionRecording {
     var isRecording = true
     var onHeartRateUpdate: ((Double) -> Void)?
-    var onSensorReadingsUpdate: ((RoundSensorReadings) -> Void)?
 
     private(set) var startCallCount = 0
     private(set) var finishCallCount = 0

@@ -13,22 +13,19 @@ struct SaunaInterval: Identifiable, Codable, Hashable, Sendable {
     var startDate: Date
     var endDate: Date
     var maxHeartRateBPM: Double?
-    var sensorReadings: RoundSensorReadings
 
     init(
         id: UUID = UUID(),
         phase: SaunaPhase,
         startDate: Date,
         endDate: Date,
-        maxHeartRateBPM: Double? = nil,
-        sensorReadings: RoundSensorReadings = .empty
+        maxHeartRateBPM: Double? = nil
     ) {
         self.id = id
         self.phase = phase
         self.startDate = startDate
         self.endDate = endDate
         self.maxHeartRateBPM = maxHeartRateBPM
-        self.sensorReadings = sensorReadings
     }
 
     var duration: TimeInterval { endDate.timeIntervalSince(startDate) }
