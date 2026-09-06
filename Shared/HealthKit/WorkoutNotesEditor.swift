@@ -4,9 +4,18 @@
 //
 //  HealthKit has no API to patch metadata on an already saved HKWorkout, so
 //  editing a note means writing a replacement workout and removing the old
-//  one. Order matters: the replacement is saved and confirmed FIRST, and only
-//  then is the original deleted. A failure therefore leaves a duplicate —
-//  recoverable — rather than losing the session.
+//  one. Order matters, and the rule throughout is that the original is only
+//  ever deleted once the replacement is known to be complete:
+//
+//    1. Save the replacement, with the original's heart-rate and energy
+//       samples re-attached, and confirm it.
+//    2. Only then delete the original — HealthKit takes the samples it owns
+//       down with it, so a replacement missing them would lose the curve.
+//
+//  If re-attaching the samples fails, the part-built replacement is discarded
+//  and the original is left untouched. Every failure therefore ends in an
+//  unchanged session, or at worst a duplicate, but never in a session
+//  stripped of its heart rate.
 //
 
 import Foundation
@@ -61,7 +70,13 @@ enum WorkoutNotesEditor {
             do {
                 try await builder.addSamples(attached)
             } catch {
+                // Carrying on would save a replacement without the heart-rate
+                // curve and then delete the original that still has it. Throw
+                // the part-built replacement away instead — nothing is in
+                // Health until finishWorkout — and leave Health as it was.
                 log.error("Could not re-attach \(attached.count) sample(s): \(error.localizedDescription)")
+                builder.discardWorkout()
+                throw EditError.saveFailed
             }
         }
 
