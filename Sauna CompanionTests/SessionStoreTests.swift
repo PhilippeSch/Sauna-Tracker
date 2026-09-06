@@ -193,6 +193,28 @@ struct SessionStoreTests {
         }
     }
 
+    @Test func aFailedSaveStillReleasesTheWorkoutSession() async {
+        struct Boom: LocalizedError {
+            var errorDescription: String? { "no health access" }
+        }
+        let (store, recorder, _) = StoreFactory.make()
+        recorder.errorToThrow = Boom()
+        await store.startSession()
+        await store.endSession()
+
+        // watchOS allows one live workout at a time. If a failed save left
+        // the first session standing, this second start would be refused and
+        // the abandoned session would keep draining the battery.
+        #expect(recorder.isRecording == false, "a failed save must still tear the workout down")
+
+        store.reset()
+        recorder.errorToThrow = nil
+        await store.startSession()
+
+        #expect(recorder.startCallCount == 2)
+        #expect(store.isRecordingToHealth)
+    }
+
     @Test func hapticsRunDuringSaunaRoundsOnly() async {
         var settings = AppSettings.default
         settings.hapticIntervalMinutes = 3

@@ -99,6 +99,16 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
             throw RecordingError.notStarted
         }
 
+        // Placed after the guard so the .notStarted path leaves the (already
+        // cleared) state alone. Anything below can throw, and a session left
+        // behind would keep running: watchOS allows only one live workout, so
+        // the next start would fail while the first drained the battery.
+        defer {
+            self.workoutSession = nil
+            self.builder = nil
+            isRecording = false
+        }
+
         // 1. Samples first — the builder must still be active.
         let energySamples = energySamples(for: session, bodyWeightKg: bodyWeightKg, builderStart: builder.startDate)
         if !energySamples.isEmpty {
@@ -135,9 +145,6 @@ final class HealthKitSessionRecorder: NSObject, SessionRecording {
             .sumQuantity()?.doubleValue(for: .kilocalorie()) ?? 0
         Self.log.info("Saved workout \(workout.uuid.uuidString), energy \(savedKcal, format: .fixed(precision: 1)) kcal")
 
-        self.workoutSession = nil
-        self.builder = nil
-        isRecording = false
         return workout.uuid
     }
 

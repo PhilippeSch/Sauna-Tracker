@@ -78,6 +78,8 @@ final class FakeRecorder: SessionRecording {
     private(set) var lastBodyWeightKg: Double?
     var stubbedUUID = UUID()
     var errorToThrow: Error?
+    /// Set false to stand in for HealthKit refusing to start a live workout.
+    var startSucceeds = true
     /// Stands in for the real recorder taking a moment to bring HealthKit up.
     var startDelay: Duration = .zero
 
@@ -86,6 +88,7 @@ final class FakeRecorder: SessionRecording {
         if startDelay > .zero {
             try? await Task.sleep(for: startDelay)
         }
+        isRecording = startSucceeds
     }
 
     func finishAndSave(
@@ -95,6 +98,9 @@ final class FakeRecorder: SessionRecording {
         finishCallCount += 1
         lastFinishedSession = session
         lastBodyWeightKg = bodyWeightKg
+        // Mirrors the real recorder, which tears the live workout down in a
+        // `defer` and so stops recording even when the save throws.
+        isRecording = false
         if let errorToThrow { throw errorToThrow }
         return stubbedUUID
     }
