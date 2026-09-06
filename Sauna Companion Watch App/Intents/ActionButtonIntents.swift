@@ -21,7 +21,12 @@
 //
 //  What the app cannot do is claim the button: it has to be pointed here
 //  once, under Settings > Action Button > Action: Workout > App: Sauna
-//  Tracker. ActionButtonInfoView says so on first launch.
+//  Companion. ActionButtonInfoView says so on first launch.
+//
+//  The intent identifiers the system stores are module-qualified, so renaming
+//  the target (Sauna_Tracker_Watch_App -> Sauna_Companion_Watch_App) makes any
+//  donation held from an older build unresolvable. Reassigning the button does
+//  not clear those; deleting the app from the watch does.
 //
 
 import AppIntents
