@@ -65,7 +65,10 @@ final class WatchConnectivityService: NSObject {
         }
     }
 
-    private func handle(rawData: Data) {
+    // Called straight from the delegate methods, so it runs on WCSession's
+    // queue: decoding happens there and only the state change hops to the
+    // main actor.
+    private nonisolated func handle(rawData: Data) {
         guard let message = try? JSONDecoder().decode(ConnectivityMessage.self, from: rawData) else { return }
         Task { @MainActor in
             switch message {
@@ -78,11 +81,16 @@ final class WatchConnectivityService: NSObject {
     }
 }
 
+// WCSession calls its delegate on a private serial queue of its own, never
+// on the main actor. Every method here is therefore explicitly `nonisolated`
+// rather than relying on the target's SWIFT_DEFAULT_ACTOR_ISOLATION, so the
+// isolation is a property of the code and not of a build setting — and work
+// that does belong on the main actor is hopped there deliberately below.
 extension WatchConnectivityService: WCSessionDelegate {
     // Required for WCSessionDelegate conformance. Nothing to do: both
     // transports check the activation state at send time, so activation
     // needs no bookkeeping here.
-    func session(
+    nonisolated func session(
         _ session: WCSession,
         activationDidCompleteWith activationState: WCSessionActivationState,
         error: Error?
@@ -91,24 +99,24 @@ extension WatchConnectivityService: WCSessionDelegate {
     // Reachability is not acted on: settings go out as application context
     // and a saved session as a queued transfer, both of which the system
     // delivers once the counterpart comes back.
-    func sessionReachabilityDidChange(_ session: WCSession) {}
+    nonisolated func sessionReachabilityDidChange(_ session: WCSession) {}
 
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
         if let data = applicationContext["message"] as? Data {
             handle(rawData: data)
         }
     }
 
-    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String: Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveUserInfo userInfo: [String: Any]) {
         if let data = userInfo["message"] as? Data {
             handle(rawData: data)
         }
     }
 
     #if os(iOS)
-    func sessionDidBecomeInactive(_ session: WCSession) {}
+    nonisolated func sessionDidBecomeInactive(_ session: WCSession) {}
 
-    func sessionDidDeactivate(_ session: WCSession) {
+    nonisolated func sessionDidDeactivate(_ session: WCSession) {
         session.activate()
     }
     #endif
