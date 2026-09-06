@@ -53,7 +53,10 @@ struct ActiveSessionPager: View {
             isPresented: $showingEndConfirmation,
             titleVisibility: .visible
         ) {
-            Button("End Session", role: .destructive) {
+            // No destructive role: ending a session saves it. Red here put it
+            // in the same visual class as discarding, which is the one action
+            // on this sheet that actually loses data.
+            Button("End Session") {
                 Task { await store.endSession() }
             }
             // Deliberately the second entry, never the first: throwing a
