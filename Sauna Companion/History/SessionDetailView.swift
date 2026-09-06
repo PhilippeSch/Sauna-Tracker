@@ -5,19 +5,31 @@
 //  Round-by-round breakdown of one session, plus the note editor. Saving a
 //  note rewrites the workout in Health (see WorkoutNotesEditor), so the view
 //  reports progress and failures rather than pretending it always succeeds.
+//  The rewrite hands back a new workout UUID, which is why the session is
+//  held in @State: a second save has to address the replacement, not the
+//  original that no longer exists.
 //
 
 import SwiftUI
 
 struct SessionDetailView: View {
-    let session: SaunaSession
     var onNotesSaved: () -> Void
 
-    @State private var noteText: String = ""
+    @State private var session: SaunaSession
+    @State private var noteText: String
     @State private var isSaving = false
     @State private var errorMessage: String?
     @State private var savedSuccessfully = false
     @FocusState private var noteFocused: Bool
+
+    // Both pieces of state are seeded here rather than in onAppear, so an
+    // unsaved draft survives a trip through the background instead of being
+    // overwritten with the stored note every time the view reappears.
+    init(session: SaunaSession, onNotesSaved: @escaping () -> Void) {
+        self.onNotesSaved = onNotesSaved
+        _session = State(initialValue: session)
+        _noteText = State(initialValue: session.notes ?? "")
+    }
 
     private var hasUnsavedChanges: Bool {
         noteText.trimmingCharacters(in: .whitespacesAndNewlines) != (session.notes ?? "")
@@ -81,7 +93,6 @@ struct SessionDetailView: View {
                 Button("Done") { noteFocused = false }
             }
         }
-        .onAppear { noteText = session.notes ?? "" }
     }
 
     /// Sauna rounds are numbered; rest intervals show no number.
@@ -104,7 +115,13 @@ struct SessionDetailView: View {
         savedSuccessfully = false
         noteFocused = false
         do {
-            try await WorkoutNotesEditor.updateNotes(for: session, notes: noteText)
+            let replacementUUID = try await WorkoutNotesEditor.updateNotes(for: session, notes: noteText)
+            // Health cannot patch a stored workout, so the note lands on a
+            // replacement with a fresh UUID. Follow it, or the next save
+            // would look for a workout that has just been deleted.
+            let trimmed = noteText.trimmingCharacters(in: .whitespacesAndNewlines)
+            session.healthKitWorkoutUUID = replacementUUID
+            session.notes = trimmed.isEmpty ? nil : trimmed
             savedSuccessfully = true
             onNotesSaved()
         } catch {
