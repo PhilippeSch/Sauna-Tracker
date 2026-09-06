@@ -1,6 +1,15 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
+    "–" : {
+
+    },
+    "%lld" : {
+
+    },
     "Action Button" : {
       "localizations" : {
         "de" : {
@@ -58,7 +67,6 @@
       }
     },
     "Calories" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -87,7 +95,6 @@
       }
     },
     "Cancel" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -144,7 +151,6 @@
       }
     },
     "control.end" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -173,7 +179,6 @@
       }
     },
     "control.lock" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -202,7 +207,6 @@
       }
     },
     "Delete Session" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -231,7 +235,6 @@
       }
     },
     "Done" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -260,7 +263,6 @@
       }
     },
     "duration.hoursMinutes" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -289,7 +291,6 @@
       }
     },
     "duration.minutes" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -318,7 +319,6 @@
       }
     },
     "duration.seconds" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -347,7 +347,6 @@
       }
     },
     "End Session" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -376,7 +375,6 @@
       }
     },
     "End this sauna session?" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -405,7 +403,6 @@
       }
     },
     "Ends the current sauna round or rest phase and starts the other one." : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -434,7 +431,6 @@
       }
     },
     "error.notRecorded" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -463,7 +459,6 @@
       }
     },
     "error.saveFailed" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -492,7 +487,6 @@
       }
     },
     "Every … min" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -549,7 +543,6 @@
       }
     },
     "Got it" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -634,7 +627,6 @@
       }
     },
     "Next Round" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -691,7 +683,6 @@
       }
     },
     "Not saving to Health" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -719,8 +710,95 @@
         }
       }
     },
+    "notes.error.notFound" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This session is no longer in Health."
+          }
+        }
+      }
+    },
+    "notes.error.saveFailed" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Could not save the note to Health."
+          }
+        }
+      }
+    },
+    "notes.error.unavailable" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Health is not available."
+          }
+        }
+      }
+    },
+    "period.all" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "All"
+          }
+        }
+      }
+    },
+    "period.day" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Day"
+          }
+        }
+      }
+    },
+    "period.month" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Month"
+          }
+        }
+      }
+    },
+    "period.week" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Week"
+          }
+        }
+      }
+    },
+    "period.year" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Year"
+          }
+        }
+      }
+    },
     "phase.rest" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -749,7 +827,6 @@
       }
     },
     "phase.sauna" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -806,7 +883,6 @@
       }
     },
     "Rest" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -835,7 +911,6 @@
       }
     },
     "Round %lld" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -864,7 +939,6 @@
       }
     },
     "Rounds" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -888,64 +962,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Omgångar"
-          }
-        }
-      }
-    },
-    "Sauna Session" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sauna-Sitzung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sauna Session"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saunaistunto"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bastupass"
-          }
-        }
-      }
-    },
-    "Sauna Time" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saunazeit"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sauna Time"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sauna-aika"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bastutid"
           }
         }
       }
@@ -974,6 +990,62 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bastukompis"
+          }
+        }
+      }
+    },
+    "Sauna Session" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna-Sitzung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Session"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saunaistunto"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastupass"
+          }
+        }
+      }
+    },
+    "Sauna Time" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saunazeit"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Time"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna-aika"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastutid"
           }
         }
       }
@@ -1119,7 +1191,6 @@
       }
     },
     "Start Sauna Session" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1148,7 +1219,6 @@
       }
     },
     "Starts a sauna session and its first round." : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1177,7 +1247,6 @@
       }
     },
     "Switch Phase" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1206,7 +1275,6 @@
       }
     },
     "Total" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1235,7 +1303,6 @@
       }
     },
     "Type" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1292,7 +1359,6 @@
       }
     },
     "Vibration" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
