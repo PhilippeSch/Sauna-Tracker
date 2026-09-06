@@ -18,7 +18,6 @@ final class WatchConnectivityService: NSObject {
 
     private static let log = Logger(subsystem: "Scheuber.Sauna-Tracker", category: "Connectivity")
 
-    private(set) var isReachable = false
     private(set) var lastSavedWorkoutUUID: UUID?
 
     private override init() {
@@ -80,17 +79,19 @@ final class WatchConnectivityService: NSObject {
 }
 
 extension WatchConnectivityService: WCSessionDelegate {
+    // Required for WCSessionDelegate conformance. Nothing to do: both
+    // transports check the activation state at send time, so activation
+    // needs no bookkeeping here.
     func session(
         _ session: WCSession,
         activationDidCompleteWith activationState: WCSessionActivationState,
         error: Error?
-    ) {
-        Task { @MainActor in self.isReachable = session.isReachable }
-    }
+    ) {}
 
-    func sessionReachabilityDidChange(_ session: WCSession) {
-        Task { @MainActor in self.isReachable = session.isReachable }
-    }
+    // Reachability is not acted on: settings go out as application context
+    // and a saved session as a queued transfer, both of which the system
+    // delivers once the counterpart comes back.
+    func sessionReachabilityDidChange(_ session: WCSession) {}
 
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
         if let data = applicationContext["message"] as? Data {
