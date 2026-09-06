@@ -86,7 +86,8 @@ weight comes from Health unless overridden in settings.
 ## Requirements
 
 - watchOS 26.5, iOS 26.5, Xcode 26
-- Apple Watch Series 8 or later for wrist temperature; Ultra for the Action button
+- Apple Watch Ultra for the Action button; every other feature runs on any
+  watch that meets the watchOS requirement above
 
 ## Build
 
@@ -104,7 +105,7 @@ xcodebuild test -scheme "Sauna Companion" -destination 'platform=iOS Simulator,n
 ```
 
 Covers the session state machine, statistics, the calorie model, duration
-formatting and the Health metadata round-trip.
+formatting, body-weight parsing and the Health metadata round-trip.
 
 ## Languages
 
