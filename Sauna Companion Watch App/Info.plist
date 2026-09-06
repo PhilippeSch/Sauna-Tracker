@@ -33,7 +33,7 @@
 		<string>workout-processing</string>
 	</array>
 	<key>NSHealthShareUsageDescription</key>
-	<string>Sauna Companion reads your heart rate, HRV, and other sensor data to show live stats during a session, and your body weight to estimate calories burned.</string>
+	<string>Sauna Companion reads your heart rate during a session to show it live, and your body weight to estimate calories burned.</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Sauna Companion saves your sauna sessions — rounds, heart rate, and calories — to Health so they appear in your history and the Fitness app.</string>
 	<key>UISupportedInterfaceOrientations</key>

@@ -49,7 +49,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Sauna Companion reads your heart rate, HRV, and other sensor data to show live stats during a session, and your body weight to estimate calories burned."
+            "value" : "Sauna Companion reads your heart rate during a session to show it live, and your body weight to estimate calories burned."
           }
         }
       }

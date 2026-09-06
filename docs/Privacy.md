@@ -25,7 +25,7 @@ The app asks for permission to read from and write to Apple Health. That permiss
 
 **Written to Health** while a session is recorded on the watch: the workout itself (type *Other*), heart rate, and the estimated active energy. The round structure and any note you add are stored in the workout's own metadata.
 
-**Read from Health**: workouts and heart rate for the history and the statistics, body mass for the calorie estimate, and — where the watch provides them — heart-rate variability, respiratory rate, blood oxygen and wrist temperature, shown live during a session.
+**Read from Health**: workouts and heart rate for the history and the statistics, and body mass for the calorie estimate.
 
 This data stays in Apple Health. Whether it is synchronised between your devices is decided by your iCloud settings, not by this app. It is never sent to the developer and never shared with anyone. Deleting a session in the app deletes the corresponding workout in Health.
 
@@ -75,7 +75,7 @@ Die App bittet um Erlaubnis, aus Apple Health zu lesen und in Apple Health zu sc
 
 **In Health geschrieben** wird, während die Uhr eine Sitzung aufzeichnet: das Workout selbst (Typ *Sonstiges*), der Puls und der geschätzte Aktivitätsenergieumsatz. Die Rundenstruktur und eine allfällige Notiz liegen in den Metadaten des Workouts.
 
-**Aus Health gelesen** werden Workouts und Puls für Verlauf und Statistik, das Körpergewicht für die Kalorienschätzung sowie — soweit die Uhr sie liefert — Herzfrequenzvariabilität, Atemfrequenz, Blutsauerstoff und Handgelenktemperatur, die während einer Sitzung angezeigt werden.
+**Aus Health gelesen** werden Workouts und Puls für Verlauf und Statistik sowie das Körpergewicht für die Kalorienschätzung.
 
 Diese Daten bleiben in Apple Health. Ob sie zwischen Ihren Geräten abgeglichen werden, entscheiden Ihre iCloud-Einstellungen, nicht diese App. Sie gehen nie an den Entwickler und werden mit niemandem geteilt. Wird eine Sitzung in der App gelöscht, wird das zugehörige Workout auch in Health gelöscht.
 
@@ -125,7 +125,7 @@ Appen ber om tillstånd att läsa från och skriva till Apple Health. Tillstånd
 
 **Skrivs till Hälsa** medan klockan spelar in ett pass: själva träningspasset (typ *Övrigt*), pulsen och den beräknade aktiva energiförbrukningen. Varvstrukturen och en eventuell anteckning ligger i träningspassets egna metadata.
 
-**Läses från Hälsa**: träningspass och puls för historik och statistik, kroppsvikt för kaloriberäkningen samt — i den mån klockan levererar dem — hjärtfrekvensvariabilitet, andningsfrekvens, syremättnad och handledstemperatur, som visas under ett pass.
+**Läses från Hälsa**: träningspass och puls för historik och statistik samt kroppsvikt för kaloriberäkningen.
 
 Dessa data stannar i Apple Health. Om de synkroniseras mellan dina enheter avgörs av dina iCloud-inställningar, inte av den här appen. De skickas aldrig till utvecklaren och delas inte med någon. Raderar du ett pass i appen raderas motsvarande träningspass även i Hälsa.
 
@@ -175,7 +175,7 @@ Sovellus pyytää lupaa lukea Apple Healthista ja kirjoittaa sinne. Luvan annat 
 
 **Terveyteen kirjoitetaan** sillä aikaa kun kello tallentaa saunakertaa: itse treeni (tyyppi *Muu*), syke ja arvioitu aktiivinen energiankulutus. Kierrosrakenne ja mahdollinen muistiinpano ovat treenin omissa metatiedoissa.
 
-**Terveydestä luetaan**: treenit ja syke historiaa ja tilastoja varten, paino kalorioarviota varten sekä — siltä osin kuin kello ne tuottaa — sykevälivaihtelu, hengitystiheys, veren happipitoisuus ja ranteen lämpötila, jotka näytetään saunakerran aikana.
+**Terveydestä luetaan**: treenit ja syke historiaa ja tilastoja varten sekä paino kalorioarviota varten.
 
 Nämä tiedot pysyvät Apple Healthissa. Synkronoidaanko ne laitteidesi välillä, ratkaisevat iCloud-asetuksesi, eivät tämä sovellus. Niitä ei koskaan lähetetä kehittäjälle eikä jaeta kenenkään kanssa. Kun poistat saunakerran sovelluksessa, vastaava treeni poistuu myös Terveydestä.
 
