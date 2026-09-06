@@ -10,7 +10,18 @@ struct EndSessionSummaryView: View {
     let errorDescription: String?
     let onDone: () -> Void
 
+    // Scrolls, unlike the other end-of-session screens: with an error message
+    // in place the content outgrows a 40 mm screen, and a fixed frame had to
+    // pay for it by truncating that message ("Nicht in Health ges…") — the one
+    // line on this screen that has something to explain.
     var body: some View {
+        ScrollView {
+            content
+        }
+        .background(Color.black)
+    }
+
+    private var content: some View {
         VStack(spacing: 10) {
             Image(systemName: errorDescription == nil ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
                 .font(.system(size: 28))
@@ -34,6 +45,9 @@ struct EndSessionSummaryView: View {
                     .font(.caption2)
                     .foregroundStyle(.yellow)
                     .multilineTextAlignment(.center)
+                    // Take the lines the message needs instead of being
+                    // squeezed onto one and trailing off in an ellipsis.
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
             Button("Done", action: onDone)
@@ -41,8 +55,7 @@ struct EndSessionSummaryView: View {
                 .tint(.orange)
         }
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
+        .frame(maxWidth: .infinity)
     }
 
     private func summaryRow(label: LocalizedStringKey, value: String) -> some View {

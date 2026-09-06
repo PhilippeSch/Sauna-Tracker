@@ -74,6 +74,11 @@ struct SavingSessionView: View {
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         }
+        // Offered the whole screen, ProgressView takes all of it and draws its
+        // spinner in the middle of that box, which pushed the label to the
+        // bottom edge — nothing like the 10pt above. Ask for the ideal height
+        // instead, then centre the pair as one block.
+        .fixedSize(horizontal: false, vertical: true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

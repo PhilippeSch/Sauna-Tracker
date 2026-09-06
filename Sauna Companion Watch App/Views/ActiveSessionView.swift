@@ -15,20 +15,22 @@ import SwiftUI
 struct ActiveSessionView: View {
     @Bindable var store: SessionStore
 
-    // Text(timerInterval:) stops counting at the end of the range, so this
-    // bound has to be further out than any plausible phase — an hour was not.
-    private var phaseEndBound: Date {
-        store.phaseStartDate.addingTimeInterval(SaunaPhase.maxDisplayedPhaseDuration)
-    }
-
     var body: some View {
         VStack(spacing: 4) {
-            Text(timerInterval: store.phaseStartDate...phaseEndBound, countsDown: false)
-                .font(.system(size: 42, weight: .semibold, design: .rounded))
-                .monospacedDigit()
-                .lineLimit(1)
-                .layoutPriority(1)
-                .foregroundStyle(store.currentPhase.tintColor)
+            // Ticked by hand rather than by Text(timerInterval:), for the same
+            // reason AlwaysOnSessionView does it: that one formats for the
+            // locale and showed "0.03" in Finnish, while every other duration
+            // in the app comes from DurationFormatter and reads "00:03". It
+            // also had to be handed an end date, and froze once it arrived.
+            TimelineView(.periodic(from: store.phaseStartDate, by: 1)) { context in
+                Text(DurationFormatter.clock(context.date.timeIntervalSince(store.phaseStartDate)))
+                    .font(.system(size: 42, weight: .semibold, design: .rounded))
+                    .monospacedDigit()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .foregroundStyle(store.currentPhase.tintColor)
+            }
+            .layoutPriority(1)
 
             roundIndicator
             heartRateBlock

@@ -47,13 +47,6 @@ struct SaunaSessionTests {
         let interval = Fixture.interval(.sauna, start: Fixture.reference, seconds: 754)
         #expect(interval.duration == 754)
     }
-
-    @Test func phaseTimerBoundOutlastsARealisticPhase() {
-        // The on-screen timer stops at the end of its range. A single sauna
-        // or rest phase running past this bound would freeze on screen, which
-        // is exactly what a one-hour bound used to do.
-        #expect(SaunaPhase.maxDisplayedPhaseDuration >= 4 * 3600)
-    }
 }
 
 struct DurationFormatterTests {
