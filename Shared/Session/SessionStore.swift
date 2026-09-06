@@ -83,9 +83,11 @@ final class SessionStore {
     }
 
     // The shared singletons are resolved inside the body rather than as
-    // default arguments: those are evaluated in a nonisolated context, where
-    // touching a main-actor property is an error under the Swift 6 language
-    // mode.
+    // default arguments: those are evaluated in a nonisolated context, and
+    // this type is main-actor isolated by the target's
+    // SWIFT_DEFAULT_ACTOR_ISOLATION. The project builds in Swift 5, where
+    // reaching a main-actor property from there is a warning; written this
+    // way it stays correct under Swift 6, where it is an error.
     init(
         recorder: SessionRecording,
         connectivity: WatchConnectivityService? = nil,

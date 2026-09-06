@@ -26,8 +26,9 @@ final class SettingsStore {
 
     // `push` defaults inside the body rather than in the signature: a default
     // argument is evaluated in a nonisolated context, and both
-    // WatchConnectivityService.shared and sendSettings are main-actor bound —
-    // an error under the Swift 6 language mode.
+    // WatchConnectivityService.shared and sendSettings are main-actor bound.
+    // The project builds in Swift 5, where that is a warning; written this
+    // way it stays correct under Swift 6, where it is an error.
     init(
         defaults: UserDefaults = .standard,
         push: ((AppSettings) -> Void)? = nil
