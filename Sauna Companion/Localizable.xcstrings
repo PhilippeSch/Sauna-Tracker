@@ -665,35 +665,6 @@
         }
       }
     },
-    "For example: Finnish sauna 90 °C, Aufguss menthol." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zum Beispiel: Finnische Sauna 90 °C, Aufguss Menthol."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "For example: Finnish sauna 90 °C, Aufguss menthol."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Esimerkiksi: suomalainen sauna 90 °C, löyly mentoli."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Till exempel: finsk bastu 90 °C, uppguss mentol."
-          }
-        }
-      }
-    },
     "For example: Finnish sauna 90 °C, Aufguss menthol.\nStored with the session, visible only in Sauna Companion." : {
       "localizations" : {
         "de" : {
@@ -1110,35 +1081,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inga vibrationer under ett pass."
-          }
-        }
-      }
-    },
-    "Note saved to Health." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notiz in Health gesichert."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Note saved to Health."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Muistiinpano tallennettu Terveyteen."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anteckningen sparades i Hälsa."
           }
         }
       }

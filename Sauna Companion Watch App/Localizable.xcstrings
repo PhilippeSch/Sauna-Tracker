@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@" : {
-
-    },
     "Action Button" : {
       "localizations" : {
         "de" : {
@@ -837,9 +834,6 @@
         }
       }
     },
-    "Round %@" : {
-
-    },
     "Round %lld" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1322,35 +1316,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vibration"
-          }
-        }
-      }
-    },
-    "Water Lock" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wassersperre"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Water Lock"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vesilukko"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vattenlås"
           }
         }
       }

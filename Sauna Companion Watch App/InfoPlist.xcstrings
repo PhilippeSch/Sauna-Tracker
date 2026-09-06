@@ -46,10 +46,28 @@
       "comment" : "Privacy - Health Share Usage Description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Companion liest während einer Sitzung deinen Puls, um ihn live anzuzeigen, und dein Körpergewicht für die Kalorienschätzung."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sauna Companion reads your heart rate during a session to show it live, and your body weight to estimate calories burned."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saunakaveri lukee sykkeesi saunakerran aikana näyttääkseen sen suoraan, ja painosi kalorioarviota varten."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastukompis läser din puls under ett pass för att visa den direkt, och din kroppsvikt för att beräkna kalorierna."
           }
         }
       }
@@ -58,10 +76,28 @@
       "comment" : "Privacy - Health Update Usage Description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Companion sichert deine Saunagänge — Runden, Puls und Kalorien — in Health, damit sie in deinem Verlauf und in der Fitness-App erscheinen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sauna Companion saves your sauna sessions — rounds, heart rate, and calories — to Health so they appear in your history and the Fitness app."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saunakaveri tallentaa saunakertasi — kierrokset, sykkeen ja kalorit — Terveyteen, jotta ne näkyvät historiassasi ja Fitness-apissa."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastukompis sparar dina bastupass — varv, puls och kalorier — i Hälsa, så att de syns i din historik och i Fitness-appen."
           }
         }
       }

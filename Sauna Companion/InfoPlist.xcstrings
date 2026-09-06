@@ -46,10 +46,28 @@
       "comment" : "Privacy - Health Share Usage Description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Companion liest deinen Saunaverlauf und dein Körpergewicht aus Health, um Statistiken zu zeigen und Kalorien zu schätzen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sauna Companion reads your sauna session history and body weight from Health to show statistics and estimate calories burned."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saunakaveri lukee saunahistoriasi ja painosi Terveydestä näyttääkseen tilastoja ja arvioidakseen kalorit."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastukompis läser din bastuhistorik och din kroppsvikt från Hälsa för att visa statistik och beräkna kalorier."
           }
         }
       }
@@ -58,10 +76,28 @@
       "comment" : "Privacy - Health Update Usage Description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sauna Companion kann Notizen zu Sitzungen aktualisieren, die in Health gespeichert sind."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Sauna Companion can update session notes stored in Health."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saunakaveri voi päivittää Terveyteen tallennettuja saunakertojen muistiinpanoja."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bastukompis kan uppdatera anteckningar om pass som sparats i Hälsa."
           }
         }
       }
