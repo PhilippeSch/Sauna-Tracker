@@ -16,12 +16,20 @@ final class Sauna_CompanionUITests: XCTestCase {
         continueAfterFailure = false
     }
 
+    /// Must match `Sauna_CompanionApp.skipHealthPromptKey`.
+    static let skipHealthPromptKey = "SAUNA_UITEST_SKIP_HEALTH_PROMPT"
+
     /// English is forced so the assertions below can match on text without
     /// depending on the simulator's language — the app ships in four.
+    ///
+    /// The Health permission prompt is switched off: it is a system sheet
+    /// covering the app, and a simulator that has not been asked before — a
+    /// fresh CI runner, every run — would fail every assertion underneath it.
     @MainActor
     private func launchApp() -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments += ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launchEnvironment[Self.skipHealthPromptKey] = "1"
         app.launch()
         return app
     }

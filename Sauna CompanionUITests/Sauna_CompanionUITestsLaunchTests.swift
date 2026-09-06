@@ -20,6 +20,10 @@ final class Sauna_CompanionUITestsLaunchTests: XCTestCase {
     @MainActor
     func testLaunch() throws {
         let app = XCUIApplication()
+        // Same reason as in Sauna_CompanionUITests: without this the launch
+        // screenshot on a fresh simulator is the Health permission sheet
+        // rather than the app.
+        app.launchEnvironment[Sauna_CompanionUITests.skipHealthPromptKey] = "1"
         app.launch()
 
         // Insert steps here to perform after app launch but before taking a screenshot,
